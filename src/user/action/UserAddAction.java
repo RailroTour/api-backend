@@ -10,8 +10,6 @@ import javax.servlet.http.HttpServletResponse;
 import org.codehaus.jackson.JsonProcessingException;
 import org.codehaus.jackson.map.ObjectMapper;
 
-import com.google.gson.Gson;
-import com.google.gson.GsonBuilder;
 
 import common.Action;
 import common.ConnectionProvider;
