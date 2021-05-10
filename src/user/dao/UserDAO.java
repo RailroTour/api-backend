@@ -40,8 +40,29 @@ public class UserDAO {
 		}
 		return 0;
 	}
-//	
-//	public UserBean select(String username) {
-//		
-//	}
+	
+	public int count(String username) {
+		PreparedStatement pstmt = null;
+		ResultSet rs = null;
+		try {
+			String sql = "select count(*) AS cnt from user where username=?";
+			pstmt = conn.prepareStatement(sql);
+			pstmt.setString(1, username);
+			
+			rs = pstmt.executeQuery();
+			rs.next();
+			return rs.getInt("cnt");
+		}catch(SQLException e) {
+			e.printStackTrace();
+		}finally {
+			if(pstmt != null) {
+				try {
+					pstmt.close();
+				} catch (SQLException e) {
+					e.printStackTrace();
+				}
+			}
+		}
+		return 0;
+	}
 }
