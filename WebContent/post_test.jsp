@@ -13,10 +13,10 @@
 $.ajax({
     type:'post',
     async:false, //false가 기본값임 - 비동기
-    url:'http://localhost:8080/api-backend/api/user',
+    url:'/api-backend/api/user',
     dataType:'json',
     data:{
-    	username:"cartoonpoet1",
+    	username:"cartoonpoet12",
     	password:"rmsep12",
     	name:"손준호",
     	nickname:"하루네집",
