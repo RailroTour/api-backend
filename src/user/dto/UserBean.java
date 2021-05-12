@@ -30,6 +30,15 @@ public class UserBean{
 		this.email = email;
 	}
 	
+	public UserBean(int id, String username, String password, String name, String nickname, String email) {
+		this.id = id;
+		this.username = username;
+		this.password = password;
+		this.name = name;
+		this.nickname = nickname;
+		this.email = email;
+	}
+	
 	public int getId() {
 		return id;
 	}

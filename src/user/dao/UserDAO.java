@@ -65,4 +65,85 @@ public class UserDAO {
 		}
 		return 0;
 	}
+	
+	public UserBean get(int id) {
+		PreparedStatement pstmt = null;
+		ResultSet rs = null;
+		try {
+			String sql = "select * from user where id=?";
+			pstmt = conn.prepareStatement(sql);
+			pstmt.setInt(1, id);
+			rs = pstmt.executeQuery();
+			if (rs.next()) {
+				return new UserBean(
+					rs.getInt("id"),
+					rs.getString("username"),
+					rs.getString("password"),
+					rs.getString("name"),
+					rs.getString("nickname"),
+					rs.getString("email"),
+					rs.getString("register_date")
+				);
+			}
+		}catch(SQLException e) {
+			e.printStackTrace();
+		}finally {
+			if(pstmt != null) {
+				try {
+					pstmt.close();
+				} catch (SQLException e) {
+					e.printStackTrace();
+				}
+			}
+		}
+		return null;
+	}
+	
+	public int update(UserBean user) {
+		PreparedStatement pstmt = null;
+		ResultSet rs = null;
+		try {
+			String sql = "update user set username=?, password=?, name=?, nickname=?, email=? where id=?";
+			pstmt = conn.prepareStatement(sql);
+			pstmt.setString(1, user.getUsername());
+			pstmt.setString(2, user.getPassword());
+			pstmt.setString(3, user.getName());
+			pstmt.setString(4, user.getNickname());
+			pstmt.setString(5, user.getEmail());
+			
+			return pstmt.executeUpdate();
+		}catch(SQLException e) {
+			e.printStackTrace();
+		}finally {
+			if(pstmt != null) {
+				try {
+					pstmt.close();
+				} catch (SQLException e) {
+					e.printStackTrace();
+				}
+			}
+		}
+		return 0;
+	}
+	
+	public int delete(int id) {
+		PreparedStatement pstmt = null;
+		try {
+			String sql = "delete from user where id=?";
+			pstmt = conn.prepareStatement(sql);
+			pstmt.setInt(1, id);
+			return pstmt.executeUpdate();
+		}catch(SQLException e) {
+			e.printStackTrace();
+		}finally {
+			if(pstmt != null) {
+				try {
+					pstmt.close();
+				} catch (SQLException e) {
+					e.printStackTrace();
+				}
+			}
+		}
+		return 0;
+	}
 }
