@@ -82,3 +82,24 @@ ex) api/user?username=xx&password=xx..
 ### /api/tripcart: DELETE
 
 - id
+
+------
+
+## Tema
+
+### /api/tema: GET
+
+- id
+
+### /api/tema: POST
+
+- name
+
+### /api/tema: PUT
+
+- id
+- name
+
+### /api/tema: DELETE
+
+- id
