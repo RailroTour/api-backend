@@ -39,7 +39,7 @@ ex) api/user?username=xx&password=xx..
 
 
 
-## tripcart
+## Tripcart
 
 ### /api/tripcart: GET
 
@@ -57,6 +57,27 @@ ex) api/user?username=xx&password=xx..
 - user_id
 - division_id
 - serial_num
+
+### /api/tripcart: DELETE
+
+- id
+
+------
+
+## Division
+
+### /api/division: GET
+
+- id
+
+### /api/division: POST
+
+- name
+
+### /api/tripcart: PUT
+
+- id
+- name
 
 ### /api/tripcart: DELETE
 
