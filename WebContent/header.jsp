@@ -8,9 +8,10 @@
 <!--     <link rel="stylesheet" href="css/commen.css">
     <link rel="stylesheet" href="css/header.css">
    <link href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/5.13.0/css/all.min.css" rel="stylesheet">
-    <script src="https://ajax.googleapis.com/ajax/libs/jquery/3.3.1/jquery.min.js">
+    
     </script>
     <script src="./js/header.js"></script> -->
+    
 </head>
 <body>
     <div id="wrap"> <!-- 전체를 감싸는 부분 -->
@@ -34,7 +35,7 @@
                                 </li>
                             <%}else{ %>
                                 <li class="logout-btn">
-                                <a href="./oauth/login">로그아웃</a>
+                                <a href="./oauth/logout">로그아웃</a>
                                 <span></span>
                                 </li>
                                 <li>
@@ -117,29 +118,6 @@
     </div>
     
     <script src="js/script.js"></script>
-    <script>
-    /*
-    $(document).ready(function(){
-    	$(".logout-btn").on("click", function(){
-    		$.ajax({
-    			url: "./oauth/login",
-    			type: "DELETE",
-    			contentType:'application/json; charset=utf-8',
-    			statusCode: {
-    				404:function(data) {
-    					console.log(data);
-    					location.href = "index.jsp";
-    				}
-    			}
-    		}).done(function(data) {
-    			
-    		}).fail(function( jqXHR, textStatus ) {
 
-    		});
-    		
-    	});
-    });
-    */
-    </script>
 </body>
 </html>

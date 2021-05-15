@@ -19,7 +19,8 @@ function loginWithKakao() {
         console.log(authObj["access_token"]);
         $.cookie('access_token', authObj["access_token"], {expires: 7199, path:'/'});
         $.cookie('refresh_token', authObj["refresh_token"], {expires: 5183999});
-
+        location.href = './oauth/login';
+/*
                 $.ajax({
                   url:'./oauth/login', //request 보낼 서버의 경로
                   type:'post', // 메소드(get, post, put 등)
@@ -35,6 +36,7 @@ function loginWithKakao() {
                     console.log("code:"+request.status+"\n"+"message:"+request.responseText+"\n"+"error:"+error);
                   }
                 });
+                */
       },
       fail: function(err) {
         alert(JSON.stringify(err))

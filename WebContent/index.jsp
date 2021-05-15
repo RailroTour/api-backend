@@ -9,8 +9,7 @@
     <link rel="stylesheet" href="css/style.css?ver=1">
     <link rel="stylesheet" href="bxslide/dist/jquery.bxslider.css">
    <meta name="viewport" content="width=device-width, initial-scale=1">
-    <script src="https://ajax.googleapis.com/ajax/libs/jquery/3.3.1/jquery.min.js">
-    </script>
+<script src="https://ajax.googleapis.com/ajax/libs/jquery/3.4.1/jquery.min.js"></script>
     <script src="bxslide/dist/jquery.bxslider.min.js">
     </script>
     <script> /* 배너 슬라이드 */
@@ -693,6 +692,7 @@
     <%@include file="footer.jsp" %>
     <script src="js/script.js"></script>
     <script>
+    
      $(function() {
       var count = $('#rank-list li').length;
       var height = $('#rank-list li').height();
@@ -707,7 +707,11 @@
 
       step(1);
   });
-		
+
+     var getCookie = function(name) {
+    	 var value = document.cookie.match('(^|;) ?' + name + '=([^;]*)(;|$)');
+    	 return value? value[2] : null;
+    	 };
 
   </script>
 </body>

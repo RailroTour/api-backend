@@ -60,11 +60,14 @@ public class OauthLoginAction implements Action{
 			int cnt = oauth.SignUp_Check(kakaouser);
 
 			HttpSession session = request.getSession();
+			Cookie cookie = new Cookie("email", kakaouser.getEmail());
+			
 			if(cnt == 1) { //회원가입 되어있는 상태면
 				System.out.println("가입상태");
 				// 로그인 처리
 				session.setAttribute("social_user_id", kakaouser.getId());
 				session.setAttribute("email", kakaouser.getEmail());
+				response.addCookie(cookie);
 				response.setStatus(201);
 				response.setContentType("application/json");
 				response.setCharacterEncoding("UTF-8");
@@ -80,6 +83,7 @@ public class OauthLoginAction implements Action{
 				
 				session.setAttribute("social_user_id", kakaouser.getId());
 				session.setAttribute("email", kakaouser.getEmail());
+				response.addCookie(cookie);
 				response.setStatus(201);
 				response.setContentType("application/json");
 				response.setCharacterEncoding("UTF-8");
