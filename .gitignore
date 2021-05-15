@@ -140,3 +140,4 @@ $RECYCLE.BIN/
 *.lnk
 
 # End of https://www.toptal.com/developers/gitignore/api/windows,java-web,eclipse,maven,macos
+target/m2e-wtp/web-resources/META-INF/maven/api-backend/api-backend/pom.properties
