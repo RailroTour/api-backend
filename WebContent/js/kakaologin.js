@@ -25,8 +25,8 @@ function loginWithKakao() {
                   type:'post', // 메소드(get, post, put 등)
                   contentType:'application/json; charset=utf-8',
                   success: function(data) {
-                    console.log("data:"+data);
-                    console.log(data.status);
+                    console.log("data:"+JSON.stringify(data));
+					location.href = './index.jsp';
                   },
                   error: function(request, status, error) {
                     //서버로부터 응답이 정상적으로 처리되지 못햇을 때 실행

@@ -8,7 +8,7 @@
     <script src="https://ajax.googleapis.com/ajax/libs/jquery/3.4.1/jquery.min.js"></script>
     <script src="https://developers.kakao.com/sdk/js/kakao.min.js"></script>
     <script src="./js/jquery.cookie.js"></script>
-    <script src="./js/kakaologin.js?ver=1"></script>
+    <script src="./js/kakaologin.js?ver=4"></script>
     <title>내일로 투어 : 로그인</title>
 
     

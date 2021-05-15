@@ -27,7 +27,7 @@
                             <span></span>
                         </li>
                         <li>
-                            <a href="#">내일로노트</a>
+                            <a href="#">플래너</a>
                             <span></span>
                         </li>
                         <li>

@@ -27,19 +27,27 @@
                                 <a href="#">즐겨찾기</a>
                                 <span></span>
                             </li>
+                            <%if(session.getAttribute("email")==null){ %>
                             <li>
                                 <a href="./login.jsp">로그인</a>
                                 <span></span>
                                 </li>
-                            <li>
+                            <%}else{ %>
+                                <li class="logout-btn">
+                                <a href="./oauth/login">로그아웃</a>
+                                <span></span>
+                                </li>
+                                <li>
                                 <a href="#">여행바구니</a>
-                            </li>
+                            	</li>
+                            <%} %>
+
                         </ul>
                     </div>
                     
                     <div class="snsicon"> <!-- 상단아이콘 -->
-                        <a href="#" class="sns2">카페</a>
-                        <a href="#" class="sns3">코레일</a>
+                        <a href="https://cafe.naver.com/hkct" class="sns2">카페</a>
+                        <a href="https://www.letskorail.com/" class="sns3">코레일</a>
                     </div>
                 </div>
             </section>
@@ -109,5 +117,29 @@
     </div>
     
     <script src="js/script.js"></script>
+    <script>
+    /*
+    $(document).ready(function(){
+    	$(".logout-btn").on("click", function(){
+    		$.ajax({
+    			url: "./oauth/login",
+    			type: "DELETE",
+    			contentType:'application/json; charset=utf-8',
+    			statusCode: {
+    				404:function(data) {
+    					console.log(data);
+    					location.href = "index.jsp";
+    				}
+    			}
+    		}).done(function(data) {
+    			
+    		}).fail(function( jqXHR, textStatus ) {
+
+    		});
+    		
+    	});
+    });
+    */
+    </script>
 </body>
 </html>
