@@ -20,7 +20,7 @@
                     <div class="topnavi"> <!-- 메뉴명 -->
                         <ul>
                             <li>
-                                <a href="#">홈으로</a>
+                                <a href="./index.jsp">홈으로</a>
                                 <span></span>
                             </li>
                             <li>
@@ -28,7 +28,7 @@
                                 <span></span>
                             </li>
                             <li>
-                                <a href="./html/loginform.html">로그인</a>
+                                <a href="./login.jsp">로그인</a>
                                 <span></span>
                                 </li>
                             <li>
