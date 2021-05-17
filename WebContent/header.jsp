@@ -55,7 +55,7 @@
             <section id="head-bot">
                 <div class="section">
                     <div id="logo"> <!-- 로고 -->
-                        <a href="#">
+                        <a href="./index.jsp">
                             <img src="jpg/RailroTour%20LOGO.png" alt="" class="main_logo">
                             </a>
   
@@ -100,7 +100,7 @@
                                 <dd><a href="#">내 플래너 목록</a></dd>
                             </dl>
                             <dl class="hoverbg4 hoverbg" onmouseover="bgcolor(4)" onmouseout="removecolor(4)">
-                                <dd><a href="#">통합검색</a></dd>
+                                <dd><a href="./search_integrated.jsp">통합검색</a></dd>
                             </dl>
                             <dl class="hoverbg5 hoverbg" onmouseover="bgcolor(5)" onmouseout="removecolor(5)">
                                 <dd><a href="./html/sub02.html">정보공유</a></dd>
