@@ -23,7 +23,7 @@
     </script>
     <link rel="stylesheet" href="css/header.css">
     <link rel="stylesheet" href="css/footer.css">
-    <script src="./js/header.js"></script>
+    <script src="./js/header.js?ver=2"></script>
     <link href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/5.13.0/css/all.min.css" rel="stylesheet">
     
     
