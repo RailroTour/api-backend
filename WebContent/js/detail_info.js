@@ -45,10 +45,10 @@ $(document).ready(function(){
 }(jQuery));
     $('#like').on('change', function(){
         if($('#like').is(':checked')){
-            $('.like_btn').attr('src', '../Food_More_Infomation_IMG/like2.png');
+            $('.like_btn').attr('src', './Food_More_Infomation_IMG/like2.png');
         }
         else{
-            $('.like_btn').attr('src', '../Food_More_Infomation_IMG/like1.png');
+            $('.like_btn').attr('src', './Food_More_Infomation_IMG/like1.png');
         }
     })
     $('#comment_add textarea').on('focus', function(){
@@ -91,7 +91,7 @@ $(document).ready(function(){
             if($('.tags').length<10){
                 var tag=$(this).val();
                 if(tag!=''){
-                    $('.tag ul .input_tag').before('<li class="tags">#'+tag+'<img src="../Food_More_Infomation_IMG/cancel-button.png" alt=""></li>');
+                    $('.tag ul .input_tag').before('<li class="tags">#'+tag+'<img src="./Food_More_Infomation_IMG/cancel-button.png" alt=""></li>');
                 }
             }
             else{

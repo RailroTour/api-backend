@@ -37,8 +37,8 @@
                     <ul class="btn_group">
                         <li class="Previous"><img src="./Food_More_Infomation_IMG/left-arrow.png" alt=""></li>
 <!--
-                        <li class="Stop"><img src="../Food_More_Infomation_IMG/pause-button.png" alt=""></li>
-                        <li class="Play" style="display: none"><img src="../Food_More_Infomation_IMG/play-button.png" alt=""></li>
+                        <li class="Stop"><img src="./Food_More_Infomation_IMG/pause-button.png" alt=""></li>
+                        <li class="Play" style="display: none"><img src="./Food_More_Infomation_IMG/play-button.png" alt=""></li>
 -->
                         <li class="Next"><img src="./Food_More_Infomation_IMG/left-arrow.png" alt=""></li>
                     </ul>
@@ -81,8 +81,8 @@
             <div id="sub-con-navi">
                 <div class="section">
                     <div class="homebtn">
-                        <a href="../index.html">
-                            <img src="../jpg/home.jpg" alt="">
+                        <a href="./index.html">
+                            <img src="./jpg/home.jpg" alt="">
                         </a>
                     </div>
                     <div class="listmenu">
@@ -217,17 +217,17 @@
                             </ul>
 -->
                            <input type="file" id="img" style="display: none" accept="image/*">
-                           <label for="img" class="img_add"><img src="../Food_More_Infomation_IMG/image-add-button.png" alt="" width="17px">사진</label>
+                           <label for="img" class="img_add"><img src="./Food_More_Infomation_IMG/image-add-button.png" alt="" width="17px">사진</label>
                        </div>
                         <textarea name="" id="" cols="50" rows="10" maxlength="200" placeholder="200자 이하만 입력 가능합니다."></textarea>
                         <input type="submit" value="등록" id="submit">
                         <div class="tag">
                            <input type="checkbox" id="like" style="display: none" value="1">
-                           <label for="like"><img src="../Food_More_Infomation_IMG/like1.png" alt="" class="like_btn"></label>
+                           <label for="like"><img src="./Food_More_Infomation_IMG/like1.png" alt="" class="like_btn"></label>
                             
                             <span class="title">태그</span>
                             <ul>
-<!--                                <li class="tags">#쩐다.fsdaffsafddfsdfafsdfsadfsadfsadfsafasfsfsfasfsfsfasfas<img src="../Food_More_Infomation_IMG/cancel-button.png" alt=""></li>-->
+<!--                                <li class="tags">#쩐다.fsdaffsafddfsdfafsdfsadfsadfsadfsafasfsfsfasfsfsfasfas<img src="./Food_More_Infomation_IMG/cancel-button.png" alt=""></li>-->
                                 <input type="text" class="input_tag" placeholder="#입력 (최대 10개)">
                             </ul>
                         </div>
@@ -260,8 +260,8 @@
                                <button class="remove">삭제</button>
                            </div>
                             <div class="imgs">
-                                <img src="../jpg/2.jpg" alt="" width="100px">
-                                <img src="../jpg/2.jpg" alt="" width="100px">
+                                <img src="./jpg/2.jpg" alt="" width="100px">
+                                <img src="./jpg/2.jpg" alt="" width="100px">
                             </div>
                             <div class="contents">
                                 dddddd
@@ -285,7 +285,7 @@
                                 <div class="writer1">작성자</div>
                                 <div class="writer2">손준호</div>
                                 <div class="like1">좋아요</div>
-                                <div class="like2"><img src="../Food_More_Infomation_IMG/like2.png" alt=""></div>
+                                <div class="like2"><img src="./Food_More_Infomation_IMG/like2.png" alt=""></div>
                                 <div class="date1">작성일</div>
                                 <div class="date2">2018-09-22 03:33:33</div>
                             </div>
@@ -305,8 +305,8 @@
                                <button class="remove">삭제</button>
                            </div>
                             <div class="imgs">
-                                <img src="../jpg/2.jpg" alt="" width="100px">
-                                <img src="../jpg/2.jpg" alt="" width="100px">
+                                <img src="./jpg/2.jpg" alt="" width="100px">
+                                <img src="./jpg/2.jpg" alt="" width="100px">
                             </div>
                             <div class="contents">
                                 dddddd
@@ -330,7 +330,7 @@
                                 <div class="writer1">작성자</div>
                                 <div class="writer2">손준호</div>
                                 <div class="like1">좋아요</div>
-                                <div class="like2"><img src="../Food_More_Infomation_IMG/like2.png" alt=""></div>
+                                <div class="like2"><img src="./Food_More_Infomation_IMG/like2.png" alt=""></div>
                                 <div class="date1">작성일</div>
                                 <div class="date2">2018-09-22 03:33:33</div>
                             </div>
@@ -350,8 +350,8 @@
                                <button class="remove">삭제</button>
                            </div>
                             <div class="imgs">
-                                <img src="../jpg/2.jpg" alt="" width="100px">
-                                <img src="../jpg/2.jpg" alt="" width="100px">
+                                <img src="./jpg/2.jpg" alt="" width="100px">
+                                <img src="./jpg/2.jpg" alt="" width="100px">
                             </div>
                             <div class="contents">
                                 dddddd
@@ -375,7 +375,7 @@
                                 <div class="writer1">작성자</div>
                                 <div class="writer2">손준호</div>
                                 <div class="like1">좋아요</div>
-                                <div class="like2"><img src="../Food_More_Infomation_IMG/like2.png" alt=""></div>
+                                <div class="like2"><img src="./Food_More_Infomation_IMG/like2.png" alt=""></div>
                                 <div class="date1">작성일</div>
                                 <div class="date2">2018-09-22 03:33:33</div>
                             </div>
@@ -395,8 +395,8 @@
                                <button class="remove">삭제</button>
                            </div>
                             <div class="imgs">
-                                <img src="../jpg/2.jpg" alt="" width="100px">
-                                <img src="../jpg/2.jpg" alt="" width="100px">
+                                <img src="./jpg/2.jpg" alt="" width="100px">
+                                <img src="./jpg/2.jpg" alt="" width="100px">
                             </div>
                             <div class="contents">
                                 dddddd
@@ -420,7 +420,7 @@
                                 <div class="writer1">작성자</div>
                                 <div class="writer2">손준호</div>
                                 <div class="like1">좋아요</div>
-                                <div class="like2"><img src="../Food_More_Infomation_IMG/like2.png" alt=""></div>
+                                <div class="like2"><img src="./Food_More_Infomation_IMG/like2.png" alt=""></div>
                                 <div class="date1">작성일</div>
                                 <div class="date2">2018-09-22 03:33:33</div>
                             </div>
@@ -440,8 +440,8 @@
                                <button class="remove">삭제</button>
                            </div>
                             <div class="imgs">
-                                <img src="../jpg/2.jpg" alt="" width="100px">
-                                <img src="../jpg/2.jpg" alt="" width="100px">
+                                <img src="./jpg/2.jpg" alt="" width="100px">
+                                <img src="./jpg/2.jpg" alt="" width="100px">
                             </div>
                             <div class="contents">
                                 dddddd
@@ -465,7 +465,7 @@
                                 <div class="writer1">작성자</div>
                                 <div class="writer2">손준호</div>
                                 <div class="like1">좋아요</div>
-                                <div class="like2"><img src="../Food_More_Infomation_IMG/like2.png" alt=""></div>
+                                <div class="like2"><img src="./Food_More_Infomation_IMG/like2.png" alt=""></div>
                                 <div class="date1">작성일</div>
                                 <div class="date2">2018-09-22 03:33:33</div>
                             </div>
@@ -499,7 +499,7 @@
     </div>
     <%@include file="footer.jsp" %>
     <script type="text/javascript" src="//cdn.jsdelivr.net/npm/slick-carousel@1.8.1/slick/slick.min.js"></script>
-    <script src="./js/detail_info.js"></script>
+    <script src="./js/detail_info.js?ver=1"></script>
 
     
     <script>
