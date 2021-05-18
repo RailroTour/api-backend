@@ -56,6 +56,19 @@ $(document).ready(function(){
     
     
     $(".search_btn").on('click', function(){
+          $.ajax({ //인기검색어
+            type:'POST',
+            url: './trending/keyword',
+            data:{
+                keyword:$(".search_input").val()
+            },
+            success:function(data){
+                console.log(data);
+            },
+            error:function(){
+                console.log('ajax failed');
+            }
+        });
         location.href="search_tour.jsp?pageNo=1&keyword="+$(".search_input").val();
     });
 });
