@@ -10,7 +10,9 @@
     <link rel="stylesheet" href="./css/search_bar.css">
     <script src="https://ajax.googleapis.com/ajax/libs/jquery/3.3.1/jquery.min.js">
     </script>
-    <script src="./js/search_integrated.js"></script>
+    <script src="./js/search_integrated.js?ver=3"></script>
+
+    
         <link rel="stylesheet" href="css/header.css">
     <link rel="stylesheet" href="css/footer.css">
     <script src="./js/header.js"></script>

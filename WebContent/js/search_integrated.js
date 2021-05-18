@@ -3,7 +3,7 @@ const api_key = 'JXL40bCK2WGOu/E1WOGjuALpADt64Wb2mQVwNpxiA0bre/V8GozZggM2O01/PaT
 
 $(document).ready(function(){
     if($.urlParam('keyword') != null){
-        $(".result_bar>div").text($.urlParam('keyword')+'의 검색 결과입니다.');
+        $(".result_bar>div").text(decodeURI($.urlParam('keyword'))+'의 검색 결과입니다.');
         $(".result_bar").show();
         $.ajax({ //관광지 검색
             type:'GET',
@@ -18,7 +18,7 @@ $(document).ready(function(){
                 listYN:'Y',
                 arrange:'O',
                 contentTypeId:12,
-                keyword:$.urlParam('keyword')
+                keyword:decodeURI($.urlParam('keyword'))
             },
             success:function(data){
                 console.log(data);
@@ -45,7 +45,7 @@ $(document).ready(function(){
                 listYN:'Y',
                 arrange:'O',
                 contentTypeId:39,
-                keyword:$.urlParam('keyword')
+                keyword:decodeURI($.urlParam('keyword'))
             },
             success:function(data){
                 console.log(data);
@@ -72,7 +72,7 @@ $(document).ready(function(){
                 listYN:'Y',
                 arrange:'O',
                 contentTypeId:32,
-                keyword:$.urlParam('keyword')
+                keyword:decodeURI($.urlParam('keyword'))
             },
             success:function(data){
                 console.log(data);
@@ -98,7 +98,22 @@ $(document).ready(function(){
     
     
     $(".search_btn").on('click', function(){
+	        
+       $.ajax({ //인기검색어
+            type:'POST',
+            url: './trending/keyword',
+            data:{
+                keyword:$(".search_input").val()
+            },
+            success:function(data){
+                console.log(data);
+            },
+            error:function(){
+                console.log('ajax failed');
+            }
+        });
         location.href="search_integrated.jsp?keyword="+$(".search_input").val();
+
     });
 });
 

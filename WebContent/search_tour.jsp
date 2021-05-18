@@ -11,7 +11,7 @@
     <link rel="stylesheet" href="./css/search_destination.css">
     <script src="https://ajax.googleapis.com/ajax/libs/jquery/3.3.1/jquery.min.js">
     </script>
-    <script src="./js/search_tour.js"></script>
+    <script src="./js/search_tour.js?ver=1"></script>
     
     
         <link rel="stylesheet" href="css/header.css">
