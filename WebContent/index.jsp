@@ -91,102 +91,60 @@
                                                 <li>
                                                    <a href="#">
                                                         <span class="rank-color">&nbsp;1</span>
-                                                        &nbsp;
-                                                        <script>
-                                                            var top1='테마여행';
-                                                            document.write(top1);
-                                                       </script>
                                                     </a>
                                                 </li>
                                                 <li>
                                                     <a href="#">
                                                         <span class="rank-color">&nbsp;2</span>
-                                                        &nbsp;
-                                                        <script>
-                                                            var top2='여수 특산물';
-                                                            document.write(top2);
-                                                       </script>
                                                     </a>
                                                  </li>
                                                 <li>
                                                     <a href="#">
                                                         <span class="rank-color">&nbsp;3</span>
-                                                        &nbsp;
-                                                        <script>
-                                                            var top3='영화 촬영지';
-                                                            document.write(top3);
-                                                       </script>
+   
                                                     </a>
                                                 </li>
                                                 <li>
                                                     <a href="#">
                                                         <span class="rank-color">&nbsp;4</span>
-                                                        &nbsp;
-                                                        <script>
-                                                            var top4='5위';
-                                                            document.write(top4);
-                                                       </script>
+      
                                                     </a>
                                                 </li>
                                                 <li>
                                                     <a href="#">
                                                         <span class="rank-color">&nbsp;5</span>
-                                                        &nbsp;
-                                                        <script>
-                                                            var top5='여수 여행지';
-                                                            document.write(top5);
-                                                        </script>
+
                                                         
                                                     </a>
                                                 </li>
                                                 <li>
                                                     <a href="#">
                                                         <span class="rank-color">&nbsp;6</span>
-                                                        &nbsp;
-                                                        <script>
-                                                            var top6='6위';
-                                                            document.write(top6);
-                                                       </script>
+
                                                     </a>
                                                 </li>
                                                 <li>
                                                     <a href="#">
                                                         <span class="rank-color">&nbsp;7</span>
-                                                        &nbsp;
-                                                        <script>
-                                                            var top7='7위';
-                                                            document.write(top7);
-                                                       </script>
+
                                                     </a>
                                                 </li>
                                                 <li>
                                                     <a href="#">
                                                         <span class="rank-color">&nbsp;8</span>
-                                                        &nbsp;
-                                                        <script>
-                                                            var top8='8위';
-                                                            document.write(top8);
-                                                       </script>
+
                                                      </a>
                                                 </li>
                                                 <li>
                                                     <a href="#">
                                                         <span class="rank-color">&nbsp;9</span>
-                                                        &nbsp;
-                                                        <script>
-                                                            var top9='9위';
-                                                            document.write(top9);
-                                                       </script>
+
                                                     </a>
                                                 </li>
                                                 <li>
                                                     <a href="#">
                                                         <span class="rank-color">10</span>
-                                                         &nbsp;
-                                                         <script>
-                                                            var top10='10위';
-                                                            document.write(top10);
-                                                       </script>
+
                                                     </a>
                                                 </li>
                                             </ol>
@@ -196,16 +154,16 @@
                                       <div class="hoverrank-list">
                                         <ol>
                                             <li class="real_time_rank">실시간 인기 검색어</li>
-                                            <li class="top"><a href="#"><b>1</b> <script>document.write(top1);</script></a></li>
-                                            <li class="top"><a href="#"><b>2</b> <script>document.write(top2);</script></a></li>
-                                            <li class="top"><a href="#"><b>3</b> <script>document.write(top3);</script></a></li>
-                                            <li class="top"><a href="#"><b>4</b> <script>document.write(top4);</script></a></li>
-                                            <li class="top"><a href="#"><b>5</b> <script>document.write(top5);</script></a></li>
-                                            <li class="top"><a href="#"><b>6</b> <script>document.write(top6);</script></a></li>
-                                            <li class="top"><a href="#"><b>7</b> <script>document.write(top7);</script></a></li>
-                                            <li class="top"><a href="#"><b>8</b> <script>document.write(top8);</script></a></li>
-                                            <li class="top"><a href="#"><b>9</b> <script>document.write(top9);</script></a></li>
-                                            <li class="top"><a href="#"><b>10</b> <script>document.write(top10);</script></a></li>
+                                            <li class="top"><a href="#"><b>1</b></a></li>
+                                            <li class="top"><a href="#"><b>2</b></a></li>
+                                            <li class="top"><a href="#"><b>3</b></a></li>
+                                            <li class="top"><a href="#"><b>4</b></a></li>
+                                            <li class="top"><a href="#"><b>5</b></a></li>
+                                            <li class="top"><a href="#"><b>6</b></a></li>
+                                            <li class="top"><a href="#"><b>7</b></a></li>
+                                            <li class="top"><a href="#"><b>8</b></a></li>
+                                            <li class="top"><a href="#"><b>9</b></a></li>
+                                            <li class="top"><a href="#"><b>10</b></a></li>
                                             <li class="last_update">2018.05.02. 19:30:00 마지막 업데이트</li>
                                        </ol>
                                   </div>
@@ -690,7 +648,7 @@
         
     </div>
     <%@include file="footer.jsp" %>
-    <script src="js/script.js"></script>
+    <script src="js/script.js?ver=13"></script>
     <script>
     
      $(function() {

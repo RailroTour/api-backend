@@ -1,4 +1,25 @@
 $(document).ready(function(){ //서브메뉴 애니메이션 부분
+	$.ajax({ //인기검색어
+		type: 'GET',
+		url: './trending/keyword',
+		success: function(data) {
+			console.log(data);
+			for(let i=0; i<data.length; i++){
+				$("#rank-list>dl>dd>ol>li").eq(i).find('a').append('&nbsp;'+data[i].keyword);
+				$(".hoverrank-list>ol>li.top").eq(i).find('a').append('&nbsp;'+data[i].keyword);
+				$(".hoverrank-list>ol>li.top").eq(i).find('a').attr('href', './search_integrated.jsp?keyword='+data[i].keyword);
+				
+				let today = new Date();
+				$(".hoverrank-list>ol>li.last_update").text(dateFormat(today)+' 마지막 업데이트');
+			}
+		},
+		error: function() {
+			console.log('ajax failed');
+		}
+	});
+
+
+
     $('.m-menu>li, .s-menu').hover(function(){
        // $('.s-menu').stop().slideToggle(300);
         if($(window).width() > 768){
@@ -187,6 +208,18 @@ iconstart()
   }
     
 
+function dateFormat(date) {
+        let month = date.getMonth() + 1;
+        let day = date.getDate();
+        let hour = date.getHours();
+        let minute = date.getMinutes();
+        let second = date.getSeconds();
 
+        month = month >= 10 ? month : '0' + month;
+        day = day >= 10 ? day : '0' + day;
+        hour = hour >= 10 ? hour : '0' + hour;
+        minute = minute >= 10 ? minute : '0' + minute;
+        second = second >= 10 ? second : '0' + second;
 
-
+        return date.getFullYear() + '-' + month + '-' + day + ' ' + hour + ':' + minute + ':' + second;
+}

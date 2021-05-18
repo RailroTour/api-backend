@@ -13,5 +13,4 @@ public class JsonConverter {
 		return mapper.writeValueAsString(obj);
 	}
 	
-	
 }
