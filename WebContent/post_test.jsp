@@ -13,7 +13,7 @@
 $.ajax({
     type:'post',
     async:false, //false가 기본값임 - 비동기
-    url:'/api-backend/api/tripcart',
+    url:'/api-backend/api/user',
     dataType:'json',
     data:{
     	username:"cartoonpoet12",

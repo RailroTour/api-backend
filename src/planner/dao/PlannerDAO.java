@@ -14,18 +14,18 @@ private Connection conn = null;
 		this.conn = conn;
 	}
 	
-	public int insert(PlannerBean planner) {
+	public int insert(PlannerBean planner, String email) {
 		PreparedStatement pstmt = null;
 		try {
-			String sql = "insert into planner(user_id, title, disclosure, register_date, days, tema_id,img_path) values(?, ?, ?, now(), ?, ?, ?)";
+			String sql = "insert into planner(user_id, title, disclosure, register_date, days, tema_id,img_path) values((select id from user where email=?), ?, ?, now(), ?, ?, ?)";
 			pstmt = conn.prepareStatement(sql);
 			
-			pstmt.setInt(1, planner.getUser_id());
+			pstmt.setString(1, email);
 			pstmt.setString(2, planner.getTitle());
 			pstmt.setBoolean(3, planner.getDisclosure());
-			pstmt.setInt(5, planner.getDays());
-			pstmt.setInt(6, planner.getTema_id());
-			pstmt.setString(7, planner.getImg_path());
+			pstmt.setInt(4, planner.getDays());
+			pstmt.setInt(5, planner.getTema_id());
+			pstmt.setString(6, planner.getImg_path());
 			
 			return pstmt.executeUpdate();
 		}catch(SQLException e) {

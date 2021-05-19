@@ -90,10 +90,9 @@ public class PlannerBean {
 		this.img_path = img_path;
 	}
 	
-	public PlannerBean(int user_id, String title, Boolean disclosure, int days, int tema_id,
+	public PlannerBean(String title, Boolean disclosure, int days, int tema_id,
 			String img_path) {
 		
-		this.user_id = user_id;
 		this.title = title;
 		this.disclosure = disclosure;
 		this.days = days;
