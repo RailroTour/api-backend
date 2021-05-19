@@ -21,6 +21,7 @@ public class DivisionAddAction implements Action {
 	@Override
 	public void execute(HttpServletRequest request, HttpServletResponse response){
 		
+		Integer id = Integer.parseInt(request.getParameter("id"));
 		String name = request.getParameter("name");
 		
 		
@@ -35,7 +36,7 @@ public class DivisionAddAction implements Action {
 			e.printStackTrace();
 		}
 		
-		DivisionBean division = new DivisionBean(name);
+		DivisionBean division = new DivisionBean(id,name);
 		try {
 			DivisionDAO divisionadd = new DivisionDAO(ConnectionProvider.getConnection());
 			

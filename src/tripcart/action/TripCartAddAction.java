@@ -29,6 +29,7 @@ public class TripCartAddAction implements Action {
 		
 		HttpSession session = request.getSession();
 		String email= (String)session.getAttribute("email");
+		//System.out.print(email);
 		
 		Integer division_id = Integer.parseInt(request.getParameter("division_id"));
 		Integer serial_num = Integer.parseInt(request.getParameter("serial_num"));

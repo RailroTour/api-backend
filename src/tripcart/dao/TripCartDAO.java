@@ -22,7 +22,7 @@ public class TripCartDAO {
 		
 		PreparedStatement pstmt = null;
 		try {
-			String sql = "insert into trip_cart(user_id, division_id, serial_num) values((select username from user where email=?), ?, ?)";
+			String sql = "insert into trip_cart(user_id, division_id, serial_num) values((select id from user where email=?), ?, ?)";
 			pstmt = conn.prepareStatement(sql);
 			
 			pstmt.setString(1, email);

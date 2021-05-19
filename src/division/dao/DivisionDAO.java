@@ -19,10 +19,11 @@ private Connection conn = null;
 	public int insert(DivisionBean division) {
 		PreparedStatement pstmt = null;
 		try {
-			String sql = "insert into division(name) values(?)";
+			String sql = "insert into division(id,name) values(?,?)";
 			pstmt = conn.prepareStatement(sql);
 			
-			pstmt.setString(1, division.getName());
+			pstmt.setInt(1, division.getId());
+			pstmt.setString(2, division.getName());
 					
 			return pstmt.executeUpdate();
 		}catch(SQLException e) {
