@@ -103,3 +103,10 @@ ex) api/user?username=xx&password=xx..
 ### /api/tema: DELETE
 
 - id
+
+------
+
+### /trending/keyword: GET
+
+### /trending/keyword: POST
+- keyword
