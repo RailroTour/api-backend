@@ -42,7 +42,7 @@
                                 <a href="#">마이페이지</a>
                             	</li>
                             	<li>
-                                <a href="#">여행바구니</a>
+                                <a href="./trip_cart.jsp">여행바구니</a>
                             	</li>
                             <%} %>
 
