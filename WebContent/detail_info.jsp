@@ -510,14 +510,14 @@
         var words = [
           {text: '장어탕', size: 50},
           {text: '맛집', size: 47},
-          {text: '아프리카', size: 46},
-          {text: '유튜브', size: 36},
-          {text: '트위치', size: 29, href: 'https://en.wikipedia.org/wiki/Beadle'},
-          {text: '대박', size: 29},
-          {text: '쩐다', size: 56, href: 'https://en.wikipedia.org/wiki/Mrs.'},
+          {text: '식당', size: 46},
+          {text: '한식', size: 36},
+          {text: '일식', size: 29, href: 'https://en.wikipedia.org/wiki/Beadle'},
+          {text: '중식', size: 29},
+          {text: '여기가 맛집', size: 56, href: 'https://en.wikipedia.org/wiki/Mrs.'},
           {text: '맛있어요', size: 27, href: 'http://educationcing.blogspot.nl/2012/06/oliver-twist-mrs-manns-character.html'},
-          {text: 'ㅋㅋㅋㅋ', size: 27},
-          {text: '우와', size: 26},
+          {text: '친절해요', size: 27},
+          {text: '서비스가 좋아요', size: 26},
         ];
 
         d3.wordcloud()

@@ -648,7 +648,7 @@
         
     </div>
     <%@include file="footer.jsp" %>
-    <script src="js/script.js?ver=13"></script>
+    <script src="js/script.js?ver=16"></script>
     <script>
     
      $(function() {
