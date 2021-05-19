@@ -39,6 +39,9 @@
                                 <span></span>
                                 </li>
                                 <li>
+                                <a href="#">마이페이지</a>
+                            	</li>
+                            	<li>
                                 <a href="#">여행바구니</a>
                             	</li>
                             <%} %>
@@ -47,8 +50,8 @@
                     </div>
                     
                     <div class="snsicon"> <!-- 상단아이콘 -->
-                        <a href="https://cafe.naver.com/hkct" class="sns2">카페</a>
-                        <a href="https://www.letskorail.com/" class="sns3">코레일</a>
+                        <a href="https://cafe.naver.com/hkct" class="sns2" target="_black">카페</a>
+                        <a href="https://www.letskorail.com/" class="sns3" target="_black">코레일</a>
                     </div>
                 </div>
             </section>
@@ -63,7 +66,7 @@
                     <nav>
                         <ul class="m-menu"><!--메인메뉴-->
                             <li class="list01 list" onmouseover="bgcolor(1)" onmouseout="removecolor(1)">
-                                <a href="#" class="list_a1">내일로 소개</a>
+                                <a href="./railro_intro.jsp" class="list_a1">내일로 소개</a>
                                 
                             </li>
                             <li class="list02 list" onmouseover="bgcolor(2)" onmouseout="removecolor(2)">
@@ -73,7 +76,7 @@
                                 <a href="#" class="list_a3">플래너</a>
                             </li>
                             <li class="list04 list" onmouseover="bgcolor(4)" onmouseout="removecolor(4)">
-                                <a href="#" class="list_a4">검색</a>
+                                <a href="./search_integrated.jsp" class="list_a4">검색</a>
                             </li>
                             <li class="list05 list" onmouseover="bgcolor(5)" onmouseout="removecolor(5)">
                                 <a href="#" class="list_a5">커뮤니티</a>
@@ -85,7 +88,7 @@
                            <div class="float">
                             <dl class="hoverbg1 hoverbg" onmouseover="bgcolor(1)" onmouseout="removecolor(1)">
 <!--                                            <dt>지우지 말것</dt>-->
-                                <dd><a href="./html/sub01.html">내일로 소개</a></dd>
+                                <dd><a href="./railro_intro.jsp">내일로 소개</a></dd>
                                 <dd><a href="#">발권지 혜택</a></dd>
                             </dl>
                             <dl class="hoverbg2 hoverbg" onmouseover="bgcolor(2)" onmouseout="removecolor(2)">
