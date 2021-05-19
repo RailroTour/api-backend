@@ -16,17 +16,18 @@ public class TripCartDAO {
 		this.conn = conn;
 	}
 	
-	public int insert(TripCartBean tripcart) {
+	public int insert(TripCartBean tripcart, String email) {
+		
+		
 		
 		PreparedStatement pstmt = null;
 		try {
-			String sql = "insert into trip_cart(id, user_id, division_id, serial_num) values(?, ?, ?, ?)";
+			String sql = "insert into trip_cart(user_id, division_id, serial_num) values((select username from user where email=?), ?, ?)";
 			pstmt = conn.prepareStatement(sql);
 			
-			pstmt.setInt(1, tripcart.getId());
-			pstmt.setInt(2, tripcart.getUser_id());
-			pstmt.setInt(3, tripcart.getDivision_id());
-			pstmt.setInt(4, tripcart.getSerial_num());
+			pstmt.setString(1, email);
+			pstmt.setInt(2, tripcart.getDivision_id());
+			pstmt.setInt(3, tripcart.getSerial_num());
 			
 			
 			return pstmt.executeUpdate();

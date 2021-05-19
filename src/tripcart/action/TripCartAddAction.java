@@ -6,6 +6,7 @@ import java.text.SimpleDateFormat;
 
 import javax.servlet.http.HttpServletRequest;
 import javax.servlet.http.HttpServletResponse;
+import javax.servlet.http.HttpSession;
 
 import org.codehaus.jackson.JsonProcessingException;
 import org.codehaus.jackson.map.ObjectMapper;
@@ -19,22 +20,27 @@ import tripcart.dao.*;
 import tripcart.dto.*;
 
 
+
 public class TripCartAddAction implements Action {
 	@SuppressWarnings("unused")
 	@Override
 	public void execute(HttpServletRequest request, HttpServletResponse response){
+		 
 		
-		Integer user_id = Integer.parseInt(request.getParameter("user_id"));
+		HttpSession session = request.getSession();
+		String email= (String)session.getAttribute("email");
+		
 		Integer division_id = Integer.parseInt(request.getParameter("division_id"));
 		Integer serial_num = Integer.parseInt(request.getParameter("serial_num"));
 		
 		try {
-			if(user_id == null) {
-				response.sendError(400, "user_id required");
+			
+			if(division_id == null) {
+				response.sendError(400, "division_id required");
 				return;
 			}
-			else if(division_id == null) {
-				response.sendError(400, "division_id required");
+			else if(email == null) {
+				response.sendError(400, "email from session required");
 				return;
 			}
 			else if(serial_num == null) {
@@ -46,11 +52,11 @@ public class TripCartAddAction implements Action {
 			e.printStackTrace();
 		}
 		
-		TripCartBean tripcart = new TripCartBean(user_id, division_id, serial_num);
+		TripCartBean tripcart = new TripCartBean(division_id, serial_num);
 		try {
 			TripCartDAO tripcartadd = new TripCartDAO(ConnectionProvider.getConnection());
 			
-			tripcartadd.insert(tripcart);
+			tripcartadd.insert(tripcart,email);
 			
 			response.setContentType("application/json");
 			response.setCharacterEncoding("UTF-8");
