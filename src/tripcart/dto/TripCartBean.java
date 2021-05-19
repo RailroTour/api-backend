@@ -20,6 +20,13 @@ public class TripCartBean {
 		this.division_id = division_id;
 		this.serial_num = serial_num;
 	}
+	public TripCartBean(int division_id, int serial_num) {
+		super();
+		
+		
+		this.division_id = division_id;
+		this.serial_num = serial_num;
+	}
 
 	public int getId() {
 		return id;
