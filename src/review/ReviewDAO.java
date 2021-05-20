@@ -1,4 +1,4 @@
-package endpoint;
+package review;
 
 import java.sql.Connection;
 import java.sql.PreparedStatement;

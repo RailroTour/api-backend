@@ -1,4 +1,4 @@
-package endpoint;
+package review;
 
 import java.io.IOException;
 import java.sql.SQLException;
