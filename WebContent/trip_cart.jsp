@@ -40,23 +40,19 @@
                         </a>
                     </div>
                     <div class="listmenu">
-                        <button>내일로 소개</button>
+                        <button>플래너</button>
                         <ul class="listbox">
                             <li><a href="#">내일로 소개</a></li>
                             <li><a href="#">TOP 100</a></li>
-                            <li><a href="#">플래너</a></li>
-                            <li><a href="#">내 주변</a></li>
-                            <li><a href="sub02.html">고객센터</a></li>
+                            <li><a href="#">검색</a></li>
+                            <li><a href="sub02.html">커뮤니티</a></li>
                         </ul>
                     </div>
                     <div class="listmenu">
-                        <button>내일로 란?</button>
+                        <button>여행바구니</button>
                         <ul class="listbox">
-                            <li><a href="#">내일로 소개</a></li>
-                            <li><a href="#">TOP 100</a></li>
-                            <li><a href="#">플래너</a></li>
-                            <li><a href="#">내 주변</a></li>
-                            <li><a href="#">고객센터</a></li>
+                            <li><a href="#">새 플래너 작성</a></li>
+                            <li><a href="#">내 플래너 목록</a></li>
                         </ul>
                     </div>
 
@@ -72,7 +68,7 @@
         </section>
 
         <div class="cart_tourist_destination">
-            <div class="cart_title">관광지</div>
+            <div class="cart_title">내가 담은 목록</div>
             <div class="head">
                 <div>ID</div>
                 <div>이미지</div>
@@ -90,7 +86,7 @@
                  <div>
                 <button><img class="close_mark_img" src="jpg/close_mark.png"></button></div>
             </div>
-            <div class="row2">
+            <div class="row1">
                 <div>ID</div>
                 <div>
                 <!-- 상세보기 페이지 이동-->
@@ -100,7 +96,7 @@
                  <div>
                 <button><img class="close_mark_img" src="jpg/close_mark.png"></button></div>
             </div>
-            <div class="row3">
+            <div class="row1">
                 <div>ID</div>
                 <div>
                 <!-- 상세보기 페이지 이동-->

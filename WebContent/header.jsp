@@ -101,9 +101,14 @@
 
                                 <dd><a href="#">새 플래너 작성</a></dd>
                                 <dd><a href="#">내 플래너 목록</a></dd>
+                                <dd><a href="./trip_cart.jsp">여행 바구니</a></dd>
                             </dl>
                             <dl class="hoverbg4 hoverbg" onmouseover="bgcolor(4)" onmouseout="removecolor(4)">
                                 <dd><a href="./search_integrated.jsp">통합검색</a></dd>
+                                <dd><a href="./search_tour.jsp">관광지 검색</a></dd>
+                                <dd><a href="./search_foods.jsp">음식점 검색</a></dd>
+                                <dd><a href="./search_rooms.jsp">숙소 검색</a></dd>
+                                <dd><a href="#">플래너 검색</a></dd>
                             </dl>
                             <dl class="hoverbg5 hoverbg" onmouseover="bgcolor(5)" onmouseout="removecolor(5)">
                                 <dd><a href="./html/sub02.html">정보공유</a></dd>
