@@ -11,7 +11,7 @@
    <script src="https://unpkg.com/sweetalert/dist/sweetalert.min.js"></script>
     <script src="https://ajax.googleapis.com/ajax/libs/jquery/3.3.1/jquery.min.js">
     </script>
- 	<script src="./js/mypage_manage.js"></script>
+ 	<script type="text/javascript" src="./js/mypage_manage.js?ver=2"></script>
  	
     <link rel="stylesheet" href="css/header.css">
     <link rel="stylesheet" href="css/footer.css">
@@ -43,23 +43,23 @@
                    <ul>
                        <li class="profile">
                            <span class="text">프로필 사진</span>
-                           <img src="" alt="">
+                           <img src="./jpg/default_profile_img.jpg" alt="">
                            <input type="file" id="imgchange" accept="image/*" name="imgfile" hidden>
                            <label for="imgchange" class="imgchange">이미지 변경</label>
                        </li>
-                       <li>
+                       <li class="id">
                            <span class="text">아이디</span>
                            <div>cartoonpoet</div>
                        </li>
-                       <li>
+                       <li class="name">
                            <span class="text">이름</span>
                            <div>손준호</div>
                        </li>
-                       <li>
+                       <li class="nickname">
                            <span class="text">닉네임</span>
                            <div><input type="text" value="하루"></div>
                        </li>
-                       <li>
+                       <li class="email">
                            <span class="text">이메일</span>
                            <div><input type="text" value="cartoonpoet@naver.com"></div>
                        </li>
@@ -79,6 +79,7 @@
     
      $(document).ready(function(){
       	  $('#imgchange').on('change', function(e){
+      		/*
       		if($(this).val()!=""){
                 var ext=$(this).val().split(".").pop().toLowerCase();
                 if($.inArray(ext, ["gif", "jpg", "jpeg", "png"])==-1){
@@ -94,7 +95,7 @@
                     return;
                 }
                 formData=new FormData($('#management')[0]);
-                /*
+                
                 $.ajax({
             		type:'POST',
             		url:'./MyPageIMGChange.me',
@@ -112,9 +113,9 @@
             			console.log('파일 업로드 실패');
             		}
             	})
-            	*/
+            	
                 $(this).val('');
-            }
+            }*/
       	  })
       })
   </script>
