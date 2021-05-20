@@ -33,14 +33,15 @@ public class UserController extends HttpServlet{
 	}
 	public void doPut(HttpServletRequest request, HttpServletResponse response) throws ServletException, IOException {
 		request.setCharacterEncoding("utf-8");
+		System.out.println("user put");
 		action = new UserPutAction();
 		action.execute(request, response);
-		System.out.println("user put");
+		
 	}
 	public void doDelete(HttpServletRequest request, HttpServletResponse response) throws ServletException, IOException {
 		request.setCharacterEncoding("utf-8");
+		System.out.println("user delete");
 		action = new UserDeleteAction();
 		action.execute(request, response);
-		System.out.println("user delete");
 	}
 }

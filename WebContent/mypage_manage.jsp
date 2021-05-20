@@ -11,7 +11,7 @@
    <script src="https://unpkg.com/sweetalert/dist/sweetalert.min.js"></script>
     <script src="https://ajax.googleapis.com/ajax/libs/jquery/3.3.1/jquery.min.js">
     </script>
- 	<script type="text/javascript" src="./js/mypage_manage.js?ver=2"></script>
+ 	<script type="text/javascript" src="./js/mypage_manage.js?ver=14"></script>
  	
     <link rel="stylesheet" href="css/header.css">
     <link rel="stylesheet" href="css/footer.css">
@@ -73,51 +73,5 @@
         
     </div>
     <%@include file="footer.jsp" %>
-    
-    <script>
-
-    
-     $(document).ready(function(){
-      	  $('#imgchange').on('change', function(e){
-      		/*
-      		if($(this).val()!=""){
-                var ext=$(this).val().split(".").pop().toLowerCase();
-                if($.inArray(ext, ["gif", "jpg", "jpeg", "png"])==-1){
-                    swal('이미지 파일만 업로드 해주세요.');
-                    $(this).val('');
-                    return;
-                }
-                var fileSize=this.files[0].size;
-                var maxSize=(1024*1024)*10;
-                if(fileSize>maxSize){
-                    swal('파일용량 10MB를 초과했습니다.');
-                    $(this).val('');
-                    return;
-                }
-                formData=new FormData($('#management')[0]);
-                
-                $.ajax({
-            		type:'POST',
-            		url:'./MyPageIMGChange.me',
-            		data:formData,
-            		async: true,
-                    processData : false,
-                    contentType : false,
-            		success:function(data){
-            			console.log('파일업로드 성공');
-            			console.log(data);
-            			$('.profile img').attr('src', data);
-            		},
-            		error:function(data){
-            			alert('파일 업로드 실패');
-            			console.log('파일 업로드 실패');
-            		}
-            	})
-            	
-                $(this).val('');
-            }*/
-      	  })
-      })
-  </script>
 </body>
 </html>
