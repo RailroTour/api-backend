@@ -13,6 +13,7 @@
     </script>
  	<script type="text/javascript" src="./js/mypage_manage.js?ver=19"></script>
  	
+ 	<script src="./js/script.js"></script>
     <link rel="stylesheet" href="css/header.css">
     <link rel="stylesheet" href="css/footer.css">
     <script src="./js/header.js"></script>

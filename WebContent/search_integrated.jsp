@@ -12,7 +12,8 @@
     </script>
     <script src="./js/search_integrated.js?ver=3"></script>
 
-    
+
+    <script src="./js/script.js"></script>
         <link rel="stylesheet" href="css/header.css">
     <link rel="stylesheet" href="css/footer.css">
     <script src="./js/header.js"></script>
@@ -36,10 +37,10 @@
             </div>
             <ul class="itemlist">
                 <li class="itembox selected"><a href="#">전체</a></li>
-                <li class="itembox"><a href="#">관광지</a></li>
-                <li class="itembox"><a href="#">음식점</a></li>
+                <li class="itembox"><a href="./search_tour.jsp">관광지</a></li>
+                <li class="itembox"><a href="./search_foods.jsp">음식점</a></li>
                 <li class="itembox"><a href="#">플래너</a></li>
-                <li class="itembox"><a href="#">숙소</a></li>
+                <li class="itembox"><a href="./search_rooms.jsp">숙소</a></li>
             </ul>
             <div class="Contents">
                 <div class="Tourist Tour">

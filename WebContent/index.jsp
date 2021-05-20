@@ -671,7 +671,24 @@
     	 return value? value[2] : null;
     	 };
 
-    	 
+    		$.ajax({ //인기검색어
+    			type: 'GET',
+    			url: './trending/keyword',
+    			success: function(data) {
+    				console.log(data);
+    				for(let i=0; i<data.length; i++){
+    					//$("#rank-list>dl>dd>ol>li").eq(i).find('a').append('&nbsp;'+data[i].keyword);
+    					//$(".hoverrank-list>ol>li.top").eq(i).find('a').append('&nbsp;'+data[i].keyword);
+    					$(".hoverrank-list>ol>li.top").eq(i).find('a').attr('href', './search_integrated.jsp?keyword='+data[i].keyword);
+    					
+    					let today = new Date();
+    					$(".hoverrank-list>ol>li.last_update").text(dateFormat(today)+' 마지막 업데이트');
+    				}
+    			},
+    			error: function() {
+    				console.log('ajax failed');
+    			}
+    		});
    		
   </script>
 </body>

@@ -13,7 +13,7 @@
     </script>
     <script src="./js/search_tour.js?ver=1"></script>
     
-    
+    <script src="./js/script.js"></script>
         <link rel="stylesheet" href="css/header.css">
     <link rel="stylesheet" href="css/footer.css">
     <script src="./js/header.js"></script>
