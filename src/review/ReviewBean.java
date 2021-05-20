@@ -1,4 +1,4 @@
-package endpoint;
+package review;
 
 public class ReviewBean {
 	
