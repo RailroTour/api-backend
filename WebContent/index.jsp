@@ -648,7 +648,7 @@
         
     </div>
     <%@include file="footer.jsp" %>
-    <script src="js/script.js?ver=16"></script>
+    <script src="js/script.js?ver=18"></script>
     <script>
     
      $(function() {
@@ -671,6 +671,8 @@
     	 return value? value[2] : null;
     	 };
 
+    	 
+   		
   </script>
 </body>
 </html>

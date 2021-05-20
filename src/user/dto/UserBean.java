@@ -9,9 +9,10 @@ public class UserBean{
 	public String nickname;
 	public String email;
 	public String register_date;
+	public String profile_img;
 	
 	public UserBean(int id, String username, String password, String name, String nickname, String email,
-			String register_date) {
+			String register_date, String profile_img) {
 		super();
 		this.id = id;
 		this.username = username;
@@ -20,6 +21,7 @@ public class UserBean{
 		this.nickname = nickname;
 		this.email = email;
 		this.register_date = register_date;
+		this.profile_img = profile_img;
 	}
 	
 	public UserBean(String username, String password, String name, String nickname, String email) {
@@ -30,15 +32,25 @@ public class UserBean{
 		this.email = email;
 	}
 	
-	public UserBean(int id, String username, String password, String name, String nickname, String email) {
+	public UserBean(int id, String username, String password, String name, String nickname, String email, String profile_img) {
 		this.id = id;
 		this.username = username;
 		this.password = password;
 		this.name = name;
 		this.nickname = nickname;
 		this.email = email;
+		this.profile_img = profile_img;
 	}
 	
+	
+	public String getProfile_img() {
+		return profile_img;
+	}
+
+	public void setProfile_img(String profile_img) {
+		this.profile_img = profile_img;
+	}
+
 	public int getId() {
 		return id;
 	}

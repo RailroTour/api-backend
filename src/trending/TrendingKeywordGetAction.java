@@ -25,12 +25,12 @@ public class TrendingKeywordGetAction implements Action{
 			TrendingKeywordDAO trendingkeywordDAO = new TrendingKeywordDAO(ConnectionProvider.getConnection());
 			List<TrendingKeywordBean> keyword_list = trendingkeywordDAO.list();
 			
-			JSONObject obj = new JSONObject();
-			JSONArray jArray = new JSONArray();
-			for(int i=0; i<keyword_list.size(); i++) {
-				jArray.put(JsonConverter.objectToJson(keyword_list.get(i)));
-			}
-			System.out.println(jArray);
+//			JSONObject obj = new JSONObject();
+//			JSONArray jArray = new JSONArray();
+//			for(int i=0; i<keyword_list.size(); i++) {
+//				jArray.put(JsonConverter.objectToJson(keyword_list.get(i)));
+//			}
+//			System.out.println(jArray);
 			response.setContentType("application/json");
 			response.setCharacterEncoding("UTF-8");
 			response.getWriter().print(JsonConverter.objectToJson(keyword_list));

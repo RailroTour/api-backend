@@ -23,6 +23,11 @@
 		<artifactId>json</artifactId>
 		<version>20171018</version>
 	</dependency>
+	<dependency>
+          <groupId>servlets.com</groupId>
+          <artifactId>cos</artifactId>
+          <version>05Nov2002</version>
+      </dependency> 
   </dependencies>
   
   <build>

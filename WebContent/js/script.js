@@ -5,8 +5,8 @@ $(document).ready(function(){ //서브메뉴 애니메이션 부분
 		success: function(data) {
 			console.log(data);
 			for(let i=0; i<data.length; i++){
-				//$("#rank-list>dl>dd>ol>li").eq(i).find('a').append('&nbsp;'+data[i].keyword);
-				//$(".hoverrank-list>ol>li.top").eq(i).find('a').append('&nbsp;'+data[i].keyword);
+				$("#rank-list>dl>dd>ol>li").eq(i).find('a').append('&nbsp;'+data[i].keyword);
+				$(".hoverrank-list>ol>li.top").eq(i).find('a').append('&nbsp;'+data[i].keyword);
 				$(".hoverrank-list>ol>li.top").eq(i).find('a').attr('href', './search_integrated.jsp?keyword='+data[i].keyword);
 				
 				let today = new Date();
@@ -17,8 +17,6 @@ $(document).ready(function(){ //서브메뉴 애니메이션 부분
 			console.log('ajax failed');
 		}
 	});
-
-
 
     $('.m-menu>li, .s-menu').hover(function(){
        // $('.s-menu').stop().slideToggle(300);

@@ -99,6 +99,40 @@ public class UserDAO {
 		return null;
 	}
 	
+	public UserBean get(String email) {
+		PreparedStatement pstmt = null;
+		ResultSet rs = null;
+		try {
+			String sql = "select * from user where email=?";
+			pstmt = conn.prepareStatement(sql);
+			pstmt.setString(1, email);
+			rs = pstmt.executeQuery();
+			if (rs.next()) {
+				return new UserBean(
+					rs.getInt("id"),
+					rs.getString("username"),
+					rs.getString("password"),
+					rs.getString("name"),
+					rs.getString("nickname"),
+					rs.getString("email"),
+					rs.getString("register_date"),
+					rs.getString("profile_img")
+				);
+			}
+		}catch(SQLException e) {
+			e.printStackTrace();
+		}finally {
+			if(pstmt != null) {
+				try {
+					pstmt.close();
+				} catch (SQLException e) {
+					e.printStackTrace();
+				}
+			}
+		}
+		return null;
+	}
+	
 	public int update(UserBean user) {
 		PreparedStatement pstmt = null;
 		ResultSet rs = null;
@@ -126,12 +160,12 @@ public class UserDAO {
 		return 0;
 	}
 	
-	public int delete(int id) {
+	public int delete(String email) {
 		PreparedStatement pstmt = null;
 		try {
-			String sql = "delete from user where id=?";
+			String sql = "delete from user where email=?";
 			pstmt = conn.prepareStatement(sql);
-			pstmt.setInt(1, id);
+			pstmt.setString(1, email);
 			return pstmt.executeUpdate();
 		}catch(SQLException e) {
 			e.printStackTrace();

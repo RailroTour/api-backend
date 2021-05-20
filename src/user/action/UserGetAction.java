@@ -5,6 +5,7 @@ import java.sql.SQLException;
 
 import javax.servlet.http.HttpServletRequest;
 import javax.servlet.http.HttpServletResponse;
+import javax.servlet.http.HttpSession;
 
 import common.Action;
 import common.ConnectionProvider;
@@ -16,11 +17,11 @@ public class UserGetAction implements Action{
 
 	@Override
 	public void execute(HttpServletRequest request, HttpServletResponse response) {
-		String id = request.getParameter("id");
-		
+		HttpSession session = request.getSession();
+		String email = (String) session.getAttribute("email");
 		try {
-			if(id == null) {
-				response.sendError(400, "id required");
+			if(email == null) {
+				response.sendError(400, "login required");
 				return;
 			}
 		} catch (IOException e) {
@@ -30,7 +31,7 @@ public class UserGetAction implements Action{
 		
 		try {
 			UserDAO userdao = new UserDAO(ConnectionProvider.getConnection());
-			UserBean user = userdao.get(Integer.parseInt(id));
+			UserBean user = userdao.get(email);
 			
 			response.setContentType("application/json");
 			response.setCharacterEncoding("UTF-8");

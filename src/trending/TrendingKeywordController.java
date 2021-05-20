@@ -25,13 +25,13 @@ public class TrendingKeywordController extends HttpServlet{
 	
 	public void doGet(HttpServletRequest request, HttpServletResponse response) throws ServletException, IOException {
 		request.setCharacterEncoding("utf-8");
-		System.out.println("get");
+		System.out.println("keyword get");
 		action = new TrendingKeywordGetAction();
 		action.execute(request, response);
 	}
 	public void doPost(HttpServletRequest request, HttpServletResponse response) throws ServletException, IOException {
 		request.setCharacterEncoding("utf-8");
-		System.out.println("post");
+		System.out.println("keyword post");
 		action = new TrendingKeywordAddAction();
 		action.execute(request, response);
 		

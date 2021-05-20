@@ -7,12 +7,10 @@
     <title>마이페이지 : 회원탈퇴</title>
     <link rel="stylesheet" href="./css/commen.css">
     <link rel="stylesheet" href="./css/mypage_remove.css">
-       <link rel="stylesheet" href="./css/jquery-labelauty.css">
     <script src="https://ajax.googleapis.com/ajax/libs/jquery/3.3.1/jquery.min.js">
     </script>
- 
-    <script src="./js/jquery-labelauty.js"></script>
-    
+
+    <script src="./js/mypage_remove.js?ver=3"></script>
     <link rel="stylesheet" href="css/header.css">
     <link rel="stylesheet" href="css/footer.css">
     <script src="./js/header.js"></script>
@@ -39,7 +37,7 @@
                     <span class="removeimg"></span>
                     <div class="title">회원탈퇴에 앞서 <span class="textcolor">유의사항 및 안내</span>를 반드시 읽고 진행해 주세요.</div>
                 </div>
-                <form action="./MyPageRemoveAction.me" id="passwordchange">
+                <form action="" id="passwordchange">
                     <div class="explanation">
                         <ul>
                             <li>아이디 복구 불가 안내</li>
@@ -48,7 +46,7 @@
                         </ul>
                         <ul>
                             <li>
-                                <input type="checkbox" name="agree" class="agree">
+                                <input type="checkbox" name="agree" class="agree agree1">
                             </li>
                         </ul>
                     </div>
@@ -60,19 +58,19 @@
                         </ul>
                         <ul>
                             <li>
-                                <input type="checkbox" name="agree" class="agree">
+                                <input type="checkbox" name="agree" class="agree agree2">
                             </li>
                         </ul>
                     </div>
                     <div class="explanation">
                         <ul>
-                            <li>내일로 노트(여행플래너) 삭제 안내</li>
-                            <li>내일로 노트(여행플래너)는 모두 삭제되며, 삭제된 데이터는 복구되지 않습니다.</li>
+                            <li>플래너 삭제 안내</li>
+                            <li>플래너는 모두 삭제되며, 삭제된 데이터는 복구되지 않습니다.</li>
                             <li>신중히 선택하신 후 결정해주세요.</li>
                         </ul>
                         <ul>
                             <li>
-                                <input type="checkbox" name="agree" class="agree">
+                                <input type="checkbox" name="agree" class="agree agree3">
                             </li>
                         </ul>
                     </div>
@@ -83,8 +81,8 @@
                     </div>
 -->
                     <div class="btngroup">
-                        <a href="./MyPageHome.me" class="previous">이전으로</a>
-                        <input type="submit" value="탈퇴" class="submit" maxlength="32">
+                        <a href="./mypage.jsp" class="previous">이전으로</a>
+                        <input type="button" value="탈퇴" class="submit" maxlength="32">
                     </div>
                 </form>
             </div>
@@ -92,23 +90,5 @@
         
     </div>
  <%@include file="footer.jsp" %>   
-<!--    <script src="./js/script.js"></script>-->
-    <script>
-    $(document).ready(function(){
-        $(":checkbox").labelauty();
-        $(":radio").labelauty();
-        $('#passwordchange').submit(function(){
-            if($('input:checkbox[name=agree]:checked').length!=3){
-                alert('모두 동의해주셔야 탈퇴가 진행됩니다.');
-                return false;
-            }
-//            if($('.pw').val().length==0){
-//                alert('비밀번호를 입력해주세요.');
-//                return false;
-//            }
-            return true;
-        })
-    });
-  </script>
 </body>
 </html>

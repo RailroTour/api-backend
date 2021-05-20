@@ -23,24 +23,25 @@ public class UserController extends HttpServlet{
 		request.setCharacterEncoding("utf-8");
 		action = new UserGetAction();
 		action.execute(request, response);
-		System.out.println("get");
+		System.out.println("user get");
 	}
 	public void doPost(HttpServletRequest request, HttpServletResponse response) throws ServletException, IOException {
 		request.setCharacterEncoding("utf-8");
 		action = new UserAddAction();
 		action.execute(request, response);
-		System.out.println("post");
+		System.out.println("user post");
 	}
 	public void doPut(HttpServletRequest request, HttpServletResponse response) throws ServletException, IOException {
 		request.setCharacterEncoding("utf-8");
+		System.out.println("user put");
 		action = new UserPutAction();
 		action.execute(request, response);
-		System.out.println("put");
+		
 	}
 	public void doDelete(HttpServletRequest request, HttpServletResponse response) throws ServletException, IOException {
 		request.setCharacterEncoding("utf-8");
+		System.out.println("user delete");
 		action = new UserDeleteAction();
 		action.execute(request, response);
-		System.out.println("delete");
 	}
 }

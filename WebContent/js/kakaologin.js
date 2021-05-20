@@ -1,14 +1,16 @@
 Kakao.init('6f0f8167f64486dc0809c9626d6436d5');
 console.log(Kakao.isInitialized());
-//Kakao.API.request({
-//  url: '/v1/user/unlink',
-//  success: function(res) {
-////    alert('success: ' + JSON.stringify(res))
-//  },
-//  fail: function(err) {
-////    alert('fail: ' + JSON.stringify(err))
-//  },
-//})
+/*
+Kakao.API.request({
+  url: '/v1/user/unlink',
+  success: function(res) {
+    	alert('success: ' + JSON.stringify(res))
+  },
+  fail: function(err) {
+    	alert('fail: ' + JSON.stringify(err))
+  },
+})
+*/
 $(document).ready(function(){
 
 });
