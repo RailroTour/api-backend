@@ -7,11 +7,12 @@
     <meta charset="UTF-8">
     <title>마이페이지 : 내정보 관리</title>
     <link rel="stylesheet" href="./css/commen.css">
-    <link rel="stylesheet" href="./css/mypage_management.css?ver=2">
+    <link rel="stylesheet" href="./css/mypage_management.css?ver=3">
    <script src="https://unpkg.com/sweetalert/dist/sweetalert.min.js"></script>
     <script src="https://ajax.googleapis.com/ajax/libs/jquery/3.3.1/jquery.min.js">
     </script>
- 
+ 	<script src="./js/mypage_manage.js"></script>
+ 	
     <link rel="stylesheet" href="css/header.css">
     <link rel="stylesheet" href="css/footer.css">
     <script src="./js/header.js"></script>
@@ -72,6 +73,7 @@
         
     </div>
     <%@include file="footer.jsp" %>
+    
     <script>
 
     
@@ -91,7 +93,8 @@
                     $(this).val('');
                     return;
                 }
-                var formData=new FormData($('#management')[0]);
+                formData=new FormData($('#management')[0]);
+                /*
                 $.ajax({
             		type:'POST',
             		url:'./MyPageIMGChange.me',
@@ -109,6 +112,7 @@
             			console.log('파일 업로드 실패');
             		}
             	})
+            	*/
                 $(this).val('');
             }
       	  })
