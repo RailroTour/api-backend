@@ -88,7 +88,7 @@
                            <div class="float">
                             <dl class="hoverbg1 hoverbg" onmouseover="bgcolor(1)" onmouseout="removecolor(1)">
 <!--                                            <dt>지우지 말것</dt>-->
-                                <dd><a href="./railro_intro.jsp">내일로 소개</a></dd>
+                                <dd><a href="./railro_intro.jsp">내일로 란?</a></dd>
                                 <dd><a href="#">발권지 혜택</a></dd>
                             </dl>
                             <dl class="hoverbg2 hoverbg" onmouseover="bgcolor(2)" onmouseout="removecolor(2)">
@@ -98,10 +98,8 @@
                                 <dd><a href="#">숙소</a></dd>
                             </dl>
                             <dl class="hoverbg3 hoverbg" onmouseover="bgcolor(3)" onmouseout="removecolor(3)">
-
                                 <dd><a href="#">새 플래너 작성</a></dd>
                                 <dd><a href="#">내 플래너 목록</a></dd>
-                                <dd><a href="./trip_cart.jsp">여행 바구니</a></dd>
                             </dl>
                             <dl class="hoverbg4 hoverbg" onmouseover="bgcolor(4)" onmouseout="removecolor(4)">
                                 <dd><a href="./search_integrated.jsp">통합검색</a></dd>

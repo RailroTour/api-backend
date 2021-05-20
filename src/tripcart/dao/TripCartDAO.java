@@ -65,9 +65,8 @@ public class TripCartDAO {
 				obj.put("serial_num", rs.getInt("serial_num"));
 				
 				arr.put(obj);
-			
-				return arr;
 			}
+			return arr;
 		}catch(SQLException e) {
 			e.printStackTrace();
 		}finally {
@@ -108,12 +107,13 @@ public class TripCartDAO {
 		return 0;
 	}
 	
-	public int delete(int id) {
+	public int delete(int contentid, String email) {
 		PreparedStatement pstmt = null;
 		try {
-			String sql = "delete from trip_cart where id=?";
+			String sql = "delete from trip_cart where serial_num =? and user_id = (select id from user where email=?)";
 			pstmt = conn.prepareStatement(sql);
-			pstmt.setInt(1, id);
+			pstmt.setInt(1, contentid);
+			pstmt.setString(2, email);
 			return pstmt.executeUpdate();
 		}catch(SQLException e) {
 			e.printStackTrace();

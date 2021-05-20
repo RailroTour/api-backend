@@ -4,13 +4,14 @@
 <html lang="en">
 <head>
     <meta charset="UTF-8">
-    <title>서브페이지</title>
+    <title>내일로투어 :: 여행바구니</title>
     <link rel="stylesheet" href="./css/commen.css">
     <link rel="stylesheet" href="./css/sub01.css">
     <link rel="stylesheet" href="./css/styles.css">
     <script src="https://ajax.googleapis.com/ajax/libs/jquery/3.3.1/jquery.min.js">
     </script>
 
+	<script src="./js/trip_cart.js?ver=52"></script>
     <link rel="stylesheet" href="css/header.css">
     <link rel="stylesheet" href="css/footer.css">
     <script src="./js/header.js"></script>
@@ -67,7 +68,7 @@
             </div>
         </section>
 
-        <div class="cart_tourist_destination">
+        <div class="cart_tourist_destination trip_cart">
             <div class="cart_title">내가 담은 목록</div>
             <div class="head">
                 <div>ID</div>
@@ -76,10 +77,10 @@
                 <div>구분</div>
                 <div>선택</div>
             </div>
-            <div class="row1">
+<!--             <div class="row1">
                 <div>ID</div>
                 <div>
-                <!-- 상세보기 페이지 이동-->
+                상세보기 페이지 이동
                 <a href="#"><img class="destination_img" src="jpg/palace.jpeg"></a></div>
                 <div><a href="#">제목</a></div>
                 <div>구분</div>
@@ -89,7 +90,7 @@
             <div class="row1">
                 <div>ID</div>
                 <div>
-                <!-- 상세보기 페이지 이동-->
+                상세보기 페이지 이동
                 <a href="#"><img class="destination_img" src="jpg/palace.jpeg"></a></div>
                 <div><a href="#">제목</a></div>
                 <div>구분</div>
@@ -99,13 +100,14 @@
             <div class="row1">
                 <div>ID</div>
                 <div>
-                <!-- 상세보기 페이지 이동-->
+                상세보기 페이지 이동
                 <a href="#"><img class="destination_img" src="jpg/palace.jpeg"></a></div>
                 <div><a href="#">제목</a></div>
                 <div>구분</div>
                 <div>
                 <button><img class="close_mark_img" src="jpg/close_mark.png"></button></div>
-            </div>
+            </div> -->
+             
         </div>
 
 
