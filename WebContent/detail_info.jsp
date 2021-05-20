@@ -47,7 +47,7 @@
                     <ul class="text_group">
                         <li class="title">
                             <span>none</span>
-                            <span>여행바구니</span>
+                            <span class="trip_cart">여행바구니</span>
                         </li>
                         <li class="rotate">
                             <div>&#8226; 주소</div>
@@ -499,7 +499,7 @@
     </div>
     <%@include file="footer.jsp" %>
     <script type="text/javascript" src="//cdn.jsdelivr.net/npm/slick-carousel@1.8.1/slick/slick.min.js"></script>
-    <script src="./js/detail_info.js?ver=1"></script>
+    <script src="./js/detail_info.js?ver=4"></script>
 
     
     <script>

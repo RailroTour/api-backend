@@ -57,9 +57,32 @@ $(document).ready(function(){
             alert('로그인 후 이용 가능합니다.');
         }
     })
+
+	
+	$(".trip_cart").on('click', function(){
+		$.ajax({
+			url: './api/tripcart', //request 보낼 서버의 경로
+			type: 'post', // 메소드(get, post, put 등)
+			data:{
+				division_id:getParameterByName('contenttypeid'),
+				serial_num:getParameterByName('contentid')
+			},
+			success: function(data) {
+				console.log("data:" + JSON.stringify(data));
+				alert('담기 성공!');
+			},
+			error: function(request, status, error) {
+				//서버로부터 응답이 정상적으로 처리되지 못햇을 때 실행
+				console.log("code:" + request.status + "\n" + "message:" + request.responseText + "\n" + "error:" + error);
+				alert('로그인 후 이용가능합니다.');
+			}
+		});
+	})
+
     $(document).on('click', '.imgfile .preview',function(){
         $(this).remove();
     })
+
     $('#img').on('change', function(){
         if($(this).val()!=""){
             var ext=$(this).val().split(".").pop().toLowerCase();
