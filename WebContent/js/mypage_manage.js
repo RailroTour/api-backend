@@ -26,16 +26,14 @@ $(document).ready(function(){
 			formData.append('profile_img', $('#imgchange')[0].files[i]);
 		}
 
+
 		$.ajax({
-			url: './api/user', //request 보낼 서버의 경로
-			type: 'put', // 메소드(get, post, put 등)
+			url: './api/user',
+			type: "PUT",
 			data: formData,
-			success: function(data) {
-				console.log("data:" + JSON.stringify(data));
-			},
-			error: function(request, status, error) {
-				console.log("code:" + request.status + "\n" + "message:" + request.responseText + "\n" + "error:" + error);
-			}
+			crossDomain: true,
+			contentType: "multipart/form-data",
+			processData: false,
 		});
 
 	});
