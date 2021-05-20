@@ -83,6 +83,7 @@ public class UserDAO {
 					rs.getString("nickname"),
 					rs.getString("email"),
 					rs.getString("register_date")
+					rs.getString("profile_img")
 				);
 			}
 		}catch(SQLException e) {
