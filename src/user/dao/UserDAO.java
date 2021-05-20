@@ -160,12 +160,12 @@ public class UserDAO {
 		return 0;
 	}
 	
-	public int delete(int id) {
+	public int delete(String email) {
 		PreparedStatement pstmt = null;
 		try {
-			String sql = "delete from user where id=?";
+			String sql = "delete from user where email=?";
 			pstmt = conn.prepareStatement(sql);
-			pstmt.setInt(1, id);
+			pstmt.setString(1, email);
 			return pstmt.executeUpdate();
 		}catch(SQLException e) {
 			e.printStackTrace();
