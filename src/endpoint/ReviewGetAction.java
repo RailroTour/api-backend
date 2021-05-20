@@ -1,8 +1,7 @@
-package tripcart.action;
+package endpoint;
 
 import java.io.IOException;
 import java.sql.SQLException;
-
 import javax.servlet.http.HttpServletRequest;
 import javax.servlet.http.HttpServletResponse;
 import javax.servlet.http.HttpSession;
@@ -13,11 +12,8 @@ import common.Action;
 import common.ConnectionProvider;
 import common.JsonConverter;
 import tripcart.dao.TripCartDAO;
-import tripcart.dto.TripCartBean;
 
-
-public class TripCartGetAction implements Action {
-	
+public class ReviewGetAction implements Action{
 	@Override
 	public void execute(HttpServletRequest request, HttpServletResponse response) {
 		HttpSession session = request.getSession();
@@ -34,12 +30,12 @@ public class TripCartGetAction implements Action {
 		}
 		
 		try {
-			TripCartDAO tripcartdao = new TripCartDAO(ConnectionProvider.getConnection());
-			JSONArray tripcart = tripcartdao.get(email);
+			ReviewDAO reviewdao = new ReviewDAO(ConnectionProvider.getConnection());
+			JSONArray review = reviewdao.get(email);
 			
 			response.setContentType("application/json");
 			response.setCharacterEncoding("UTF-8");
-			response.getWriter().print(tripcart);
+			response.getWriter().print(review);
 		} catch (SQLException | IOException e) {
 			e.printStackTrace();
 		}
