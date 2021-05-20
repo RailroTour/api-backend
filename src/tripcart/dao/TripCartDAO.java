@@ -5,6 +5,9 @@ import java.sql.PreparedStatement;
 import java.sql.ResultSet;
 import java.sql.SQLException;
 
+import org.json.JSONArray;
+import org.json.JSONObject;
+
 import tripcart.dto.TripCartBean;
 import user.dto.UserBean;
 
@@ -44,21 +47,26 @@ public class TripCartDAO {
 		}
 		return 0;
 	}
-	public TripCartBean get(int id) {
+	public JSONArray get(String email) {
 		PreparedStatement pstmt = null;
 		ResultSet rs = null;
 		try {
-			String sql = "select * from trip_cart where id=?";
+			String sql = "select * from trip_cart where user_id =(select id from user where email=?)";
 			pstmt = conn.prepareStatement(sql);
-			pstmt.setInt(1, id);
+			pstmt.setString(1, email);
 			rs = pstmt.executeQuery();
-			if (rs.next()) {
-				return new TripCartBean(
-					rs.getInt("id"),
-					rs.getInt("user_id"),
-					rs.getInt("division_id"),
-					rs.getInt("serial_num")
-				);
+			
+			JSONArray arr = new JSONArray();
+			while (rs.next()) {
+				JSONObject obj = new JSONObject();
+				obj.put("id", rs.getInt("id"));
+				obj.put("user_id", rs.getInt("user_id"));
+				obj.put("division_id", rs.getInt("division_id"));
+				obj.put("serial_num", rs.getInt("serial_num"));
+				
+				arr.put(obj);
+			
+				return arr;
 			}
 		}catch(SQLException e) {
 			e.printStackTrace();

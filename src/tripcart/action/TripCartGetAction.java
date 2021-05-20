@@ -5,6 +5,9 @@ import java.sql.SQLException;
 
 import javax.servlet.http.HttpServletRequest;
 import javax.servlet.http.HttpServletResponse;
+import javax.servlet.http.HttpSession;
+
+import org.json.JSONArray;
 
 import common.Action;
 import common.ConnectionProvider;
@@ -17,10 +20,11 @@ public class TripCartGetAction implements Action {
 	
 	@Override
 	public void execute(HttpServletRequest request, HttpServletResponse response) {
-		String id = request.getParameter("id");
+		HttpSession session = request.getSession();
+		String email= (String)session.getAttribute("email");
 		
 		try {
-			if(id == null) {
+			if(email == null) {
 				response.sendError(400, "id required");
 				return;
 			}
@@ -31,11 +35,11 @@ public class TripCartGetAction implements Action {
 		
 		try {
 			TripCartDAO tripcartdao = new TripCartDAO(ConnectionProvider.getConnection());
-			TripCartBean tripcart = tripcartdao.get(Integer.parseInt(id));
+			JSONArray tripcart = tripcartdao.get(email);
 			
 			response.setContentType("application/json");
 			response.setCharacterEncoding("UTF-8");
-			response.getWriter().print(JsonConverter.objectToJson(tripcart));
+			response.getWriter().print(tripcart);
 		} catch (SQLException | IOException e) {
 			e.printStackTrace();
 		}
