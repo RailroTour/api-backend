@@ -17,10 +17,9 @@ public class UserGetAction implements Action{
 
 	@Override
 	public void execute(HttpServletRequest request, HttpServletResponse response) {
-		HttpSession session = request.getSession();
-		String email = (String) session.getAttribute("email");
+		String id = request.getParameter("id");;
 		try {
-			if(email == null) {
+			if(id == null) {
 				response.sendError(400, "login required");
 				return;
 			}
@@ -31,7 +30,7 @@ public class UserGetAction implements Action{
 		
 		try {
 			UserDAO userdao = new UserDAO(ConnectionProvider.getConnection());
-			UserBean user = userdao.get(email);
+			UserBean user = userdao.get(Integer.parseInt(id));
 			
 			response.setContentType("application/json");
 			response.setCharacterEncoding("UTF-8");
