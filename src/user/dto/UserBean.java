@@ -1,6 +1,6 @@
 package user.dto;
 
-import com.google.protobuf.compiler.PluginProtos.CodeGeneratorResponse.File;
+
 
 public class UserBean{
 	public int id;

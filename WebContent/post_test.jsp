@@ -38,12 +38,40 @@ function fn_submit(){
 </script>
 </head>
 <body>
-
-	   <div>
-    <label for="file1">파일</label> 
-    <input type="file" id="file1" name="file1"> 
-    <button id="btn_submit" onclick="javascript:fn_submit()">전송</button>    
-</div>
+<fieldset>
+     <legend>파일 업로드</legend>
+     <table>
+     <form action="/api-backend/api/user" method="post" enctype="multipart/form-data">
+          <tr>
+              <td>username : </td>
+              <td><input type="text" name="username"/></td>
+          </tr>
+          <tr>
+              <td>password : </td>
+              <td><input type="text" name="password"/></td>
+          </tr>
+           <tr>
+              <td>name : </td>
+              <td><input type="text" name="name"/></td>
+          </tr>
+           <tr>
+              <td>nickname : </td>
+              <td><input type="text" name="nickname"/></td>
+          </tr>
+          <tr>
+              <td>email: </td>
+              <td><input type="text" name="email"/></td>
+          </tr>
+          <tr>
+              <td>파일이미 : </td>
+              <td><input type="file" value="파일 선택" name="profile_img"/></td>
+          </tr>
+          <tr>
+              <td colspan="2"><input type="submit" value="업로드"/></td>
+          </tr>
+          </form>
+     </table>
+</fieldset>
 
 
 
