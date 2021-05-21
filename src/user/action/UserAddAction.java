@@ -1,9 +1,11 @@
 package user.action;
 
+import java.io.File;
 import java.io.IOException;
 import java.sql.SQLException;
 import java.text.SimpleDateFormat;
 
+import javax.servlet.ServletContext;
 import javax.servlet.http.HttpServletRequest;
 import javax.servlet.http.HttpServletResponse;
 
@@ -26,6 +28,9 @@ public class UserAddAction implements Action{
 		String name = request.getParameter("name");
 		String nickname = request.getParameter("nickname");
 		String email = request.getParameter("email");
+		//String profile_img = request.getParameter("profile_img");
+		String profile_img = (String)request.getAttribute("profile_img");
+		
 		try {
 			if(username == null) {
 				response.sendError(400, "username required");
@@ -47,11 +52,16 @@ public class UserAddAction implements Action{
 				response.sendError(400, "email required");
 				return;
 			}
+			else if(profile_img == null) {
+				response.sendError(400, "profile_img required");
+				return;
+			}
 		} catch (IOException e) {
 			e.printStackTrace();
 		}
+
 		
-		UserBean user = new UserBean(username, password, name, nickname, email);
+		UserBean user = new UserBean(username, password, name, nickname, email,profile_img);
 		try {
 			UserDAO useradd = new UserDAO(ConnectionProvider.getConnection());
 			if(useradd.count(username) > 0) {
