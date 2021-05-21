@@ -14,35 +14,41 @@ import planner.action.*;
 
 
 
-@WebServlet("/api/planner")
+@WebServlet("/api/planner/*")
 public class PlannerController extends HttpServlet{
 	
 Action action;
-	
+//get, put
 	public void doGet(HttpServletRequest request, HttpServletResponse response) throws ServletException, IOException {
+		String servletpath = request.getRequestURI();
 		request.setCharacterEncoding("utf-8");
+		if (servletpath.equals("api-backend/api/user/get")) {
 		action = new PlannerGetAction();
-		action.execute(request, response);
+		
 		System.out.println("get");
+		}
+		else if (servletpath.equals("api-backend/api/user/put")) {
+			action = new PlannerPutAction();
+			System.out.println("put");
+		}
+		
+		action.execute(request, response);
 	}
+	//post, delete
 	public void doPost(HttpServletRequest request, HttpServletResponse response) throws ServletException, IOException {
+		String servletpath = request.getRequestURI();
 		request.setCharacterEncoding("utf-8");
+		if (servletpath.equals("api-backend/api/user/post")) {
 		action = new PlannerAddAction();
-		action.execute(request, response);
 		System.out.println("post");
-	}
-	public void doPut(HttpServletRequest request, HttpServletResponse response) throws ServletException, IOException {
-		request.setCharacterEncoding("utf-8");
-		action = new PlannerPutAction();
+		}
+		else if (servletpath.equals("api-backend/api/user/delete")) {
+			action = new PlannerDeleteAction();
+			System.out.println("delete");
+		}
 		action.execute(request, response);
-		System.out.println("put");
 	}
-	public void doDelete(HttpServletRequest request, HttpServletResponse response) throws ServletException, IOException {
-		request.setCharacterEncoding("utf-8");
-		action = new PlannerDeleteAction();
-		action.execute(request, response);
-		System.out.println("delete");
-	}
+	
 
 
 }
