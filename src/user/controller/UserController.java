@@ -28,10 +28,10 @@ public class UserController extends HttpServlet {
 	public void doGet(HttpServletRequest request, HttpServletResponse response) throws ServletException, IOException {
 		String servletpath = request.getServletPath();
 		request.setCharacterEncoding("utf-8");
-		if (servletpath == "/api/user/get") {
+		if (servletpath.equals("/api/user/get")) {
 			action = new UserGetAction();
 			System.out.println("get");
-		} else if (servletpath == "/api/user/put") {
+		} else if (servletpath.equals("/api/user/put")) {
 			// 파일 경로 저장.
 			ServletContext context = getServletContext(); // 어플리케이션에 대한 정보를 ServletContext 객체가 갖게 됨.
 			String saveDir = context.getRealPath(""); // 절대경로를 가져옴
@@ -53,11 +53,11 @@ public class UserController extends HttpServlet {
 	public void doPost(HttpServletRequest request, HttpServletResponse response) throws ServletException, IOException {
 		String servletpath = request.getServletPath();
 		request.setCharacterEncoding("utf-8");
-		if (servletpath == "/api/user/post") {
+		if (servletpath.equals("/api/user/post")) {
 			action = new UserAddAction();
 			System.out.println("post");
 		}
-		else if(servletpath == "/api/user/delete") {
+		else if(servletpath.equals("/api/user/delete")) {
 			action = new UserDeleteAction();
 			System.out.println("delete");
 		}
