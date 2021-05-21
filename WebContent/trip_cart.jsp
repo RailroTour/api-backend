@@ -8,10 +8,11 @@
     <link rel="stylesheet" href="./css/commen.css">
     <link rel="stylesheet" href="./css/sub01.css">
     <link rel="stylesheet" href="./css/styles.css">
+    <link rel="stylesheet" href="./css/trip_cart.css?ver=6">
     <script src="https://ajax.googleapis.com/ajax/libs/jquery/3.3.1/jquery.min.js">
     </script>
 
-	<script src="./js/trip_cart.js?ver=52"></script>
+	<script src="./js/trip_cart.js?ver=53"></script>
     <link rel="stylesheet" href="css/header.css">
     <link rel="stylesheet" href="css/footer.css">
     <script src="./js/header.js"></script>
@@ -77,6 +78,7 @@
                 <div>구분</div>
                 <div>선택</div>
             </div>
+            <div id="loading"><img src="./note_plans_list_jpg/ajax-loader.gif"></div>
 <!--             <div class="row1">
                 <div>ID</div>
                 <div>

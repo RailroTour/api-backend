@@ -55,6 +55,11 @@
     width: 15px;
 }
 
+#loading{
+	text-align:center;
+	margin-top: 10%;
+}
+
 /*모바일 기기에서*/
 @media screen and (max-width: 768px) {
 

@@ -43,6 +43,12 @@ $(document).ready(function() {
 		error: function(request, status, error) {
 			//서버로부터 응답이 정상적으로 처리되지 못햇을 때 실행
 			console.log("code:" + request.status + "\n" + "message:" + request.responseText + "\n" + "error:" + error);
+		},
+		beforeSend:function(){
+			$("#loading").show();
+		},
+		complete:function(){
+			$("#loading").hide();
 		}
 	});
 	
