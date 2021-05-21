@@ -10,10 +10,10 @@ public class UserBean{
 	public String nickname;
 	public String email;
 	public String register_date;
-	public File profile_img;
+	public String profile_img;
 	
 	public UserBean(int id, String username, String password, String name, String nickname, String email,
-			String register_date, File profile_img) {
+			String register_date, String profile_img) {
 		super();
 		this.id = id;
 		this.username = username;
@@ -26,8 +26,7 @@ public class UserBean{
 	}
 
 
-	public UserBean(String username, String password, String name, String nickname, String email,
-			java.io.File file) {
+	public UserBean(String username, String password, String name, String nickname, String email,String profile_img) {
 		// TODO Auto-generated constructor stub
 super();
 		
@@ -95,11 +94,11 @@ super();
 		this.register_date = register_date;
 	}
 
-	public File getProfile_img() {
+	public String getProfile_img() {
 		return profile_img;
 	}
 
-	public void setProfile_img(File profile_img) {
+	public void setProfile_img(String profile_img) {
 		this.profile_img = profile_img;
 	}
 

@@ -5,6 +5,12 @@ import java.sql.PreparedStatement;
 import java.sql.ResultSet;
 import java.sql.SQLException;
 
+import java.io.File;
+import java.io.FileInputStream;
+import java.io.FileNotFoundException;
+import java.io.InputStream;
+
+
 import user.dto.UserBean;
 
 public class UserDAO {
@@ -17,14 +23,25 @@ public class UserDAO {
 	public int insert(UserBean user) {
 		PreparedStatement pstmt = null;
 		try {
-			String sql = "insert into user(username, password, name, nickname, email, register_date) values(?, ?, ?, ?, ?, now())";
+			String sql = "insert into user(username, password, name, nickname, email, register_date, profile_img) values(?, ?, ?, ?, ?, now(),?)";
 			pstmt = conn.prepareStatement(sql);
+			File file = new File(user.getProfile_img());
 			
-			pstmt.setString(1, user.getUsername());
-			pstmt.setString(2, user.getPassword());
-			pstmt.setString(3, user.getName());
-			pstmt.setString(4, user.getNickname());
-			pstmt.setString(5, user.getEmail());
+			try {
+				InputStream img_file = new FileInputStream(file);
+				pstmt.setString(1, user.getUsername());
+				pstmt.setString(2, user.getPassword());
+				pstmt.setString(3, user.getName());
+				pstmt.setString(4, user.getNickname());
+				pstmt.setString(5, user.getEmail());
+				pstmt.setBinaryStream(6, img_file);
+			
+			} catch (FileNotFoundException e) {
+				// TODO Auto-generated catch block
+				e.printStackTrace();
+			}
+			
+			
 			
 			return pstmt.executeUpdate();
 		}catch(SQLException e) {
@@ -82,8 +99,8 @@ public class UserDAO {
 					rs.getString("name"),
 					rs.getString("nickname"),
 					rs.getString("email"),
-					rs.getString("register_date")
-					rs.getString("profile_img")
+					rs.getString("register_date"),null
+					
 				);
 			}
 		}catch(SQLException e) {
@@ -104,13 +121,23 @@ public class UserDAO {
 		PreparedStatement pstmt = null;
 		ResultSet rs = null;
 		try {
-			String sql = "update user set username=?, password=?, name=?, nickname=?, email=? where id=?";
+			String sql = "update user set username=?, password=?, name=?, nickname=?, email=?, profile_img=? where id=?";
 			pstmt = conn.prepareStatement(sql);
-			pstmt.setString(1, user.getUsername());
-			pstmt.setString(2, user.getPassword());
-			pstmt.setString(3, user.getName());
-			pstmt.setString(4, user.getNickname());
-			pstmt.setString(5, user.getEmail());
+			File file = new File(user.getProfile_img());
+			
+			try {
+				InputStream img_file = new FileInputStream(file);
+				pstmt.setString(1, user.getUsername());
+				pstmt.setString(2, user.getPassword());
+				pstmt.setString(3, user.getName());
+				pstmt.setString(4, user.getNickname());
+				pstmt.setString(5, user.getEmail());
+				pstmt.setBinaryStream(6, img_file);
+			
+			} catch (FileNotFoundException e) {
+				// TODO Auto-generated catch block
+				e.printStackTrace();
+			}
 			
 			return pstmt.executeUpdate();
 		}catch(SQLException e) {

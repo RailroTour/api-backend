@@ -56,10 +56,9 @@ public class UserAddAction implements Action{
 		} catch (IOException e) {
 			e.printStackTrace();
 		}
-		File file = new File(profile_img);
 
 		
-		UserBean user = new UserBean(username, password, name, nickname, email,file);
+		UserBean user = new UserBean(username, password, name, nickname, email,profile_img);
 		try {
 			UserDAO useradd = new UserDAO(ConnectionProvider.getConnection());
 			if(useradd.count(username) > 0) {
