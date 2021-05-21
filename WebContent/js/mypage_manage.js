@@ -1,7 +1,7 @@
 $(document).ready(function(){
-	$.ajax({
-		type: 'GET',
-		url: './api/user',
+	$.ajax({ //기본 정보 불러오기
+		type: 'get',
+		url: './api/user/get',
 		success: function(data) {
 			console.log(data);
 			id = data.id;
@@ -15,7 +15,7 @@ $(document).ready(function(){
 			console.log('실패');
 		}
 	});
-	$(".btn-group>.modify").on('click', function(){
+	$(".btn-group>.modify").on('click', function(){ //데이터 수정하기
 		formData = new FormData();
 		formData.append('id', id);
 		formData.append('username', $(".id>div").text());
@@ -28,8 +28,8 @@ $(document).ready(function(){
 
 
 		$.ajax({
-			url: './api/user',
-			type: "PUT",
+			url: './api/user/put',
+			type: "get",
 			data: formData,
 			crossDomain: true,
 			contentType: "multipart/form-data",

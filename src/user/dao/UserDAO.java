@@ -101,6 +101,41 @@ public class UserDAO {
 		return null;
 	}
 
+	public UserBean get(String email) {
+		PreparedStatement pstmt = null;
+		ResultSet rs = null;
+		try {
+			String sql = "select * from user where email=?";
+			pstmt = conn.prepareStatement(sql);
+			pstmt.setString(1, email);
+			rs = pstmt.executeQuery();
+			if (rs.next()) {
+				return new UserBean(
+					rs.getInt("id"),
+					rs.getString("username"),
+					rs.getString("password"),
+					rs.getString("name"),
+					rs.getString("nickname"),
+					rs.getString("email"),
+					rs.getString("register_date"),
+					rs.getString("profile_img")
+				);
+			}
+		}catch(SQLException e) {
+			e.printStackTrace();
+		}finally {
+			if(pstmt != null) {
+				try {
+					pstmt.close();
+				} catch (SQLException e) {
+					e.printStackTrace();
+				}
+			}
+		}
+		return null;
+	}
+	
+	
 	public int update(UserBean user) {
 		PreparedStatement pstmt = null;
 		ResultSet rs = null;

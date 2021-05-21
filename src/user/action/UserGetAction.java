@@ -31,7 +31,7 @@ public class UserGetAction implements Action{
 		
 		try {
 			UserDAO userdao = new UserDAO(ConnectionProvider.getConnection());
-			UserBean user = userdao.get(Integer.parseInt(email));
+			UserBean user = userdao.get(email);
 			
 			response.setContentType("application/json");
 			response.setCharacterEncoding("UTF-8");
