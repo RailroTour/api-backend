@@ -28,8 +28,8 @@ public class UserAddAction implements Action{
 		String name = request.getParameter("name");
 		String nickname = request.getParameter("nickname");
 		String email = request.getParameter("email");
-		//String profile_img = request.getParameter("profile_img");
-		String profile_img = (String)request.getAttribute("profile_img");
+		String profile_img = request.getParameter("profile_img");
+		//String profile_img = (String)request.getAttribute("profile_img");
 		
 		try {
 			if(username == null) {

@@ -24,7 +24,7 @@ public class ReviewAddAction implements Action{
 		Integer content_id = Integer.parseInt(request.getParameter("content_id"));
 		Integer content_type_id = Integer.parseInt(request.getParameter("content_type_id"));
 		
-		String image_path = request.getParameter("image_path");
+		String image_path = (String)request.getAttribute("image_path");
 		String content = request.getParameter("content");
 		
 		try {

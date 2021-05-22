@@ -48,7 +48,7 @@ public class ReviewDAO {
 		PreparedStatement pstmt = null;
 		ResultSet rs = null;
 		try {
-			String sql = "select * from review where user_id =(select id from user where email=?)";
+			String sql = "select * from review, review_tags where review.id = review_tags.review_id in (select * from review where user_id =(select id from user where email=?))";
 			pstmt = conn.prepareStatement(sql);
 			pstmt.setString(1, email);
 			rs = pstmt.executeQuery();
@@ -63,6 +63,7 @@ public class ReviewDAO {
 				obj.put("image_path", rs.getString("image_path"));
 				obj.put("content", rs.getString("content"));
 				obj.put("register_date", rs.getString("register_date"));
+				obj.put("hashtag", rs.getString("hashtag"));
 				
 				arr.put(obj);
 			

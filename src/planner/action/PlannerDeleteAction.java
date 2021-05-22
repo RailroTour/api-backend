@@ -34,7 +34,7 @@ public class PlannerDeleteAction implements Action {
 			PlannerDAO plannerdao = new PlannerDAO(ConnectionProvider.getConnection());
 			plannerdao.delete(Integer.parseInt(id));
 			
-			response.setStatus(404);
+			response.setStatus(204);
 			response.setContentType("application/json");
 			response.setCharacterEncoding("UTF-8");
 		} catch (SQLException e) {

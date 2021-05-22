@@ -1,26 +1,24 @@
 package review;
 
+import common.Action;
 import java.io.IOException;
 import java.sql.SQLException;
+
 import javax.servlet.http.HttpServletRequest;
 import javax.servlet.http.HttpServletResponse;
-import javax.servlet.http.HttpSession;
 
-import org.json.JSONArray;
 
-import common.Action;
 import common.ConnectionProvider;
+import planner.dao.PlannerDAO;
 
-
-public class ReviewGetAction implements Action{
+public class ReviewHashTagDeleteAction implements Action {
 	@Override
 	public void execute(HttpServletRequest request, HttpServletResponse response) {
-		HttpSession session = request.getSession();
-		String email= (String)session.getAttribute("email");
+		String id = request.getParameter("id");
 		
 		try {
-			if(email == null) {
-				response.sendError(400, "email required");
+			if(id == null) {
+				response.sendError(400, "id required");
 				return;
 			}
 		} catch (IOException e) {
@@ -29,15 +27,17 @@ public class ReviewGetAction implements Action{
 		}
 		
 		try {
-			ReviewDAO reviewdao = new ReviewDAO(ConnectionProvider.getConnection());
-			JSONArray review = reviewdao.get(email);
+			ReviewHashTagDAO hastagdao = new ReviewHashTagDAO(ConnectionProvider.getConnection());
+			hastagdao.delete(Integer.parseInt(id));
 			
+			response.setStatus(204);
 			response.setContentType("application/json");
 			response.setCharacterEncoding("UTF-8");
-			response.getWriter().print(review);
-		} catch (SQLException | IOException e) {
+		} catch (SQLException e) {
 			e.printStackTrace();
 		}
+		
 	}
+
 
 }
