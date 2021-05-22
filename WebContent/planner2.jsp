@@ -85,7 +85,7 @@
 						<div class="select">
 							<input type="radio" id="select" name="claasify" checked><label for="select">전체</label> 
 							<input type="radio" id="select2" name="claasify"><label for="select2">전라북도</label>
-							<input type="radio" id="select2" name="claasify"><label for="select2">전라남도</label>
+							<input type="radio" id="select3" name="claasify"><label for="select3">전라남도</label>
 						</div>
 					</li>
                 </ul>

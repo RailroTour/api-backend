@@ -24,7 +24,7 @@ public class PlannerPutAction implements Action{
 		String days = request.getParameter("days");
 		String tema_id = request.getParameter("tema_id");
 		String img_path = request.getParameter("img_path");
-		
+		String start_day = request.getParameter("start_day");
 		
 		try {
 			if(id == null) {
@@ -36,7 +36,15 @@ public class PlannerPutAction implements Action{
 			e.printStackTrace();
 		}
 		
-		PlannerBean planner = new PlannerBean(Integer.parseInt(id), Integer.parseInt(user_id), title, Boolean.parseBoolean(disclosure),Integer.parseInt(days),Integer.parseInt(tema_id),img_path);
+		PlannerBean planner = new PlannerBean(
+				Integer.parseInt(id), 
+				Integer.parseInt(user_id), 
+				title, 
+				Boolean.parseBoolean(disclosure),
+				Integer.parseInt(days),
+				Integer.parseInt(tema_id), 
+				img_path, start_day
+		);
 		try {
 			PlannerDAO plannerdao = new PlannerDAO(ConnectionProvider.getConnection());
 			
