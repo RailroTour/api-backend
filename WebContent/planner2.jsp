@@ -7,11 +7,11 @@
     <title>새 플래너 작성 : 지역 선택</title>
     <link rel="stylesheet" href="./css/commen.css">
     <link rel="stylesheet" href="./css/sub-banner.css">
-    <link rel="stylesheet" href="./css/planner2.css?ver=7">
+    <link rel="stylesheet" href="./css/planner2.css?ver=9">
 <!-- <link rel="stylesheet" href="https://stackpath.bootstrapcdn.com/bootstrap/4.1.3/css/bootstrap.min.css"> -->
     <script src="https://ajax.googleapis.com/ajax/libs/jquery/3.3.1/jquery.min.js">
     </script>
-<script src="./js/planner2.js?ver=4"></script>
+<script src="./js/planner2.js?ver=11"></script>
 
 
  	<script src="./js/script.js"></script>
