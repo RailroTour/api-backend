@@ -350,10 +350,10 @@ function getPlanner2Data(){
 				date.setDate(date.getDate() + (data[i].visit_day - 1));
 
 				if (i == 0) {
-					$(".day_arrange").append('<button class="selected" data-area=' + data[i].area_code + ' data-sigungu=' + data[i].sigungu_code + '><ul><li class="day"><div class="day_num">DAY' + data[i].visit_day + '</div><div class="day_str">' + getInputDayLabel(date) + '</div></li><li class="date"><div class="date_num">' + getDateType(date) + '</div><div class="date_area">' + data[i].sigungu_name + '</div></li></ul></button>');
+					$(".day_arrange").append('<button class="selected" data-planner_area_id='+data[i].id+' data-area=' + data[i].area_code + ' data-sigungu=' + data[i].sigungu_code + '><ul><li class="day"><div class="day_num">DAY' + data[i].visit_day + '</div><div class="day_str">' + getInputDayLabel(date) + '</div></li><li class="date"><div class="date_num">' + getDateType(date) + '</div><div class="date_area">' + data[i].sigungu_name + '</div></li></ul></button>');
 				}
 				else {
-					$(".day_arrange").append('<button data-area=' + data[i].area_code + ' data-sigungu=' + data[i].sigungu_code + '><ul><li class="day"><div class="day_num">DAY' + data[i].visit_day + '</div><div class="day_str">' + getInputDayLabel(date) + '</div></li><li class="date"><div class="date_num">' + getDateType(date) + '</div><div class="date_area">' + data[i].sigungu_name + '</div></li></ul></button>');
+					$(".day_arrange").append('<button data-planner_area_id='+data[i].id+' data-area=' + data[i].area_code + ' data-sigungu=' + data[i].sigungu_code + '><ul><li class="day"><div class="day_num">DAY' + data[i].visit_day + '</div><div class="day_str">' + getInputDayLabel(date) + '</div></li><li class="date"><div class="date_num">' + getDateType(date) + '</div><div class="date_area">' + data[i].sigungu_name + '</div></li></ul></button>');
 				}
 			}
 		},
