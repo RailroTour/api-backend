@@ -92,6 +92,7 @@ $(document).ready(function(){
         else if($(this).attr("id")=="cart"){
             $(".hash_add").hide();
             contentTypeId = 41;
+			getTripCartList();
         }
         else if($(this).attr("id")=="tour"){
             $(".hash_add").hide();
@@ -202,8 +203,8 @@ $(document).ready(function(){
 					}
                 });
             }
-			else if(contentTypeId == 41){
-				
+			else{
+				alert('관광지, 음식점, 숙박란에서만 검색하실 수 있습니다.');
 			}
         }
     })
@@ -334,7 +335,7 @@ function getPlanner1Data(area_code, sigungu_code){ //플래너1 데이터 셋팅
 }
 
 function getPlanner2Data(){
-		$.ajax({
+	$.ajax({
 		url: './api/planner2/get', //request 보낼 서버의 경로
 		type: 'get', // 메소드(get, post, put 등)
 		data: {
@@ -343,16 +344,16 @@ function getPlanner2Data(){
 		async: false,
 		success: function(data) {
 			console.log("플래너2 정보 :" + JSON.stringify(data));
-			
-			for(var i=0; i<data.length; i++){
+
+			for (var i = 0; i < data.length; i++) {
 				var date = new Date(start_day);
-				date.setDate(date.getDate()+(data[i].visit_day-1));
-				
-				if(i == 0){
-					$(".day_arrange").append('<button class="selected" data-area='+data[i].area_code+' data-sigungu='+data[i].sigungu_code+'><ul><li class="day"><div class="day_num">DAY'+data[i].visit_day+'</div><div class="day_str">'+getInputDayLabel(date)+'</div></li><li class="date"><div class="date_num">'+getDateType(date)+'</div><div class="date_area">'+data[i].sigungu_name+'</div></li></ul></button>');
+				date.setDate(date.getDate() + (data[i].visit_day - 1));
+
+				if (i == 0) {
+					$(".day_arrange").append('<button class="selected" data-area=' + data[i].area_code + ' data-sigungu=' + data[i].sigungu_code + '><ul><li class="day"><div class="day_num">DAY' + data[i].visit_day + '</div><div class="day_str">' + getInputDayLabel(date) + '</div></li><li class="date"><div class="date_num">' + getDateType(date) + '</div><div class="date_area">' + data[i].sigungu_name + '</div></li></ul></button>');
 				}
-				else{
-					$(".day_arrange").append('<button data-area='+data[i].area_code+' data-sigungu='+data[i].sigungu_code+'><ul><li class="day"><div class="day_num">DAY'+data[i].visit_day+'</div><div class="day_str">'+getInputDayLabel(date)+'</div></li><li class="date"><div class="date_num">'+getDateType(date)+'</div><div class="date_area">'+data[i].sigungu_name+'</div></li></ul></button>');
+				else {
+					$(".day_arrange").append('<button data-area=' + data[i].area_code + ' data-sigungu=' + data[i].sigungu_code + '><ul><li class="day"><div class="day_num">DAY' + data[i].visit_day + '</div><div class="day_str">' + getInputDayLabel(date) + '</div></li><li class="date"><div class="date_num">' + getDateType(date) + '</div><div class="date_area">' + data[i].sigungu_name + '</div></li></ul></button>');
 				}
 			}
 		},
@@ -362,6 +363,53 @@ function getPlanner2Data(){
 		}
 	});
 }
+
+function getTripCartList(){
+	$.ajax({ // 여행바구니 담은 목록 불러오기
+		url: './api/tripcart', //request 보낼 서버의 경로
+		type: 'get', // 메소드(get, post, put 등)
+		success: function(data) {
+			console.log("여행 바구니 목록:" + JSON.stringify(data));
+			for (var i = 0; i < data.length; i++) {
+				$.get("http://api.visitkorea.or.kr/openapi/service/rest/KorService/detailCommon", {
+					pageNo: 1,
+					numOfRows: 10,
+					MobileOS: 'ETC',
+					MobileApp: 'railro',
+					serviceKey: api_key,
+					_type: 'json',
+					contentId: data[i].serial_num,
+					contentTypeId: data[i].division_id,
+					defaultYN: 'Y',
+					firstImageYN: 'Y',
+					mapinfoYN: 'Y'
+				}, function(response_data) {
+					console.log('success : ' + JSON.stringify(response_data));
+					if (response_data.response.body.totalCount > 0) {
+						var totalcount = response_data.response.body.totalCount;
+						response_data = response_data.response.body.items.item;
+						$(".search_result>.all").append( //요소들 추가
+							search_tour_element(
+								response_data.firstimage2 == undefined ? none_img : response_data.firstimage2,
+								response_data.title,
+								response_data.contentid,
+								response_data.mapx,
+								response_data.mapy,
+								response_data.contenttypeid
+							)
+						);
+					}
+				});
+			}
+
+		},
+		error: function(request, status, error) {
+			//서버로부터 응답이 정상적으로 처리되지 못햇을 때 실행
+			console.log("code:" + request.status + "\n" + "message:" + request.responseText + "\n" + "error:" + error);
+		}
+	});
+}
+
 
 $.urlParam = function(name){ // URL 파라미터 추출
     var results = new RegExp('[\?&amp;]' + name + '=([^&amp;#]*)').exec(window.location.href);

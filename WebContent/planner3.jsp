@@ -116,7 +116,7 @@
                    </div>
                  </div>
                  <div class="bottom" id="route_add">
-                     <div class="route">
+<!--                      <div class="route">
                         <div class="curcle">1</div>
                          <img src="./jpg/bn01.jpg" alt="" width="80px" height="75px">
                          <ul class="route_info">
@@ -126,7 +126,7 @@
                         <div class="btn_group">
                              <img src="./jpg/cancel_btn.png" alt="" class="delete_btn">
                          </div>
-                     </div>
+                     </div> -->
                  </div>
             </div>
         </div>
@@ -221,6 +221,6 @@
     
 	<script type="text/javascript" src="//dapi.kakao.com/v2/maps/sdk.js?appkey=6f0f8167f64486dc0809c9626d6436d5"></script>
     <script src="./js/planner3-kakaomap.js?ver=2"></script>
-    <script src="./js/planner3.js?ver=58"></script>
+    <script src="./js/planner3.js?ver=67"></script>
 </body>
 </html>
