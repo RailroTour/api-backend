@@ -1,7 +1,10 @@
 @charset "utf-8";
 
 @import url(http://fonts.googleapis.com/earlyaccess/nanumgothic.css);
-
+#loading{
+	text-align:center;
+	margin-top: 10%;
+}
 
 @media screen and (min-width: 769px){
     .travel-box{
@@ -86,6 +89,7 @@
         position: relative;
         border-radius: 10px;
         color: white;
+        margin-right: 3px;
     }
     .areas .area .area-img{
     }
@@ -99,7 +103,7 @@
     .areas .area .do{
         position: absolute;
         bottom: 5%;
-        right: 35%;
+        right: 50%;
     }
     .areas .area .si-gun-gu{
         position: absolute;
@@ -233,6 +237,7 @@
         position: relative;
         border-radius: 10px;
         color: white;
+        margin-left: 3px;
     }
     .areas .area .area-img{
     }

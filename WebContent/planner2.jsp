@@ -7,11 +7,11 @@
     <title>새 플래너 작성 : 지역 선택</title>
     <link rel="stylesheet" href="./css/commen.css">
     <link rel="stylesheet" href="./css/sub-banner.css">
-    <link rel="stylesheet" href="./css/planner2.css?ver=1">
+    <link rel="stylesheet" href="./css/planner2.css?ver=7">
 <!-- <link rel="stylesheet" href="https://stackpath.bootstrapcdn.com/bootstrap/4.1.3/css/bootstrap.min.css"> -->
     <script src="https://ajax.googleapis.com/ajax/libs/jquery/3.3.1/jquery.min.js">
     </script>
-<script src="./js/planner2.js"></script>
+<script src="./js/planner2.js?ver=4"></script>
 
 
  	<script src="./js/script.js"></script>
@@ -68,6 +68,7 @@
                 <ul class="travel-box selected-area">
                     <li class="key"><span>여행 지역</span></li>
                     <li class="vals">
+                    
 <!--
                         <div class="area-item">
                             <button class="cancel-btn"><img src="./jpg/cancel_btn.png" alt=""></button>
@@ -83,80 +84,21 @@
                     <li class="key"><span>여행지</span></li>
                     <li class="vals">
 						<div class="select">
-							<input type="radio" id="select" name="claasify" checked><label for="select">전체</label> 
-							<input type="radio" id="select2" name="claasify"><label for="select2">전라북도</label>
-							<input type="radio" id="select3" name="claasify"><label for="select3">전라남도</label>
+							<input type="radio" id="select" name="classify" value="0" checked><label for="select">전체</label> 
+							<input type="radio" id="select2" name="classify" value="37"><label for="select2">전라북도</label>
+							<input type="radio" id="select3" name="classify" value="38"><label for="select3">전라남도</label>
 						</div>
 					</li>
                 </ul>
                 
                 <ul class="areas">
-                    <li class="area">
-                       <img src="./thumb/%EA%B0%80%ED%8F%89_thumb.jpg" alt="" class="area-img">
+                <div id="loading"><img src="./note_plans_list_jpg/ajax-loader.gif"></div>
+<!--                     <li class="area">
+                       <img src="https://backend.travelymap.com/region/전라북도_고창_thumb.jpg" alt="" class="area-img">
                        <div class="black-cover"></div>
                         <span class="do">경상북도,</span>
                         <span class="si-gun-gu">경주</span>
-                    </li>
-                                        <li class="area">
-                       <img src="./thumb/%EA%B0%80%ED%8F%89_thumb.jpg" alt="" class="area-img">
-                       <div class="black-cover"></div>
-                        <span class="do">경상북도,</span>
-                        <span class="si-gun-gu">경주</span>
-                    </li>
-                                        <li class="area">
-                       <img src="./thumb/%EA%B0%80%ED%8F%89_thumb.jpg" alt="" class="area-img">
-                       <div class="black-cover"></div>
-                        <span class="do">경상북도,</span>
-                        <span class="si-gun-gu">경주</span>
-                    </li>
-                                        <li class="area">
-                       <img src="./thumb/%EA%B0%80%ED%8F%89_thumb.jpg" alt="" class="area-img">
-                       <div class="black-cover"></div>
-                        <span class="do">경상북도,</span>
-                        <span class="si-gun-gu">경주</span>
-                    </li>
-                                        <li class="area">
-                       <img src="./thumb/%EA%B0%80%ED%8F%89_thumb.jpg" alt="" class="area-img">
-                       <div class="black-cover"></div>
-                        <span class="do">경상북도,</span>
-                        <span class="si-gun-gu">경주</span>
-                    </li>
-                                        <li class="area">
-                       <img src="./thumb/%EA%B0%80%ED%8F%89_thumb.jpg" alt="" class="area-img">
-                       <div class="black-cover"></div>
-                        <span class="do">경상북도,</span>
-                        <span class="si-gun-gu">경주</span>
-                    </li>
-                                        <li class="area">
-                       <img src="./thumb/%EA%B0%80%ED%8F%89_thumb.jpg" alt="" class="area-img">
-                       <div class="black-cover"></div>
-                        <span class="do">경상북도,</span>
-                        <span class="si-gun-gu">경주</span>
-                    </li>
-                                        <li class="area">
-                       <img src="./thumb/%EA%B0%80%ED%8F%89_thumb.jpg" alt="" class="area-img">
-                       <div class="black-cover"></div>
-                        <span class="do">경상북도,</span>
-                        <span class="si-gun-gu">경주</span>
-                    </li>
-                                        <li class="area">
-                       <img src="./thumb/%EA%B0%80%ED%8F%89_thumb.jpg" alt="" class="area-img">
-                       <div class="black-cover"></div>
-                        <span class="do">경상북도,</span>
-                        <span class="si-gun-gu">경주</span>
-                    </li>
-                                        <li class="area">
-                       <img src="./thumb/%EA%B0%80%ED%8F%89_thumb.jpg" alt="" class="area-img">
-                       <div class="black-cover"></div>
-                        <span class="do">경상북도,</span>
-                        <span class="si-gun-gu">경주</span>
-                    </li>
-                                        <li class="area">
-                       <img src="./thumb/%EA%B0%80%ED%8F%89_thumb.jpg" alt="" class="area-img">
-                       <div class="black-cover"></div>
-                        <span class="do">경상북도,</span>
-                        <span class="si-gun-gu">경주</span>
-                    </li>
+                    </li> -->
                 </ul>
                 
                 <button class="detail-schedule-btn">상세 일정 만들기</button>

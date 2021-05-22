@@ -9,7 +9,7 @@ import java.sql.Statement;
 import planner.dto.PlannerBean;
 
 public class PlannerDAO {
-private Connection conn = null;
+	private Connection conn = null;
 	
 	public PlannerDAO(Connection conn) {
 		this.conn = conn;

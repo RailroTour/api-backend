@@ -37,7 +37,7 @@ public class PlannerAddAction implements Action{
 		String start_day = request.getParameter("start_day");
 		try {
 			if(email == null) {
-				response.sendError(400, "email from session required");
+				response.sendError(400, "Login required");
 				return;
 			}
 			else if(title == null) {
