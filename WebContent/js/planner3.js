@@ -40,22 +40,25 @@ $(document).ready(function(){
         const mapy = $(this).parent().data('mapy');
         const id = $(this).parent().data('id');
         const num = $("#route_add>.route").length;
-        $("#route_add").append(route_add(img, title, id, mapx, mapy, contentTypeId, num+1));
-        
-        let imageSize = new kakao.maps.Size(42, 43);
-        let add_markerImage;
-        if(contentTypeId==12){
-            markerImage = new kakao.maps.MarkerImage(tour_marker_img, imageSize);
-        }
-        else if(contentTypeId==39){
-            markerImage = new kakao.maps.MarkerImage(food_marker_img, imageSize);
-        }
-        else if(contentTypeId==32){
-            markerImage = new kakao.maps.MarkerImage(food_marker_img, imageSize);
-        }
-        
-    
-        var imageSize1 = new kakao.maps.Size(43, 42)
+
+		$.ajax({
+			url: './api/planner3/post', //request 보낼 서버의 경로
+			type: 'post', // 메소드(get, post, put 등)
+			data: {
+				planner_area_id: $("button.selected").data('planner_area_id'),
+				order_num: (num+1),
+				content_id: id,
+				content_type_id: contentTypeId
+			},
+			success: function(data) {
+				console.log("여행 요소 추가 :" + JSON.stringify(data));
+				$("#route_add").append(route_add(img, title, id, mapx, mapy, contentTypeId, num+1));
+			},
+			error: function(request, status, error) {
+				//서버로부터 응답이 정상적으로 처리되지 못햇을 때 실행
+				console.log("code:" + request.status + "\n" + "message:" + request.responseText + "\n" + "error:" + error);
+			}
+		});
         
     });
     
