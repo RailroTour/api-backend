@@ -98,7 +98,7 @@
                                 <dd><a href="#">숙소</a></dd>
                             </dl>
                             <dl class="hoverbg3 hoverbg" onmouseover="bgcolor(3)" onmouseout="removecolor(3)">
-                                <dd><a href="#">새 플래너 작성</a></dd>
+                                <dd><a href="./planner1.jsp">새 플래너 작성</a></dd>
                                 <dd><a href="#">내 플래너 목록</a></dd>
                             </dl>
                             <dl class="hoverbg4 hoverbg" onmouseover="bgcolor(4)" onmouseout="removecolor(4)">

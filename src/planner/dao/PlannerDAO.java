@@ -4,6 +4,7 @@ import java.sql.Connection;
 import java.sql.PreparedStatement;
 import java.sql.ResultSet;
 import java.sql.SQLException;
+import java.sql.Statement;
 
 import planner.dto.PlannerBean;
 
@@ -16,18 +17,22 @@ private Connection conn = null;
 	
 	public int insert(PlannerBean planner, String email) {
 		PreparedStatement pstmt = null;
+		ResultSet rs = null;
 		try {
-			String sql = "insert into planner(user_id, title, disclosure, register_date, days, tema_id,img_path) values((select id from user where email=?), ?, ?, now(), ?, ?, ?)";
-			pstmt = conn.prepareStatement(sql);
+			String sql = "insert into planner(user_id, title, disclosure, register_date, days, tema_id, start_day) values((select id from user where email=?), ?, ?, now(), ?, ?, ?)";
+			pstmt = conn.prepareStatement(sql, Statement.RETURN_GENERATED_KEYS);
 			
 			pstmt.setString(1, email);
 			pstmt.setString(2, planner.getTitle());
 			pstmt.setBoolean(3, planner.getDisclosure());
 			pstmt.setInt(4, planner.getDays());
 			pstmt.setInt(5, planner.getTema_id());
-			pstmt.setString(6, planner.getImg_path());
+			pstmt.setString(6, planner.getStart_day());
 			
-			return pstmt.executeUpdate();
+			pstmt.executeUpdate();
+			rs = pstmt.getGeneratedKeys();
+			rs.next();
+			return rs.getInt(1);
 		}catch(SQLException e) {
 			e.printStackTrace();
 		}finally {
@@ -59,7 +64,8 @@ private Connection conn = null;
 					rs.getString("register_date"),
 					rs.getInt("days"),
 					rs.getInt("tema_id"),
-					rs.getString("img_path")
+					rs.getString("img_path"),
+					rs.getString("start_day")
 				);
 			}
 		}catch(SQLException e) {

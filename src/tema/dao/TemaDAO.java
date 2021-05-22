@@ -5,7 +5,8 @@ import java.sql.Connection;
 import java.sql.PreparedStatement;
 import java.sql.ResultSet;
 import java.sql.SQLException;
-
+import java.util.ArrayList;
+import java.util.List;
 
 import tema.dto.TemaBean;
 public class TemaDAO {
@@ -56,6 +57,37 @@ private Connection conn = null;
 	
 				);
 			}
+		}catch(SQLException e) {
+			e.printStackTrace();
+		}finally {
+			if(pstmt != null) {
+				try {
+					pstmt.close();
+				} catch (SQLException e) {
+					e.printStackTrace();
+				}
+			}
+		}
+		return null;
+	}
+	
+	
+	public List<TemaBean> get() {
+		PreparedStatement pstmt = null;
+		ResultSet rs = null;
+		List<TemaBean> list = new ArrayList<TemaBean>();
+		try {
+			String sql = "select * from tema";
+			pstmt = conn.prepareStatement(sql);
+
+			rs = pstmt.executeQuery();
+			while (rs.next()) {
+				list.add(new TemaBean(
+					rs.getInt("id"),
+					rs.getString("name")
+				));
+			}
+			return list;
 		}catch(SQLException e) {
 			e.printStackTrace();
 		}finally {

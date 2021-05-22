@@ -14,35 +14,48 @@ import planner.action.*;
 
 
 
-@WebServlet("/api/planner")
+@WebServlet("/api/planner/*")
 public class PlannerController extends HttpServlet{
-	
-Action action;
+	Action action;
 	
 	public void doGet(HttpServletRequest request, HttpServletResponse response) throws ServletException, IOException {
 		request.setCharacterEncoding("utf-8");
-		action = new PlannerGetAction();
+		String servletpath = request.getRequestURI();
+		if(servletpath.equals("/api-backend/api/planner/get")) {
+			action = new PlannerGetAction();
+			System.out.println("planner1 get");
+		}
+		else if(servletpath.equals("/api-backend/api/planner/put")) {
+			action = new PlannerPutAction();
+			System.out.println("planner1 put");
+		}
 		action.execute(request, response);
-		System.out.println("get");
 	}
 	public void doPost(HttpServletRequest request, HttpServletResponse response) throws ServletException, IOException {
 		request.setCharacterEncoding("utf-8");
-		action = new PlannerAddAction();
+		String servletpath = request.getRequestURI();
+		if(servletpath.equals("/api-backend/api/planner/post")) {
+			action = new PlannerAddAction();
+			System.out.println("planner1 post");
+		}
+		else if(servletpath.equals("/api-backend/api/planner/delete")) {
+			action = new PlannerDeleteAction();
+			System.out.println("planner1 delete");
+		}
 		action.execute(request, response);
-		System.out.println("post");
 	}
-	public void doPut(HttpServletRequest request, HttpServletResponse response) throws ServletException, IOException {
-		request.setCharacterEncoding("utf-8");
-		action = new PlannerPutAction();
-		action.execute(request, response);
-		System.out.println("put");
-	}
-	public void doDelete(HttpServletRequest request, HttpServletResponse response) throws ServletException, IOException {
-		request.setCharacterEncoding("utf-8");
-		action = new PlannerDeleteAction();
-		action.execute(request, response);
-		System.out.println("delete");
-	}
+//	public void doPut(HttpServletRequest request, HttpServletResponse response) throws ServletException, IOException {
+//		request.setCharacterEncoding("utf-8");
+//		action = new PlannerPutAction();
+//		action.execute(request, response);
+//		System.out.println("put");
+//	}
+//	public void doDelete(HttpServletRequest request, HttpServletResponse response) throws ServletException, IOException {
+//		request.setCharacterEncoding("utf-8");
+//		action = new PlannerDeleteAction();
+//		action.execute(request, response);
+//		System.out.println("delete");
+//	}
 
 
 }

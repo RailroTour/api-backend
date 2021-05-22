@@ -2,6 +2,7 @@ package tema.action;
 
 import java.io.IOException;
 import java.sql.SQLException;
+import java.util.List;
 
 import javax.servlet.http.HttpServletRequest;
 import javax.servlet.http.HttpServletResponse;
@@ -18,21 +19,10 @@ public class TemaGetAction implements Action{
 	
 	@Override
 	public void execute(HttpServletRequest request, HttpServletResponse response) {
-		String id = request.getParameter("id");
-		
-		try {
-			if(id == null) {
-				response.sendError(400, "id required");
-				return;
-			}
-		} catch (IOException e) {
-			// TODO Auto-generated catch block
-			e.printStackTrace();
-		}
 		
 		try {
 			TemaDAO temadao = new TemaDAO(ConnectionProvider.getConnection());
-			TemaBean tema = temadao.get(Integer.parseInt(id));
+			List<TemaBean> tema = temadao.get();
 			
 			response.setContentType("application/json");
 			response.setCharacterEncoding("UTF-8");

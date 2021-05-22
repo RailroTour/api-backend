@@ -31,7 +31,7 @@ public class UserController extends HttpServlet {
 
 		if (servletpath.equals("/api-backend/api/user/get")) {
 			action = new UserGetAction();
-			System.out.println("get");
+			System.out.println("user get");
 		} else if (servletpath.equals("/api-backend/api/user/get")) {
 			// 파일 경로 저장.
 			ServletContext context = getServletContext(); // 어플리케이션에 대한 정보를 ServletContext 객체가 갖게 됨.

@@ -12,7 +12,18 @@ public class PlannerBean {
 	public int days;
 	public int tema_id;
 	public String img_path;
+	public String start_day;
 	
+	
+	
+	public String getStart_day() {
+		return start_day;
+	}
+
+	public void setStart_day(String start_day) {
+		this.start_day = start_day;
+	}
+
 	public int getId() {
 		return id;
 	}
@@ -78,7 +89,7 @@ public class PlannerBean {
 	}
 
 	public PlannerBean(int id, int user_id, String title, Boolean disclosure, String register_date, int days, int tema_id,
-			String img_path) {
+			String img_path, String start_day) {
 		super();
 		this.id = id;
 		this.user_id = user_id;
@@ -88,19 +99,28 @@ public class PlannerBean {
 		this.days = days;
 		this.tema_id = tema_id;
 		this.img_path = img_path;
+		this.start_day = start_day;
 	}
 	
 	public PlannerBean(String title, Boolean disclosure, int days, int tema_id,
-			String img_path) {
+			String img_path, String start_day) {
 		
 		this.title = title;
 		this.disclosure = disclosure;
 		this.days = days;
 		this.tema_id = tema_id;
 		this.img_path = img_path;
+		this.start_day = start_day;
+	}
+	public PlannerBean(String title, Boolean disclosure, int days, int tema_id, String start_day) {
+		this.title = title;
+		this.disclosure = disclosure;
+		this.days = days;
+		this.tema_id = tema_id;
+		this.start_day = start_day;
 	}
 	public PlannerBean(int id, int user_id, String title, Boolean disclosure, int days, int tema_id,
-			String img_path) {
+			String img_path, String start_day) {
 		super();
 		this.id = id;
 		this.user_id = user_id;
@@ -109,6 +129,8 @@ public class PlannerBean {
 		this.days = days;
 		this.tema_id = tema_id;
 		this.img_path = img_path;
+		this.tema_id = tema_id;
+		this.start_day = start_day;
 	}
 
 }

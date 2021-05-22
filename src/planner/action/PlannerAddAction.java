@@ -31,10 +31,10 @@ public class PlannerAddAction implements Action{
 		String email= (String)session.getAttribute("email");
 
 		String title = request.getParameter("title");
-		Boolean disclosure = Boolean.parseBoolean(request.getParameter("disclosure"));
+		Boolean disclosure = true;
 		Integer days = Integer.parseInt(request.getParameter("days"));
 		Integer tema_id = Integer.parseInt(request.getParameter("tema_id"));
-		String img_path = request.getParameter("img_path");
+		String start_day = request.getParameter("start_day");
 		try {
 			if(email == null) {
 				response.sendError(400, "email from session required");
@@ -56,18 +56,18 @@ public class PlannerAddAction implements Action{
 				response.sendError(400, "tema_id required");
 				return;
 			}
-			else if(img_path == null) {
-				response.sendError(400, "img_path required");
+			else if(start_day == null) {
+				response.sendError(400, "start_day required");
 				return;
 			}
 		} catch (IOException e) {
 			e.printStackTrace();
 		}
 		
-		PlannerBean planner = new PlannerBean(title, disclosure, days, tema_id,img_path);
+		PlannerBean planner = new PlannerBean(title, disclosure, days, tema_id, start_day);
 		try {
 			PlannerDAO planneradd = new PlannerDAO(ConnectionProvider.getConnection());
-			planneradd.insert(planner,email);
+			planner.setId(planneradd.insert(planner, email));
 			
 			response.setContentType("application/json");
 			response.setCharacterEncoding("UTF-8");
