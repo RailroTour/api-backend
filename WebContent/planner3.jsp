@@ -4,7 +4,7 @@
 <html lang="en">
 <head>
     <meta charset="UTF-8">
-    <title>내일로 노트 :: 상세일정 만들기</title>
+    <title>플래너 :: 상세일정 만들기</title>
     <link rel="stylesheet" href="./css/commen.css">
     <link rel="stylesheet" href="./css/planner3.css">
     <script src="https://ajax.googleapis.com/ajax/libs/jquery/3.3.1/jquery.min.js">
@@ -14,7 +14,7 @@
 <body>
     <header>
             <img src="./jpg/RailroTour%20LOGO.png" alt="">
-                <div class="Note_title">플래너 상세일정 만들기</div>
+                <div class="Note_title"> </div>
                 <div class="Note_edit_title">
                     <input type="text" value="" class="Note_title_input" maxlength="20">
                     <input type="submit" value="확인" name="Note_title_submit" class="Note_title_submit">
@@ -221,6 +221,6 @@
     
 	<script type="text/javascript" src="//dapi.kakao.com/v2/maps/sdk.js?appkey=6f0f8167f64486dc0809c9626d6436d5"></script>
     <script src="./js/planner3-kakaomap.js?ver=2"></script>
-    <script src="./js/planner3.js?ver=53"></script>
+    <script src="./js/planner3.js?ver=63"></script>
 </body>
 </html>

@@ -15,6 +15,7 @@ $(document).ready(function(){
 	//플래너 정보 로딩
 	getPlanner1Data(areaCode, sigunguCode);
 	getPlanner2Data();
+	getPlannerElements();
 	areaCode = $(".day_arrange>button").first().data('area');
 	sigunguCode = $(".day_arrange>button").first().data('sigungu');
     //처음화면 여행 데이터 로딩
@@ -33,6 +34,7 @@ $(document).ready(function(){
 				content_id: $(this).parent().data('id'),
 				content_type_id: $(this).parent().data('contenttypeid')
 			},
+			async: false,
 			success: function(data) {
 				console.log("여행 요소 삭제 :" + JSON.stringify(data));
 				
@@ -90,7 +92,8 @@ $(document).ready(function(){
         $(this).addClass('selected');
         
         $(".search_result>.all>.search_data").remove();
-
+		$("#route_add>.route").remove();
+		getPlannerElements();
 		if(contentTypeId != 41 && contentTypeId != 40)
         	getTourData(areaCode, contentTypeId, sigunguCode, api_key);
     });
@@ -444,6 +447,101 @@ function getTripCartList(){
 				});
 			}
 
+		},
+		error: function(request, status, error) {
+			//서버로부터 응답이 정상적으로 처리되지 못햇을 때 실행
+			console.log("code:" + request.status + "\n" + "message:" + request.responseText + "\n" + "error:" + error);
+		}
+	});
+}
+
+function getPlannerElements(){
+	$.ajax({ // 내가 담은 여행 코스 불러오기
+		url: './api/planner3/get', //request 보낼 서버의 경로
+		type: 'get', // 메소드(get, post, put 등)
+		async: false,
+		data:{
+			planner_area_id: $("button.selected").data('planner_area_id')
+		},
+		success: function(data) {
+			console.log("여행 코스 :" + JSON.stringify(data));
+			for(var i=0; i<data.length; i++){
+				if(data[i].content_type_id==12 || data[i].content_type_id==32 || data[i].content_type_id==39){
+					
+					$.ajax({
+						url:'http://api.visitkorea.or.kr/openapi/service/rest/KorService/detailCommon',
+						type: 'get',
+						async: false,
+						data:{
+							pageNo: 1,
+							numOfRows: 10,
+							MobileOS: 'ETC',
+							MobileApp: 'railro',
+							serviceKey: api_key,
+							_type: 'json',
+							contentId: data[i].content_id,
+							contentTypeId: data[i].content_type_id,
+							defaultYN: 'Y',
+							firstImageYN: 'Y',
+							mapinfoYN: 'Y',
+						},
+						success: function(response_data){
+							console.log('여행 코스 정보 조회 : ' + JSON.stringify(response_data));
+							if (response_data.response.body.totalCount > 0) {
+								var totalcount = response_data.response.body.totalCount;
+								response_data = response_data.response.body.items.item;
+								$("#route_add").append(route_add(
+									response_data.firstimage2,
+									response_data.title,
+									response_data.contentid,
+									response_data.mapx,
+									response_data.mapy,
+									response_data.contenttypeid,
+									$("#route_add>.route").length + 1
+								));
+							}
+						},
+						error: function(request, status, error) {
+							//서버로부터 응답이 정상적으로 처리되지 못햇을 때 실행
+							console.log("code:" + request.status + "\n" + "message:" + request.responseText + "\n" + "error:" + error);
+						}
+					});
+					
+					
+/*					$.get("http://api.visitkorea.or.kr/openapi/service/rest/KorService/detailCommon", {
+						pageNo: 1,
+						numOfRows: 10,
+						MobileOS: 'ETC',
+						MobileApp: 'railro',
+						serviceKey: api_key,
+						_type: 'json',
+						contentId: data[i].content_id,
+						contentTypeId: data[i].content_type_id,
+						defaultYN: 'Y',
+						firstImageYN: 'Y',
+						mapinfoYN: 'Y',
+						
+					}, function(response_data) {
+						console.log('여행 코스 정보 조회 : ' + JSON.stringify(response_data));
+						if (response_data.response.body.totalCount > 0) {
+							var totalcount = response_data.response.body.totalCount;
+							response_data = response_data.response.body.items.item;
+							$("#route_add").append(route_add(
+								response_data.firstimage2,
+								response_data.title,
+								response_data.contentid,
+								response_data.mapx,
+								response_data.mapy,
+								response_data.contenttypeid,
+								$("#route_add>.route").length + 1
+							));
+						}
+					});*/
+				}
+				else if(data[i].content_type_id==40){
+					$("#route_add").append(route_add('https://cdn2.iconfinder.com/data/icons/pittogrammi/142/14-512.png', '기차', 40, 0, 0, 40, $("#route_add>.route").length+1));
+				}
+			}
 		},
 		error: function(request, status, error) {
 			//서버로부터 응답이 정상적으로 처리되지 못햇을 때 실행
