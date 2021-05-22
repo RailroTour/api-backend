@@ -23,12 +23,32 @@ $(document).ready(function(){
     //여행 코스 삭제
     $(document).on('click', "#route_add>.route>.btn_group", function(){
         const index = $(this).parent().index();
+		
+		$.ajax({
+			url: './api/planner3/delete', //request 보낼 서버의 경로
+			type: 'post', // 메소드(get, post, put 등)
+			data: {
+				planner_area_id: $("button.selected").data('planner_area_id'),
+				order_num: (index + 1),
+				content_id: $(this).parent().data('id'),
+				content_type_id: $(this).parent().data('contenttypeid')
+			},
+			success: function(data) {
+				console.log("여행 요소 삭제 :" + JSON.stringify(data));
+				
 
-        for(let i=index; i<$("#route_add>.route").length; i++){
-            let number = $("#route_add>.route").eq(i).find('.curcle').text();
-            $("#route_add>.route").eq(i).children('.curcle').text(number-1);
-        }
-        $(this).parent().remove();
+			},
+			error: function(request, status, error) {
+				//서버로부터 응답이 정상적으로 처리되지 못햇을 때 실행
+				console.log("code:" + request.status + "\n" + "message:" + request.responseText + "\n" + "error:" + error);
+			}
+		});
+		
+		for (var i = index; i < $("#route_add>.route").length; i++) {
+			let number = $("#route_add>.route").eq(i).find('.curcle').text();
+			$("#route_add>.route").eq(i).children('.curcle').text(number - 1);
+		}
+		$(this).parent().remove();
     });
     
     //여행 코스 추가
@@ -212,9 +232,28 @@ $(document).ready(function(){
         }
     })
 
-	$(".hash_add_btn").on('click', function(){
+	$(".hash_add_btn").on('click', function(){ //기차 추가
 		const num = $("#route_add>.route").length;
-        $("#route_add").append(route_add('https://cdn2.iconfinder.com/data/icons/pittogrammi/142/14-512.png', '기차', 40, 0, 0, 40, num+1));
+		
+		$.ajax({
+			url: './api/planner3/post', //request 보낼 서버의 경로
+			type: 'post', // 메소드(get, post, put 등)
+			data: {
+				planner_area_id: $("button.selected").data('planner_area_id'),
+				order_num: (num + 1),
+				content_id: 40,
+				content_type_id: 40
+			},
+			success: function(data) {
+				console.log("기차 요소 추가 :" + JSON.stringify(data));
+				$("#route_add").append(route_add('https://cdn2.iconfinder.com/data/icons/pittogrammi/142/14-512.png', '기차', 40, 0, 0, 40, num+1));
+			},
+			error: function(request, status, error) {
+				//서버로부터 응답이 정상적으로 처리되지 못햇을 때 실행
+				console.log("code:" + request.status + "\n" + "message:" + request.responseText + "\n" + "error:" + error);
+			}
+		});
+        
 	})
 });
 

@@ -12,6 +12,7 @@ import common.Action;
 import planner.action.Planner2AddAction;
 import planner.action.Planner2GetAction;
 import planner.action.Planner3AddAction;
+import planner.action.Planner3DeleteAction;
 
 
 @WebServlet("/api/planner3/*")
@@ -34,10 +35,10 @@ public class Planner3Controller extends HttpServlet{
 			action = new Planner3AddAction();
 			System.out.println("planner3 post");
 		}
-//		else if(servletpath.equals("/api-backend/api/planner3/delete")) {
-//			action = new Planner2DeleteAction();
-//			System.out.println("planner3 delete");
-//		}
+		else if(servletpath.equals("/api-backend/api/planner3/delete")) {
+			action = new Planner3DeleteAction();
+			System.out.println("planner3 delete");
+		}
 		action.execute(request, response);
 	}
 }

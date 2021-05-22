@@ -8,6 +8,7 @@ import java.sql.Statement;
 
 import planner.dto.Planner2Bean;
 import planner.dto.Planner3Bean;
+import planner.dto.PlannerBean;
 
 public class Planner3DAO {
 	private Connection conn = null;
@@ -33,6 +34,54 @@ public class Planner3DAO {
 			rs.next();
 			return rs.getInt(1);
 			
+		}catch(SQLException e) {
+			e.printStackTrace();
+		}finally {
+			if(pstmt != null) {
+				try {
+					pstmt.close();
+				} catch (SQLException e) {
+					e.printStackTrace();
+				}
+			}
+		}
+		return 0;
+	}
+	
+	public int delete(Planner3Bean planner3) {
+		PreparedStatement pstmt = null;
+		try {
+			String sql = "delete from planner_elements where planner_area_id=? and order_num=? and content_id=? and content_type_id=?";
+			pstmt = conn.prepareStatement(sql);
+			pstmt.setInt(1, planner3.getPlanner_area_id());
+			pstmt.setInt(2, planner3.getOrder_num());
+			pstmt.setInt(3, planner3.getContent_id());
+			pstmt.setInt(4, planner3.getContent_type_id());
+			return pstmt.executeUpdate();
+		}catch(SQLException e) {
+			e.printStackTrace();
+		}finally {
+			if(pstmt != null) {
+				try {
+					pstmt.close();
+				} catch (SQLException e) {
+					e.printStackTrace();
+				}
+			}
+		}
+		return 0;
+	}
+	
+	public int order_sort(Planner3Bean planner3) {
+		PreparedStatement pstmt = null;
+		ResultSet rs = null;
+		try {
+			String sql = "update planner_elements set order_num=order_num-1 where planner_area_id=? and order_num>?";
+			pstmt = conn.prepareStatement(sql);
+			pstmt.setInt(1, planner3.getPlanner_area_id());
+			pstmt.setInt(2, planner3.getOrder_num());
+
+			return pstmt.executeUpdate();
 		}catch(SQLException e) {
 			e.printStackTrace();
 		}finally {

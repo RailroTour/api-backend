@@ -112,7 +112,7 @@
                         <span class="week">(목요일)</span>
 -->
                        <span class="course">여행코스</span>
-                        <img src="./planner3-img/refresh.png" alt="" width="20px" class="refresh">
+                        <!-- <img src="./planner3-img/refresh.png" alt="" width="20px" class="refresh"> -->
                    </div>
                  </div>
                  <div class="bottom" id="route_add">
@@ -221,6 +221,6 @@
     
 	<script type="text/javascript" src="//dapi.kakao.com/v2/maps/sdk.js?appkey=6f0f8167f64486dc0809c9626d6436d5"></script>
     <script src="./js/planner3-kakaomap.js?ver=2"></script>
-    <script src="./js/planner3.js?ver=69"></script>
+    <script src="./js/planner3.js?ver=53"></script>
 </body>
 </html>
