@@ -221,6 +221,6 @@
     
 	<script type="text/javascript" src="//dapi.kakao.com/v2/maps/sdk.js?appkey=6f0f8167f64486dc0809c9626d6436d5"></script>
     <script src="./js/planner3-kakaomap.js?ver=2"></script>
-    <script src="./js/planner3.js?ver=26"></script>
+    <script src="./js/planner3.js?ver=41"></script>
 </body>
 </html>

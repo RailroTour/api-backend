@@ -13,9 +13,10 @@ var course_markers = [];
 var start_day = '';
 $(document).ready(function(){
 	//플래너 정보 로딩
-	
 	getPlanner1Data(areaCode, sigunguCode);
 	getPlanner2Data();
+	areaCode = $(".day_arrange>button").first().data('area');
+	sigunguCode = $(".day_arrange>button").first().data('sigungu');
     //처음화면 여행 데이터 로딩
     getTourData(areaCode, contentTypeId, sigunguCode, api_key);
     
@@ -162,8 +163,7 @@ $(document).ready(function(){
                 }
             }
             if(contentTypeId==12 || contentTypeId==39 || contentTypeId==32){
-
-
+				
                 $.get(tour_api, {
                     MobileOS: 'ETC', 
                     MobileApp: 'railro', 
@@ -173,26 +173,31 @@ $(document).ready(function(){
                     listYN: 'Y',
                     arrange: 'O',
                     numOfRows: 1000,
-                    contentTypeId: contentTypeId
+					pageNo: 1,
+                    contentTypeId: contentTypeId,
+					areaCode:areaCode,
+					sigunguCode:sigunguCode
                 }, function(data){
                     console.log(data);
-                    const cnt = data.response.body.items.item.length;
-                    data = data.response.body.items.item;
-                    let markers = [];
-                    
-                    for(let i=0; i<cnt; i++){ 
-                        $(".search_result>.all").append( //요소들 추가
-                            search_tour_element(
-                                data[i].firstimage2,
-                                data[i].title,
-                                data[i].contentid,
-                                data[i].mapx,
-                                data[i].mapy,
-                                contentTypeId
-                            )
-                        );
-                        
-                    }
+                    const cnt = data.response.body.totalCount;
+					if(cnt != 0){
+	                    data = data.response.body.items.item;
+	                    let markers = [];
+	                    
+	                    for(let i=0; i<cnt; i++){ 
+	                        $(".search_result>.all").append( //요소들 추가
+	                            search_tour_element(
+	                                data[i].firstimage2==undefined ? none_img:data[i].firstimage2,
+	                                data[i].title,
+	                                data[i].contentid,
+	                                data[i].mapx,
+	                                data[i].mapy,
+	                                contentTypeId
+	                            )
+	                        );
+	                        
+	                    }
+					}
                 });
             }
         }
