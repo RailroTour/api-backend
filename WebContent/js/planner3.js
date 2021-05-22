@@ -67,7 +67,9 @@ $(document).ready(function(){
         $(this).addClass('selected');
         
         $(".search_result>.all>.search_data").remove();
-        getTourData(areaCode, contentTypeId, sigunguCode, api_key);
+
+		if(contentTypeId != 41 && contentTypeId != 40)
+        	getTourData(areaCode, contentTypeId, sigunguCode, api_key);
     });
     
     //일정 초기화
@@ -200,6 +202,9 @@ $(document).ready(function(){
 					}
                 });
             }
+			else if(contentTypeId == 41){
+				
+			}
         }
     })
 });
@@ -216,7 +221,9 @@ function search_tour_element(img, title, id, mapx, mapy, contentTypeId){
         tour_type='숙박'
     }
     
-    return '<div class="search_data" data-mapx='+mapx+' data-mapy='+mapy+' data-contentTypeId='+contentTypeId+' data-id='+id+'><a href="./'+id+'" class="img"><img src="'+img+'" alt="" width="100px" height="100px"></a><ul class="info_group"><input type="hidden" class="content_id" value="0"><li class="title">'+title+'</li><li class="sub_title">'+tour_type+'</li></ul><div class="add_btn"><img src="./map_image/add.png" alt="" class="route_add_btn"></div></div>'
+	var url = './detail_info.jsp?contenttypeid='+contentTypeId+'&contentid='+id;
+
+    return '<div class="search_data" data-mapx='+mapx+' data-mapy='+mapy+' data-contentTypeId='+contentTypeId+' data-id='+id+'><a href='+url+' class="img" target="_blank"><img src="'+img+'" alt="" width="100px" height="100px"></a><ul class="info_group"><input type="hidden" class="content_id" value="0"><li class="title">'+title+'</li><li class="sub_title">'+tour_type+'</li></ul><div class="add_btn"><img src="./map_image/add.png" alt="" class="route_add_btn"></div></div>'
 }
 
 function route_add(img, title, id, mapx, mapy, contentTypeId, num){
