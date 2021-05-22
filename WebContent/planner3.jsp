@@ -206,12 +206,12 @@
                </div>
         
                <div class="hash_add">
-                   <input type="text" placeholder="#해시태그" class="hash" maxlength="6">
+                   <input type="text" value="기차" class="hash" maxlength="6" disabled>
                    
                    <div class="radio_group">
                        <label for="fas fa-train"></label><input type="radio" name="kind" id="move" value="이동">  
                    </div>
-                    <textarea name="" id="" cols="35" rows="3" placeholder="메모" style="resize:none" maxlength="20"></textarea>
+                    <!-- <textarea name="" id="" cols="35" rows="3" placeholder="메모" style="resize:none" maxlength="20"></textarea> -->
                     
                     <button class="hash_add_btn">추가하기</button>
                </div>

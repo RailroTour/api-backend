@@ -207,6 +207,11 @@ $(document).ready(function(){
 			}
         }
     })
+
+	$(".hash_add_btn").on('click', function(){
+		const num = $("#route_add>.route").length;
+        $("#route_add").append(route_add('https://cdn2.iconfinder.com/data/icons/pittogrammi/142/14-512.png', '기차', 40, 0, 0, 40, num+1));
+	})
 });
 
 function search_tour_element(img, title, id, mapx, mapy, contentTypeId){
