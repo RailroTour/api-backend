@@ -10,9 +10,13 @@ let food_marker_img = '../marker_img/FoodMarker.png';
 let tour_marker_img = '../marker_img/TourMarker.png';
 
 var course_markers = [];
-
+var start_day = '';
 $(document).ready(function(){
-    //처음화면 리스트 로딩
+	//플래너 정보 로딩
+	
+	getPlanner1Data(areaCode, sigunguCode);
+	getPlanner2Data();
+    //처음화면 여행 데이터 로딩
     getTourData(areaCode, contentTypeId, sigunguCode, api_key);
     
     //여행 코스 삭제
@@ -251,7 +255,7 @@ function setCenter(mapy, mapx) {
 function getTourData(areaCode, contentTypeId, sigunguCode, api_key){
     xhr = $.get('http://api.visitkorea.or.kr/openapi/service/rest/KorService/areaBasedList', {
             pageNo: 1,
-            numOfRows: 10000,
+            numOfRows: 1000,
             MobileOS: 'ETC',
             MobileApp: 'railro',
             ServiceKey: api_key,
@@ -284,4 +288,79 @@ function getTourData(areaCode, contentTypeId, sigunguCode, api_key){
             }
         }
     );
+}
+
+function getPlanner1Data(area_code, sigungu_code){ //플래너1 데이터 셋팅
+	$.ajax({
+		url: './api/planner/get', //request 보낼 서버의 경로
+		type: 'get', // 메소드(get, post, put 등)
+		data: {
+			id: $.urlParam('id')
+		},
+		async: false,
+		success: function(data) {
+			console.log("플래너 정보 :" + JSON.stringify(data));
+			$(".Note_title").text(data.title);
+			
+			let date = new Date(data.start_day);
+			date.setDate(date.getDate()+data.days-1);
+			start_day = data.start_day;
+			$(".date_info>h1").text(data.start_day+'~'+getDateType(date));
+			
+
+		},
+		error: function(request, status, error) {
+			//서버로부터 응답이 정상적으로 처리되지 못햇을 때 실행
+			console.log("code:" + request.status + "\n" + "message:" + request.responseText + "\n" + "error:" + error);
+		}
+	});
+}
+
+function getPlanner2Data(){
+		$.ajax({
+		url: './api/planner2/get', //request 보낼 서버의 경로
+		type: 'get', // 메소드(get, post, put 등)
+		data: {
+			planner_id: $.urlParam('id')
+		},
+		async: false,
+		success: function(data) {
+			console.log("플래너2 정보 :" + JSON.stringify(data));
+			
+			for(var i=0; i<data.length; i++){
+				var date = new Date(start_day);
+				date.setDate(date.getDate()+(data[i].visit_day-1));
+				
+				if(i == 0){
+					$(".day_arrange").append('<button class="selected" data-area='+data[i].area_code+' data-sigungu='+data[i].sigungu_code+'><ul><li class="day"><div class="day_num">DAY'+data[i].visit_day+'</div><div class="day_str">'+getInputDayLabel(date)+'</div></li><li class="date"><div class="date_num">'+getDateType(date)+'</div><div class="date_area">'+data[i].sigungu_name+'</div></li></ul></button>');
+				}
+				else{
+					$(".day_arrange").append('<button data-area='+data[i].area_code+' data-sigungu='+data[i].sigungu_code+'><ul><li class="day"><div class="day_num">DAY'+data[i].visit_day+'</div><div class="day_str">'+getInputDayLabel(date)+'</div></li><li class="date"><div class="date_num">'+getDateType(date)+'</div><div class="date_area">'+data[i].sigungu_name+'</div></li></ul></button>');
+				}
+			}
+		},
+		error: function(request, status, error) {
+			//서버로부터 응답이 정상적으로 처리되지 못햇을 때 실행
+			console.log("code:" + request.status + "\n" + "message:" + request.responseText + "\n" + "error:" + error);
+		}
+	});
+}
+
+$.urlParam = function(name){ // URL 파라미터 추출
+    var results = new RegExp('[\?&amp;]' + name + '=([^&amp;#]*)').exec(window.location.href);
+    return results[1] || 0;
+}
+
+function getDateType(date){
+	return ("0"+(date.getMonth()+1)).slice(-2)+"-"+("0"+date.getDate()).slice(-2);
+}
+
+function getInputDayLabel(date) {
+    
+    var week = new Array('일요일', '월요일', '화요일', '수요일', '목요일', '금요일', '토요일');
+    
+    var today = new Date(date).getDay();
+    var todayLabel = week[today];
+    
+    return todayLabel;
 }

@@ -14,7 +14,7 @@
 <body>
     <header>
             <img src="./jpg/RailroTour%20LOGO.png" alt="">
-                <div class="Note_title">내일로 노트명</div>
+                <div class="Note_title">플래너 상세일정 만들기</div>
                 <div class="Note_edit_title">
                     <input type="text" value="" class="Note_title_input" maxlength="20">
                     <input type="submit" value="확인" name="Note_title_submit" class="Note_title_submit">
@@ -39,7 +39,7 @@
                    </div>
                 </button>
                 <div class="day_arrange">
-                    <button data-area=1 class="selected">
+                    <!-- <button data-area=1 class="selected">
                         <ul>
                             <li class="day">
                                 <div class="day_num">DAY1</div>
@@ -99,7 +99,7 @@
                             </li>
                         </ul>
                     </button>
-                    
+                     -->
                 </div>
             </div>
             <div class="edit_route">
@@ -220,7 +220,7 @@
     </section>
     
 	<script type="text/javascript" src="//dapi.kakao.com/v2/maps/sdk.js?appkey=6f0f8167f64486dc0809c9626d6436d5"></script>
-    <script src="./js/planner3-kakaomap.js"></script>
-    <script src="./js/planner3.js"></script>
+    <script src="./js/planner3-kakaomap.js?ver=2"></script>
+    <script src="./js/planner3.js?ver=26"></script>
 </body>
 </html>
