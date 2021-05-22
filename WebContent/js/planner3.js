@@ -556,11 +556,11 @@ $.urlParam = function(name){ // URL 파라미터 추출
     return results[1] || 0;
 }
 
-function getDateType(date){
+function getDateType(date){ //날짜 포맷팅
 	return ("0"+(date.getMonth()+1)).slice(-2)+"-"+("0"+date.getDate()).slice(-2);
 }
 
-function getInputDayLabel(date) {
+function getInputDayLabel(date) { //요일 변환
     
     var week = new Array('일요일', '월요일', '화요일', '수요일', '목요일', '금요일', '토요일');
     

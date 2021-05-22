@@ -19,7 +19,7 @@
                     <input type="text" value="" class="Note_title_input" maxlength="20">
                     <input type="submit" value="확인" name="Note_title_submit" class="Note_title_submit">
                 </div>
-            <a href=""><input type="button" value="저장 후 닫기"></a>
+            <a href="./index.jsp"><input type="button" value="저장 후 닫기"></a>
     </header>
     <section>
         <div class="side_left">
