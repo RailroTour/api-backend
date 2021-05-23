@@ -6,7 +6,7 @@
     <meta charset="UTF-8">
     <title>플래너</title>
     <link rel="stylesheet" href="./css/commen.css">
-    <link rel="stylesheet" href="./css/mynote.css?ver=1">
+    <link rel="stylesheet" href="./css/mynote.css?ver=2">
 <script src="https://ajax.googleapis.com/ajax/libs/jquery/3.4.1/jquery.min.js"></script>
     </script>
     
@@ -55,8 +55,8 @@
                         </li>
                         <li class="add_info">
                             <div class="rectangle">
-                                <img src="./mynote_jpg/foot.png" alt="">
-                                <span><!-- 좋아요 수 --></span>
+<!--                                 <img src="./mynote_jpg/foot.png" alt="">
+                                <span>좋아요 수</span> -->
                                 <img src="./mynote_jpg/view.png" alt="" class="view">
                                 <span class="view"> <!-- 조회수 --></span>
                             </div>
@@ -95,25 +95,25 @@
                 <div class="plan_nav">
                     <div class="top_arrow" onclick="arrow_Move(-1)"></div>
                     <ul class="nav_route">
-                        <li style="color: #0093ff" onclick="fnMove(0)">DAY1 전주<hr></li>
+<!--                         <li style="color: #0093ff" onclick="fnMove(0)">DAY1 전주<hr></li>
                         <li onclick="fnMove(1)">DAY2 전주<hr></li>
                         <li onclick="fnMove(2)">DAY3 전주<hr></li>
                         <li onclick="fnMove(3)">DAY4 전주<hr></li>
                         <li onclick="fnMove(4)">DAY5 전주<hr></li>
                         <li onclick="fnMove(5)">DAY6 전주<hr></li>
-                        <li onclick="fnMove(6)">DAY7 전주</li>
+                        <li onclick="fnMove(6)">DAY7 전주</li> -->
                     </ul>
                     <div class="bottom_arrow" onclick="arrow_Move(1)"></div>
                 </div>
                 <div class="plan_route">
                     <ul class="select">
                         <li style="color: #006cff" class="view1">순서대로 보기</li>
-                        <span>&nbsp;|&nbsp;</span>
-                        <li class="view2">표로 보기</li>
+<!--                         <span>&nbsp;|&nbsp;</span>
+                        <li class="view2">표로 보기</li> -->
                     </ul>
                     
                     <div class="plan_info">
-<!--                          <ul class="day_info">
+<!--                           <ul class="day_info">
                             <li class="day">DAY1</li>
                             <li class="date_info">
                                 <span class="date">2018-07-22</span>
@@ -163,39 +163,6 @@
                             </li>
                         </ul> -->
                     </div>
-                    <table>
-                        <tr>
-                            <th>날짜</th>
-                            <th>지역</th>
-                            <th>음식점</th>
-                            <th>관광지</th>
-                            <th>숙소</th>
-                        </tr>
-                        <tr>
-                            <td>DAY1</td>
-                            <td>
-                                <div class="areaname">전주</div>
-                                <div class="areaname">전주</div>
-                                <div class="areaname">전주</div>
-                                <div class="areaname">전주</div>
-                            </td>
-                            <td>
-                                <div class="food">1. 음식점121212121</div>
-                                <div class="food">2. 음식점</div>
-                                <div class="food">3. 음식점</div>
-                                <div class="food">4. 음식점</div>
-                                <div class="food">5. 음식점</div>
-                            </td>
-                            <td>
-                                <div class="tour">1. 관광지ㄹㄴㅇㄹㅇㄴㄹㄴㅇ</div>
-                                <div class="tour">2. 관광지</div>
-                            </td>
-                            <td>
-                                <div class="rooms">1. 숙소</div>
-                                <div class="rooms">2. 숙소</div>
-                            </td>
-                        </tr>
-                    </table>
                 </div>
                 
             </div>
@@ -206,7 +173,7 @@
 <div id="dialog" title="알림">
     해당 노트를 내 노트에 담으시겠어요?
 </div>
-    <script src="./js/mynote.js?ver=40"></script>
+    <script src="./js/mynote.js?ver=51"></script>
     <script src="./js/script.js"></script>
     <script>
     $(function () {
@@ -218,7 +185,7 @@
         var winTop = $(window).scrollTop();
         $gnb.css({
           'position': (winTop > gnbTop-100) ? 'fixed' : 'absolute',
-          'top': (winTop > gnbTop-100) ? '100px' : ''
+          'top': (winTop > gnbTop-100) ? '300px' : ''
         });
       }
 

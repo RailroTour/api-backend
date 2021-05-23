@@ -308,7 +308,7 @@
         overflow: hidden;
     }
     .plan_route .plan_info .day_info{
-
+		margin-top: 30px;
     }
     .plan_route .plan_info .day_info .day{
         float: left;

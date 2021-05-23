@@ -47,7 +47,7 @@ $(document).ready(function(){
 							type_img = "https://image.flaticon.com/icons/png/512/235/235889.png";
 						}
 						else if (data[i].contenttypeid == 39) {
-							type_img = "https://cdn.pixabay.com/photo/2015/06/05/10/35/dishes-798316_960_720.png";
+							type_img = "http://untickle.com/image/icon_lv2_cate_17.png";
 						}
 
 
@@ -58,13 +58,21 @@ $(document).ready(function(){
 					//기차이면
 					else if (data[i].contenttypeid == 40) {
 						var type_img = "https://cdn2.iconfinder.com/data/icons/pittogrammi/142/14-512.png";
-						$(".plan_info .day_route").append(
+						$(".plan_info .day_route").eq(day-1).append(
 							'<hr class="line"><li class="route"><div class="number"><span>'+data[i].order_num+'</span></div><div class="info"><a href="#" target="_blank"><img src='+type_img+' alt=""></a><div class="title">기차</div><div class="kinds"><img src='+type_img+' alt="" class="food_tour_hash"><a href="#"><img src="./mynote_jpg/info.png" alt="" class="info"></a></div><div class="arrow"></div></div></li>'
 						);
 					}
 				}
 				else{
 					day = data[i].visit_day;
+					
+					//네비게이션 셋팅
+					$(".plan_nav>.nav_route").append(
+						'<li onclick="fnMove(' + (data[i].visit_day - 1) + ')">DAY' + data[i].visit_day + ' ' + data[i].sigungu_name + '<hr></li>'
+					);
+
+					
+					//내용 셋팅
 					$(".plan_info").append(day_info(data[i].visit_day, data[i].sigungu_name));
 					//관광지, 음식점, 숙소이면
 					if(data[i].contenttypeid == 12 || data[i].contenttypeid == 32 || data[i].contenttypeid == 39){
@@ -78,7 +86,7 @@ $(document).ready(function(){
 							type_img = "https://image.flaticon.com/icons/png/512/235/235889.png";
 						}
 						else if(data[i].contenttypeid == 39){
-							type_img = "https://cdn.pixabay.com/photo/2015/06/05/10/35/dishes-798316_960_720.png";
+							type_img = "http://untickle.com/image/icon_lv2_cate_17.png";
 						}
 						
 						
@@ -135,7 +143,7 @@ $(document).ready(function(){
             $(".plan_nav").hide();
         }
     })
-    $(window).scroll(function(event){
+/*    $(window).scroll(function(event){
         for(var i=0; i<$('.plan_route .plan_info').length; i++){
             if($('.plan_route .plan_info').eq(i).offset().top-100<=$(this).scrollTop()){
                 scroll_position=i;
@@ -143,7 +151,7 @@ $(document).ready(function(){
                 $('.nav_route li').eq(i).siblings().css('color', '#898989');
             }
         }
-    })
+    })*/
     var placeholder='메모가 없습니다.';
     $(".post").focus(function() {
         if ($(this).text() == placeholder) {
@@ -213,10 +221,10 @@ function day_info(day_num, area_name){
 
 function fnMove(seq){ //네비게이션 이동 해당 day로 바로 이동
     scroll_position=seq;
-    var offset=$('.plan_route .plan_info').eq(seq).offset();
+    var offset=$('.plan_route .plan_info>.day_info').eq(seq).offset();
     $('html, body').animate({scrollTop : offset.top}, 400);
-    $('.nav_route li').eq(seq).css('color', '#0093ff');
-    $('.nav_route li').eq(seq).siblings().css('color', '#898989');
+/*    $('.nav_route li').eq(seq).css('color', '#0093ff');
+    $('.nav_route li').eq(seq).siblings().css('color', '#898989');*/
 }
 
 function arrow_Move(seq){ //네비바 이동 위아래 이동
@@ -232,10 +240,10 @@ function arrow_Move(seq){ //네비바 이동 위아래 이동
         return;
     }
     else{
-        var offset=$('.plan_route .plan_info').eq(scroll_position).offset();
+        var offset=$('.plan_route .plan_info>.day_info').eq(scroll_position).offset();
         $('html, body').animate({scrollTop : offset.top}, 400);
-        $('.nav_route li').eq(scroll_position).css('color', '#0093ff');
-        $('.nav_route li').eq(scroll_position).siblings().css('color', '#898989');
+/*        $('.nav_route li').eq(scroll_position).css('color', '#0093ff');
+        $('.nav_route li').eq(scroll_position).siblings().css('color', '#898989');*/
     }
 }
 
