@@ -5,17 +5,19 @@
 <head>
     <meta charset="UTF-8">
     <title>내 플래너 목록</title>
+        
     <link rel="stylesheet" href="./css/commen.css">
-    <link rel="stylesheet" href="./css/note_plans.css">
+    <link rel="stylesheet" href="./css/note_plans.css?ver=8">
     <script src="https://ajax.googleapis.com/ajax/libs/jquery/3.3.1/jquery.min.js">
     </script>
-    <script src="./js/myplanner.js?ver=1"></script>
- 
- <script src="./js/script.js"></script>
+    <script src="./js/myplanner.js?ver=8"></script>
+    
+     <script src="./js/script.js"></script>
     <link rel="stylesheet" href="css/header.css">
     <link rel="stylesheet" href="css/footer.css">
     <script src="./js/header.js"></script>
     <link href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/5.13.0/css/all.min.css" rel="stylesheet">
+
 </head>
 <body>
 <%@include file="header.jsp" %>
@@ -64,7 +66,7 @@
                    
                     <div class="plans_list_rows">
                        
-                        <a href=""><ul class="list_item">
+<!--                         <a href=""><ul class="list_item">
                             <li>
                                 <img src="./note_plans_list/seoul.jpg" alt="" width="346px" height="200px">
                                 <div class="note_info">
@@ -99,7 +101,7 @@
                                     </div>
                                 </div>
                             </li>                    
-                        </ul></a>
+                        </ul></a> -->
                         
                     </div>
                     

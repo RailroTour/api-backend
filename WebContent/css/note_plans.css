@@ -241,6 +241,7 @@
 /*    로딩바*/
     #viewLoading{
         display: none;
+        text-align: center;
     }
     
 /*    상단 로고 및 메뉴*/
@@ -249,6 +250,7 @@
         max-width: 768px;
     }
     .section{
+    	
     }
     #sub-imgbanner{
         background: url(../jpg/subbg1.jpg) no-repeat #89c4e4;
@@ -259,7 +261,7 @@
         letter-spacing: -1px;
         padding-top: 4rem;
         font-family: "Nanum Gothic", sans-serif;
-        float: right;
+        text-align: right;
     }
     .sub-img-text h3{
         font-size: 1.5rem;
