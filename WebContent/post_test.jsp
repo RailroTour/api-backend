@@ -41,27 +41,8 @@ function fn_submit(){
 <fieldset>
      <legend>파일 업로드</legend>
      <table>
-     <form action="/api-backend/api/user" method="post" enctype="multipart/form-data">
-          <tr>
-              <td>username : </td>
-              <td><input type="text" name="username"/></td>
-          </tr>
-          <tr>
-              <td>password : </td>
-              <td><input type="text" name="password"/></td>
-          </tr>
-           <tr>
-              <td>name : </td>
-              <td><input type="text" name="name"/></td>
-          </tr>
-           <tr>
-              <td>nickname : </td>
-              <td><input type="text" name="nickname"/></td>
-          </tr>
-          <tr>
-              <td>email: </td>
-              <td><input type="text" name="email"/></td>
-          </tr>
+     <form action="/api-backend/api/user/put" method="post" enctype="multipart/form-data">
+        
           <tr>
               <td>파일이미 : </td>
               <td><input type="file" value="파일 선택" name="profile_img"/></td>
