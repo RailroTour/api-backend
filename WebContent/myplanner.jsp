@@ -10,7 +10,7 @@
     <link rel="stylesheet" href="./css/note_plans.css?ver=8">
     <script src="https://ajax.googleapis.com/ajax/libs/jquery/3.3.1/jquery.min.js">
     </script>
-    <script src="./js/myplanner.js?ver=8"></script>
+    <script src="./js/myplanner.js?ver=12"></script>
     
      <script src="./js/script.js"></script>
     <link rel="stylesheet" href="css/header.css">

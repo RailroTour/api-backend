@@ -32,16 +32,34 @@ $(document).ready(function(){
 	
 	$(document).on('click', ".btn>.revise", function(e){
 		e.preventDefault();
-		alert(11);
+		var planner_id = $(this).parent().parent().parent().parent().parent().data('planner_id');
+		window.open('./planner3.jsp?id='+planner_id, "_blank");
 	})
 	
 	$(document).on('click', ".btn>.remove", function(e){
 		e.preventDefault();
 		var check = confirm('삭제하시겠습니까?');
-		
+		var planner_id = $(this).parent().parent().parent().parent().parent().data('planner_id');
+		if(check == true){
+			$.ajax({
+				url: './api/planner/delete', //request 보낼 서버의 경로
+				type: 'post', // 메소드(get, post, put 등)
+				data:{
+					id:planner_id
+				},
+				success: function(data) {
+					console.log("플래너 삭제:" + JSON.stringify(data));
+					location.reload();
+				},
+				error: function(request, status, error) {
+					//서버로부터 응답이 정상적으로 처리되지 못햇을 때 실행
+					console.log("code:" + request.status + "\n" + "message:" + request.responseText + "\n" + "error:" + error);
+				}
+			});
+		}
 	})
 })
 
 function planner_elements(planner_id, img_path, start_day, days, title, tema_name, view, trip_course, nickname){
-	return '<a href=./planner.jsp?planner_id='+planner_id+' data-planner_id='+planner_id+'><ul class="list_item"><li><img src='+img_path+' alt="" width="346px" height="200px"><div class="note_info"><h1>'+start_day+' ('+days+'일)</h1><h1>'+title+'</h1></div></li><li><div class="like"><span class="tema">'+tema_name+'여행</span><span>500</span><img src="./note_plans_list_jpg/eye.png" alt="" width="20px"><span>'+view+'</span><img src="./note_plans_list_jpg/foot.png" alt="" width="20px"></div><div class="route">'+trip_course+'</div><div class="person"><img src="./note_plans_list_jpg/user.png" alt="" width="20px"><span>&nbsp;'+nickname+'</span><div class="btn"><span class="revise">수정</span><span style="color: black"> | </span><span class="remove">삭제</span></div></div></li></ul></a>'
+	return '<a href=./planner.jsp?planner_id='+planner_id+' data-planner_id='+planner_id+'><ul class="list_item"><li><img src='+img_path+' alt="" width="346px" height="200px"><div class="note_info"><h1>'+start_day+' ('+days+'일)</h1><h1>'+title+'</h1></div></li><li><div class="like"><span class="tema">'+tema_name+'여행</span><span>'+view+'</span><img src="./note_plans_list_jpg/eye.png" alt="" width="20px"><span>'+view+'</span><img src="./note_plans_list_jpg/foot.png" alt="" width="20px"></div><div class="route">'+trip_course+'</div><div class="person"><img src="./note_plans_list_jpg/user.png" alt="" width="20px"><span>&nbsp;'+nickname+'</span><div class="btn"><span class="revise">수정</span><span style="color: black"> | </span><span class="remove">삭제</span></div></div></li></ul></a>'
 }
