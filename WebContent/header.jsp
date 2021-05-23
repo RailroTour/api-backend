@@ -50,8 +50,8 @@
                     </div>
                     
                     <div class="snsicon"> <!-- 상단아이콘 -->
-                        <a href="https://cafe.naver.com/hkct" class="sns2" target="_black">카페</a>
-                        <a href="https://www.letskorail.com/" class="sns3" target="_black">코레일</a>
+                        <a href="https://www.letskorail.com/" class="sns2" target="_black">카페</a>
+                        <a href="https://cafe.naver.com/hkct" class="sns3" target="_black">코레일</a>
                     </div>
                 </div>
             </section>

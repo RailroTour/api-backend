@@ -9,6 +9,7 @@
     <link rel="stylesheet" href="./css/note_plans.css">
     <script src="https://ajax.googleapis.com/ajax/libs/jquery/3.3.1/jquery.min.js">
     </script>
+    <script src="./js/myplanner.js?ver=1"></script>
  
  <script src="./js/script.js"></script>
     <link rel="stylesheet" href="css/header.css">
@@ -40,18 +41,16 @@
                     <div class="listmenu">
                         <button>플래너</button>
                         <ul class="listbox">
-                            <li><a href="#">내일로 소개</a></li>
+                            <li><a href="./railro_intro.jsp">내일로 소개</a></li>
                             <li><a href="#">TOP 100</a></li>
-                            <li><a href="#">플래너</a></li>
-                            <li><a href="#">내 주변</a></li>
-                            <li><a href="sub02.html">고객센터</a></li>
+                            <li><a href="./search_integrated.jsp">검색</a></li>
+                            <li><a href="sub02.html">커뮤니티</a></li>
                         </ul>
                     </div>
                     <div class="listmenu">
                          <button>내 플래너 목록</button>
                         <ul class="listbox">
-                            <li><a href="#">새 플래너 작성</a></li>
-                            <li><a href="#">플래너 목록</a></li>
+                            <li><a href="./planner1.jsp">새 플래너 작성</a></li>
                         </ul>
                     </div>
                 </div>
@@ -101,78 +100,7 @@
                                 </div>
                             </li>                    
                         </ul></a>
-                        <a href=""><ul class="list_item">
-                            <li>
-                                <img src="./note_plans_list/seoul.jpg" alt="" width="346px" height="200px">
-                                <div class="note_info">
-                                    <h1>2018-07-23 (7일)</h1>
-                                    <h1>수기수기한 여행</h1>
-                                </div>
-                            </li>
-                            <li>
-                                <div class="like">
-                                 <span class="tema">
-                                     체험여행
-                                 </span>
-                                  <span>
-                                      500
-                                  </span>
-                                   <img src="./note_plans_list_jpg/eye.png" alt="" width="20px">
-                                    <span>
-                                        11
-                                    </span>
-                                    <img src="./note_plans_list_jpg/foot.png" alt="" width="20px">
-                                </div>
-                                <div class="route">
-                                    여수-전주-담양-고창-순창-보성-전주-담양-고창-순창-보성
-                                </div>
-                                <div class="person">
-                                    <img src="./note_plans_list_jpg/user.png" alt="" width="20px">
-                                    <span>사공수기</span>
-                                    <div class="btn">
-                                        <span class="revise">수정</span>
-                                        <span style="color: black">|</span>
-                                        <span class="remove">삭제</span>
-                                    </div>
-                                </div>
-                            </li>                    
-                        </ul></a>
-                        <a href=""><ul class="list_item">
-                            <li>
-                                <img src="./note_plans_list/seoul.jpg" alt="" width="346px" height="200px">
-                                <div class="note_info">
-                                    <h1>2018-07-23 (7일)</h1>
-                                    <h1>수기수기한 여행</h1>
-                                </div>
-                            </li>
-                            <li>
-                                <div class="like">
-                                 <span class="tema">
-                                     체험여행
-                                 </span>
-                                  <span>
-                                      500
-                                  </span>
-                                   <img src="./note_plans_list_jpg/eye.png" alt="" width="20px">
-                                    <span>
-                                        11
-                                    </span>
-                                    <img src="./note_plans_list_jpg/foot.png" alt="" width="20px">
-                                </div>
-                                <div class="route">
-                                    여수-전주-담양-고창-순창-보성-전주-담양-고창-순창-보성
-                                </div>
-                                <div class="person">
-                                    <img src="./note_plans_list_jpg/user.png" alt="" width="20px">
-                                    <span>사공수기</span>
-                                    <div class="btn">
-                                        <span class="revise">수정</span>
-                                        <span style="color: black">|</span>
-                                        <span class="remove">삭제</span>
-                                    </div>
-                                </div>
-                            </li>                    
-                        </ul></a>
+                        
                     </div>
                     
                     <div id="viewLoading">
@@ -184,7 +112,7 @@
         
     </div>
     <%@include file="footer.jsp" %>
-    <script src="./js/script.js"></script>
+
     <script>
 //        $(document).ready(function () {
 //            // $.ajax() 메서드를 이용한다.
