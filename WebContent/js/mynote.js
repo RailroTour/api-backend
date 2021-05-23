@@ -1,6 +1,6 @@
 var scroll_position=0;
 $(document).ready(function(){
-	$.ajax({
+	$.ajax({ //상단 정보 셋팅
 		url: './api/plannerinfo/get', //request 보낼 서버의 경로
 		type: 'get', // 메소드(get, post, put 등)
 		data: {
@@ -16,6 +16,85 @@ $(document).ready(function(){
 			$(".note_date>.date").text(data.start_day+'~'+date.getDate()+'('+data.days+'일)');
 			$(".tema").text(data.name+'여행');
 			$(".rectangle>.view").text(data.view);
+		},
+		error: function(request, status, error) {
+			//서버로부터 응답이 정상적으로 처리되지 못햇을 때 실행
+			console.log("code:" + request.status + "\n" + "message:" + request.responseText + "\n" + "error:" + error);
+		}
+	});
+	
+	$.ajax({ //바디 내용 셋팅
+		url: './api/tripcourse/get', //request 보낼 서버의 경로
+		type: 'get', // 메소드(get, post, put 등)
+		data: {
+			planner_id: $.urlParam('planner_id')
+		},
+		success: function(data) {
+			console.log("플래너2~3 정보:" + JSON.stringify(data));
+			var day = 0;
+			
+			for(var i=0; i<data.length; i++){
+				if(data[i].visit_day == day){
+					//관광지, 음식점, 숙소이면
+					if (data[i].contenttypeid == 12 || data[i].contenttypeid == 32 || data[i].contenttypeid == 39) {
+						var search_data = get_api(data[i].contentid, data[i].contenttypeid);
+						console.log("검색 데이터 : " + JSON.stringify(search_data));
+						var type_img;
+						if (data[i].contenttypeid == 12) {
+							type_img = "https://encrypted-tbn0.gstatic.com/images?q=tbn:ANd9GcSlZcXrIbUyq05noEo3hlz_3NOj2DOm0A3dO0aFqt9tTYOX2JqETrkKc8guTk2OcRg2AVw&usqp=CAU";
+						}
+						else if (data[i].contenttypeid == 32) {
+							type_img = "https://image.flaticon.com/icons/png/512/235/235889.png";
+						}
+						else if (data[i].contenttypeid == 39) {
+							type_img = "https://cdn.pixabay.com/photo/2015/06/05/10/35/dishes-798316_960_720.png";
+						}
+
+
+						$(".plan_info .day_route").eq(day-1).append(
+							'<hr class="line"><li class="route"><div class="number"><span>'+data[i].order_num+'</span></div><div class="info"><a href=./detail_info.jsp?contenttypeid='+search_data.contenttypeid+'&contentid='+search_data.contentid+' target="_blank"><img src='+search_data.firstimage2+' alt=""></a><div class="title">'+search_data.title+'</div><div class="kinds"><img src='+type_img+' alt="" class="food_tour_hash"><a href=./detail_info.jsp?contenttypeid='+search_data.contenttypeid+'&contentid='+search_data.contentid+' target="_blank"><img src="./mynote_jpg/info.png" alt="" class="info"></a></div><div class="arrow"></div></div></li>'
+						);
+					}
+					//기차이면
+					else if (data[i].contenttypeid == 40) {
+						var type_img = "https://cdn2.iconfinder.com/data/icons/pittogrammi/142/14-512.png";
+						$(".plan_info .day_route").append(
+							'<hr class="line"><li class="route"><div class="number"><span>'+data[i].order_num+'</span></div><div class="info"><a href="#" target="_blank"><img src='+type_img+' alt=""></a><div class="title">기차</div><div class="kinds"><img src='+type_img+' alt="" class="food_tour_hash"><a href="#"><img src="./mynote_jpg/info.png" alt="" class="info"></a></div><div class="arrow"></div></div></li>'
+						);
+					}
+				}
+				else{
+					day = data[i].visit_day;
+					$(".plan_info").append(day_info(data[i].visit_day, data[i].sigungu_name));
+					//관광지, 음식점, 숙소이면
+					if(data[i].contenttypeid == 12 || data[i].contenttypeid == 32 || data[i].contenttypeid == 39){
+						var search_data = get_api(data[i].contentid, data[i].contenttypeid);
+						console.log("검색 데이터 : "+JSON.stringify(search_data));
+						var type_img;
+						if(data[i].contenttypeid == 12){
+							type_img = "https://encrypted-tbn0.gstatic.com/images?q=tbn:ANd9GcSlZcXrIbUyq05noEo3hlz_3NOj2DOm0A3dO0aFqt9tTYOX2JqETrkKc8guTk2OcRg2AVw&usqp=CAU";
+						}
+						else if(data[i].contenttypeid == 32){
+							type_img = "https://image.flaticon.com/icons/png/512/235/235889.png";
+						}
+						else if(data[i].contenttypeid == 39){
+							type_img = "https://cdn.pixabay.com/photo/2015/06/05/10/35/dishes-798316_960_720.png";
+						}
+						
+						
+						$(".plan_info").append(
+							'<ul class="day_route"><li class="route"><div class="number"><span>'+data[i].order_num+'</span></div><div class="info"><a href=./detail_info.jsp?contenttypeid='+search_data.contenttypeid+'&contentid='+search_data.contentid+' target="_blank"><img src='+search_data.firstimage2+' alt=""></a><div class="title">'+search_data.title+'</div><div class="kinds"><img src='+type_img+' alt="" class="food_tour_hash"><a href=./detail_info.jsp?contenttypeid='+search_data.contenttypeid+'&contentid='+search_data.contentid+' target="_blank"><img src="./mynote_jpg/info.png" alt="" class="info"></a></div><div class="arrow"></div></div></li></ul>'
+						);
+					}
+					//기차이면
+					else if(data[i].contenttypeid == 40){ 
+						var type_img = "https://cdn2.iconfinder.com/data/icons/pittogrammi/142/14-512.png";
+						$(".plan_info").append(
+							'<ul class="day_route"><li class="route"><div class="number"><span>'+data[i].order_num+'</span></div><div class="info"><a href="#"><img src='+search_data.firstimage2+' alt=""></a><div class="title">기차</div><div class="kinds"><img src='+type_img+' alt="" class="food_tour_hash"><a href="#"><img src="./mynote_jpg/info.png" alt="" class="info"></a></div><div class="arrow"></div></div></li></ul>'
+						);
+					}
+				}
+			}
 		},
 		error: function(request, status, error) {
 			//서버로부터 응답이 정상적으로 처리되지 못햇을 때 실행
@@ -92,6 +171,45 @@ $(document).ready(function(){
     
 });
 
+
+
+
+function get_api(content_id, content_type_id){
+	var search_data;
+	
+	$.ajax({
+		url: 'http://api.visitkorea.or.kr/openapi/service/rest/KorService/detailCommon',
+		type: 'get',
+		async: false,
+		data: {
+			pageNo: 1,
+			numOfRows: 10,
+			MobileOS: 'ETC',
+			MobileApp: 'railro',
+			serviceKey: "JXL40bCK2WGOu/E1WOGjuALpADt64Wb2mQVwNpxiA0bre/V8GozZggM2O01/PaTTyNm0A2JahebDf/PGwW8jbg==",
+			_type: 'json',
+			contentId: content_id,
+			contentTypeId: content_type_id,
+			defaultYN: 'Y',
+			firstImageYN: 'Y',
+			mapinfoYN: 'Y',
+		},
+		success: function(response_data) {
+			//console.log('관광공사 정보 조회 : ' + JSON.stringify(response_data));
+			search_data = response_data.response.body.items.item;
+		},
+		error: function(request, status, error) {
+			//서버로부터 응답이 정상적으로 처리되지 못햇을 때 실행
+			console.log("code:" + request.status + "\n" + "message:" + request.responseText + "\n" + "error:" + error);
+		}
+	});
+	
+	return search_data;
+}
+
+function day_info(day_num, area_name){
+	return '<ul class="day_info"><li class="day">DAY'+day_num+'</li><li class="date_info"><span class="date"> </span><span class="area">'+area_name+'</span></li></ul>'
+}
 
 function fnMove(seq){ //네비게이션 이동 해당 day로 바로 이동
     scroll_position=seq;

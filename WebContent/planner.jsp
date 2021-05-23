@@ -7,11 +7,11 @@
     <title>플래너</title>
     <link rel="stylesheet" href="./css/commen.css">
     <link rel="stylesheet" href="./css/mynote.css?ver=1">
-    <script src="https://ajax.googleapis.com/ajax/libs/jquery/3.3.1/jquery.min.js">
+<script src="https://ajax.googleapis.com/ajax/libs/jquery/3.4.1/jquery.min.js"></script>
     </script>
     
       <link rel="stylesheet" href="http://code.jquery.com/ui/1.10.2/themes/smoothness/jquery-ui.css">
-    <script src="http://code.jquery.com/jquery-1.9.1.min.js"></script>
+    
     <script src="http://code.jquery.com/ui/1.10.2/jquery-ui.js"></script>
 
 
@@ -113,13 +113,14 @@
                     </ul>
                     
                     <div class="plan_info">
-                        <ul class="day_info">
+<!--                          <ul class="day_info">
                             <li class="day">DAY1</li>
                             <li class="date_info">
                                 <span class="date">2018-07-22</span>
                                 <span class="area">전주</span>
                             </li>
                         </ul>
+                        
                         <ul class="day_route">
                             <li class="route">
                                 <div class="number">
@@ -137,10 +138,10 @@
                                         <a href=""><img src="./mynote_jpg/info.png" alt="" class="info"></a>
                                     </div>
                                     <div class="arrow"></div>
-                                    <!-- <div contenteditable="true" class="post">메모가 없습니다.</div> -->
+                                    <div contenteditable="true" class="post">메모가 없습니다.</div>
                                 </div>
                             </li>
-                            <hr class="line">
+                             <hr class="line">
                             <li class="route">
                                 <div class="number">
                                     <span>2</span>
@@ -157,10 +158,10 @@
                                         <a href=""><img src="./mynote_jpg/info.png" alt="" class="info"></a>
                                     </div>
                                     <div class="arrow"></div>
-                                    <!-- <div contenteditable="true" class="post">메모가 없습니다.</div> -->
+                                    <div contenteditable="true" class="post">메모가 없습니다.</div>
                                 </div>
                             </li>
-                        </ul>
+                        </ul> -->
                     </div>
                     <table>
                         <tr>
@@ -205,7 +206,7 @@
 <div id="dialog" title="알림">
     해당 노트를 내 노트에 담으시겠어요?
 </div>
-    <script src="./js/mynote.js?ver=5"></script>
+    <script src="./js/mynote.js?ver=40"></script>
     <script src="./js/script.js"></script>
     <script>
     $(function () {
