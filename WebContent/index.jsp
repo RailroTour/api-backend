@@ -212,8 +212,8 @@
                            		<span class="time">실시간</span>
                             	<span>&nbsp;여행기</span>
                             	<a href="#">
-                                	<img src="jpg/reset.png" alt="" class="reset">
-                                	<span class="resettext">&nbsp;새로고침</span>
+<!--                                 	<img src="jpg/reset.png" alt="" class="reset">
+                                	<span class="resettext">&nbsp;새로고침</span> -->
                             	</a>
                             	<span class="line"></span>
                            </div>
@@ -231,12 +231,12 @@
                                        <span class="traveler">
                                            &nbsp;권재인
                                        </span>
-                                       <div class="stamp_comment_cnt">
+<!--                                        <div class="stamp_comment_cnt">
                                        	<input type="text" value="50" readonly>
                                        	<a href="">
                                        	<img src="jpg/stamp.png" alt="">
                                        	</a>
-                                       </div>
+                                       </div> -->
                                    </span>
                                 </div>
                             </div>
@@ -253,11 +253,11 @@
                                        <span class="traveler">
                                            &nbsp;권재인
                                        </span>
-                                       <div class="stamp_comment_cnt">
+<!--                                        <div class="stamp_comment_cnt">
                                        	<input type="text" value="50" readonly>
                                        	<a href="">
                                        	<img src="jpg/stamp.png" alt="">
-                                       	</a>
+                                       	</a> -->
                                        </div>
                                    </span>
                                 </div>
@@ -365,9 +365,6 @@
                                    <span class="round bu1 click1" onclick="plannerbtn(1)"></span>
                                    <span class="round bu2 click2" onclick="plannerbtn(2)"></span>
                                </li>
-                               <li class="bottom_title">
-                                   <div class="tag">#개춥다 #케이블카 #겨울바다</div>
-                               </li>
                            </ul>
                            <ul class="planner_view">
                                <li class="title">
@@ -452,9 +449,6 @@
                                <li class="round_cover">
                                    <span class="round bu1 click3" onclick="plannerbtn(3)"></span>
                                    <span class="round bu2 click4" onclick="plannerbtn(4)"></span>
-                               </li>
-                               <li class="bottom_title">
-                                   <div class="tag">#개춥다 #케이블카 #겨울바다</div>
                                </li>
                            </ul>
                            <ul class="planner_view">
@@ -541,9 +535,6 @@
                                    <span class="round bu1 click5" onclick="plannerbtn(5)"></span>
                                    <span class="round bu2 click6" onclick="plannerbtn(6)"></span>
                                </li>
-                               <li class="bottom_title">
-                                   <div class="tag">#개춥다 #케이블카 #겨울바다</div>
-                               </li>
                            </ul>
                            <ul class="planner_view">
                                <li class="title">
@@ -629,17 +620,14 @@
                                    <span class="round bu1 click7" onclick="plannerbtn(7)"></span>
                                    <span class="round bu2 click8" onclick="plannerbtn(8)"></span>
                                </li>
-                               <li class="bottom_title">
-                                   <div class="tag">#개춥다 #케이블카 #겨울바다</div>
-                               </li>
                            </ul>
                        </div>
                        
-                    <div class="view">
+<!--                     <div class="view">
                        <a href="#">
                         View More
                         </a>
-                    </div>
+                    </div> -->
                 </div>
 
             </section>
