@@ -1,5 +1,29 @@
 var scroll_position=0;
 $(document).ready(function(){
+	$.ajax({
+		url: './api/plannerinfo/get', //request 보낼 서버의 경로
+		type: 'get', // 메소드(get, post, put 등)
+		data: {
+			planner_id: $.urlParam('planner_id')
+		},
+		success: function(data) {
+			console.log("플래너1 정보:" + JSON.stringify(data));
+			
+			$(".user>.user_name").text(data.nickname);
+			$(".title>div").text(data.title);
+			var date = new Date(data.start_day);
+			date.setDate(date.getDate()+data.days-1);
+			$(".note_date>.date").text(data.start_day+'~'+date.getDate()+'('+data.days+'일)');
+			$(".tema").text(data.name+'여행');
+			$(".rectangle>.view").text(data.view);
+		},
+		error: function(request, status, error) {
+			//서버로부터 응답이 정상적으로 처리되지 못햇을 때 실행
+			console.log("code:" + request.status + "\n" + "message:" + request.responseText + "\n" + "error:" + error);
+		}
+	});
+	
+	
     $('.select .view1').on('click', function(){
         $('.plan_route table').hide();
         $('.plan_route .plan_info').show();
@@ -23,7 +47,7 @@ $(document).ready(function(){
         $('.view1').css('color', 'black');
         $(this).css('color', '#006cff');
         
-                //PC이면
+        //PC이면
         if($(window).width()>768){
             $(".plan_nav").show();
         }
@@ -96,3 +120,10 @@ function arrow_Move(seq){ //네비바 이동 위아래 이동
         $('.nav_route li').eq(scroll_position).siblings().css('color', '#898989');
     }
 }
+
+
+$.urlParam = function(name){
+    var results = new RegExp('[\?&amp;]' + name + '=([^&amp;#]*)').exec(window.location.href);
+    return results[1] || 0;
+}
+ 

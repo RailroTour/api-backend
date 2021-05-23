@@ -5,10 +5,8 @@
 <head>
     <meta charset="UTF-8">
     <title>플래너</title>
-
-
     <link rel="stylesheet" href="./css/commen.css">
-    <link rel="stylesheet" href="./css/mynote.css">
+    <link rel="stylesheet" href="./css/mynote.css?ver=1">
     <script src="https://ajax.googleapis.com/ajax/libs/jquery/3.3.1/jquery.min.js">
     </script>
     
@@ -17,11 +15,11 @@
     <script src="http://code.jquery.com/ui/1.10.2/jquery-ui.js"></script>
 
 
-     <script src="./js/script.js"></script>
-    <link rel="stylesheet" href="css/header.css?ver=1">
+    <link rel="stylesheet" href="css/header.css">
     <link rel="stylesheet" href="css/footer.css">
-    <script src="./js/header.js"></script>
+    <script src="./js/header.js?ver=2"></script>
     <link href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/5.13.0/css/all.min.css" rel="stylesheet">
+    
 </head>
 <body>
 <%@include file="header.jsp" %>
@@ -58,9 +56,9 @@
                         <li class="add_info">
                             <div class="rectangle">
                                 <img src="./mynote_jpg/foot.png" alt="">
-                                <span>55</span>
+                                <span><!-- 좋아요 수 --></span>
                                 <img src="./mynote_jpg/view.png" alt="" class="view">
-                                <span>888</span>
+                                <span class="view"> <!-- 조회수 --></span>
                             </div>
                         </li>
                     </ul>
@@ -69,7 +67,7 @@
             <div id="sub-con-navi">
                 <div class="section">
                     <div class="homebtn">
-                        <a href="../index.html">
+                        <a href="./index.jsp">
                             <img src="./jpg/home.jpg" alt="">
                         </a>
                     </div>
@@ -78,9 +76,8 @@
                         <ul class="listbox">
                             <li><a href="#">내일로 소개</a></li>
                             <li><a href="#">TOP 100</a></li>
-                            <li><a href="#">플래너</a></li>
-                            <li><a href="#">내 주변</a></li>
-                            <li><a href="sub02.html">고객센터</a></li>
+                            <li><a href="#">검색</a></li>
+                            <li><a href="sub02.html">커뮤니티</a></li>
                         </ul>
                     </div>
                     <div class="listmenu">
@@ -140,7 +137,7 @@
                                         <a href=""><img src="./mynote_jpg/info.png" alt="" class="info"></a>
                                     </div>
                                     <div class="arrow"></div>
-                                    <div contenteditable="true" class="post">메모가 없습니다.</div>
+                                    <!-- <div contenteditable="true" class="post">메모가 없습니다.</div> -->
                                 </div>
                             </li>
                             <hr class="line">
@@ -160,7 +157,7 @@
                                         <a href=""><img src="./mynote_jpg/info.png" alt="" class="info"></a>
                                     </div>
                                     <div class="arrow"></div>
-                                    <div contenteditable="true" class="post">메모가 없습니다.</div>
+                                    <!-- <div contenteditable="true" class="post">메모가 없습니다.</div> -->
                                 </div>
                             </li>
                         </ul>
@@ -171,6 +168,7 @@
                             <th>지역</th>
                             <th>음식점</th>
                             <th>관광지</th>
+                            <th>숙소</th>
                         </tr>
                         <tr>
                             <td>DAY1</td>
@@ -181,15 +179,19 @@
                                 <div class="areaname">전주</div>
                             </td>
                             <td>
-                                <div class="food">1. 음식점</div>
+                                <div class="food">1. 음식점121212121</div>
                                 <div class="food">2. 음식점</div>
                                 <div class="food">3. 음식점</div>
                                 <div class="food">4. 음식점</div>
                                 <div class="food">5. 음식점</div>
                             </td>
                             <td>
-                                <div class="tour">1. 관광지</div>
+                                <div class="tour">1. 관광지ㄹㄴㅇㄹㅇㄴㄹㄴㅇ</div>
                                 <div class="tour">2. 관광지</div>
+                            </td>
+                            <td>
+                                <div class="rooms">1. 숙소</div>
+                                <div class="rooms">2. 숙소</div>
                             </td>
                         </tr>
                     </table>
@@ -200,11 +202,10 @@
         
     </div>
  <%@include file="footer.jsp" %>   
-    
 <div id="dialog" title="알림">
     해당 노트를 내 노트에 담으시겠어요?
 </div>
-    <script src="./js/mynote.js"></script>
+    <script src="./js/mynote.js?ver=5"></script>
     <script src="./js/script.js"></script>
     <script>
     $(function () {
