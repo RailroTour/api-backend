@@ -29,7 +29,7 @@
                 <div class="note_info">
                     <ul class="note_info_center">
                         <div class="top">
-                            <li class="add_mynote"><img src="./mynote_jpg/add.png" alt=""></li>
+                             <li class="add_mynote"><img src="./mynote_jpg/add.png" alt=""></li>
                             <li class="like"><img src="./mynote_jpg/footprint.png" alt=""></li>
                         </div>
                         <li class="user">
