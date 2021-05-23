@@ -7,6 +7,6 @@
 <title>Insert title here</title>
 </head>
 <body>
-<img src="Upload/고냥쓰.jpeg">
+<img src="backend.png">
 </body>
 </html>

@@ -22,6 +22,7 @@ public class UserGetAction implements Action{
 		try {
 			if(email == null) {
 				response.sendError(400, "login required");
+
 				return;
 			}
 		} catch (IOException e) {

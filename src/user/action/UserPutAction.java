@@ -16,7 +16,7 @@ public class UserPutAction implements Action{
 
 	@Override
 	public void execute(HttpServletRequest request, HttpServletResponse response) {
-		String id = request.getParameter("id");
+		
 		String username = request.getParameter("username");
 		String password = request.getParameter("password");
 		String name = request.getParameter("name");
@@ -25,11 +25,7 @@ public class UserPutAction implements Action{
 		String profile_img = (String)request.getAttribute("profile_img");
 
 		try {
-			if(id == null) {
-				response.sendError(400, "id required");
-				return;
-			}
-			else if(username == null) {
+			if(username == null) {
 				response.sendError(400, "username required");
 				return;
 			}
