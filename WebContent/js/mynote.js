@@ -33,7 +33,12 @@ $(document).ready(function(){
 			$(".note_date>.date").text(data.start_day+'~'+date.getDate()+'('+data.days+'일)');
 			$(".tema").text(data.name+'여행');
 			$(".rectangle>.view").text(data.view);
-			$("#note_img").css({'background':'url('+data.img_path+')'});
+			$("#note_img").css({
+				'background':'url('+data.img_path+')',
+				'background-repeat':'no-repeat',
+				'background-size':'cover',
+				'background-position':'center center'
+			});
 		},
 		error: function(request, status, error) {
 			//서버로부터 응답이 정상적으로 처리되지 못햇을 때 실행

@@ -35,7 +35,7 @@
                                </form>
                                	<label for="img" class="img_change">커버사진 바꾸기</label>
                            </li>
-                             <li class="add_mynote"><img src="./mynote_jpg/add.png" alt=""></li>
+                             <!-- <li class="add_mynote"><img src="./mynote_jpg/add.png" alt=""></li> -->
                             <li class="like"><img src="./mynote_jpg/footprint.png" alt=""></li>
                         </div>
                         <li class="user">
@@ -179,7 +179,7 @@
 <div id="dialog" title="알림">
     해당 노트를 내 노트에 담으시겠어요?
 </div>
-    <script src="./js/mynote.js?ver=56"></script>
+    <script src="./js/mynote.js?ver=59"></script>
     <script src="./js/script.js"></script>
     <script>
     $(function () {
