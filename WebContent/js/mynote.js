@@ -1,5 +1,22 @@
 var scroll_position=0;
 $(document).ready(function(){
+	$.ajax({ //플래너 인증 (내꺼인지 아닌지)
+		url: './api/planneroauth/get', //request 보낼 서버의 경로
+		type: 'get', // 메소드(get, post, put 등)
+		data: {
+			planner_id: $.urlParam('planner_id')
+		},
+		success: function(data) {
+			console.log("플래너 인증 정보:" + JSON.stringify(data));
+			if(data == 0){ //내께 아니면
+				$(".cover_img").remove();
+			}
+		},
+		error: function(request, status, error) {
+			//서버로부터 응답이 정상적으로 처리되지 못햇을 때 실행
+			console.log("code:" + request.status + "\n" + "message:" + request.responseText + "\n" + "error:" + error);
+		}
+	});
 	$.ajax({ //상단 정보 셋팅
 		url: './api/plannerinfo/get', //request 보낼 서버의 경로
 		type: 'get', // 메소드(get, post, put 등)
@@ -110,6 +127,35 @@ $(document).ready(function(){
 		}
 	});
 	
+	
+	
+	$(".cover_img>#img").on('change', function(){
+		var frm = document.getElementById('createNewsAndEventsForm'); 
+		frm.method = 'POST'; 
+		frm.enctype = 'multipart/form-data'; 
+		var fileData = new FormData(frm);
+		
+		$.ajax({
+			type: 'post',
+			enctype: 'multipart/form-data',
+			cache: false,
+			url: '',
+			data: fileData,
+			async: false,
+			contentType: false,
+			processData: false,
+			dataType: 'json',
+			success: function(msg){
+				$("#createNewsAndEventsForm")[0].reset();
+			},
+			error: function(request, status, error) {
+				//서버로부터 응답이 정상적으로 처리되지 못햇을 때 실행
+				console.log("code:" + request.status + "\n" + "message:" + request.responseText + "\n" + "error:" + error);
+			}
+			
+		})
+
+	})
 	
     $('.select .view1').on('click', function(){
         $('.plan_route table').hide();

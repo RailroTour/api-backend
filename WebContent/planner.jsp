@@ -29,6 +29,12 @@
                 <div class="note_info">
                     <ul class="note_info_center">
                         <div class="top">
+                                 <li class="cover_img">
+                                 <form id="createNewsAndEventsForm" method="post" enctype="multipart/form-data" >
+                               <input type="file" id="img" accept="image/*" name="save" hidden>
+                               </form>
+                               	<label for="img" class="img_change">커버사진 바꾸기</label>
+                           </li>
                              <li class="add_mynote"><img src="./mynote_jpg/add.png" alt=""></li>
                             <li class="like"><img src="./mynote_jpg/footprint.png" alt=""></li>
                         </div>
