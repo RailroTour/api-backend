@@ -82,8 +82,11 @@ $(document).ready(function(){
 					//기차이면
 					else if (data[i].contenttypeid == 40) {
 						var type_img = "https://cdn2.iconfinder.com/data/icons/pittogrammi/142/14-512.png";
+						
+					
+						
 						$(".plan_info .day_route").eq(day-1).append(
-							'<hr class="line"><li class="route"><div class="number"><span>'+data[i].order_num+'</span></div><div class="info"><a href="#" target="_blank"><img src='+type_img+' alt=""></a><div class="title">기차</div><div class="kinds"><img src='+type_img+' alt="" class="food_tour_hash"><a href="#"><img src="./mynote_jpg/info.png" alt="" class="info"></a></div><div class="arrow"></div></div></li>'
+							'<hr class="line"><li class="route"><div class="number"><span>'+data[i].order_num+'</span></div><div class="info"><a href="#" target="_blank"><img src='+type_img+' alt=""></a><div class="title">기차</div><div class="kinds"><img src='+type_img+' alt="" class="food_tour_hash"><a href="#none" onclick=popup()><img src="./mynote_jpg/info.png" alt="" class="info"></a></div><div class="arrow"></div></div></li>'
 						);
 					}
 				}
@@ -128,7 +131,7 @@ $(document).ready(function(){
 					else if(data[i].contenttypeid == 40){ 
 						var type_img = "https://cdn2.iconfinder.com/data/icons/pittogrammi/142/14-512.png";
 						$(".plan_info").append(
-							'<ul class="day_route"><li class="route"><div class="number"><span>'+data[i].order_num+'</span></div><div class="info"><a href="#"><img src='+type_img+' alt=""></a><div class="title">기차</div><div class="kinds"><img src='+type_img+' alt="" class="food_tour_hash"><a href="#"><img src="./mynote_jpg/info.png" alt="" class="info"></a></div><div class="arrow"></div></div></li></ul>'
+							'<ul class="day_route"><li class="route"><div class="number"><span>'+data[i].order_num+'</span></div><div class="info"><a href="#"><img src='+type_img+' alt=""></a><div class="title">기차</div><div class="kinds"><img src='+type_img+' alt="" class="food_tour_hash"><a href="#none" onclick=popup()><img src="./mynote_jpg/info.png" alt="" class="info"></a></div><div class="arrow"></div></div></li></ul>'
 						);
 					}
 				}
@@ -312,4 +315,13 @@ $.urlParam = function(name){
     var results = new RegExp('[\?&amp;]' + name + '=([^&amp;#]*)').exec(window.location.href);
     return results[1] || 0;
 }
- 
+
+ function popup(){
+	 var popupX = (window.screen.width / 2) - (640 / 2);
+	 // 만들 팝업창 좌우 크기의 1/2 만큼 보정값으로 빼주었음
+
+	 var popupY = (window.screen.height / 2) - (360 / 2);
+    	// 만들 팝업창 상하 크기의 1/2 만큼 보정값으로 빼주었음
+	window.open("./index.jsp", '_blank', 'width=600, height=600, toolbars=no, scrollbars=no, left='+popupX+', top='+popupY);
+	return false;
+}

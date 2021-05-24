@@ -179,7 +179,7 @@
 <div id="dialog" title="알림">
     해당 노트를 내 노트에 담으시겠어요?
 </div>
-    <script src="./js/mynote.js?ver=64"></script>
+    <script src="./js/mynote.js?ver=55"></script>
     <script src="./js/script.js"></script>
     <script>
     $(function () {
