@@ -30,7 +30,8 @@ $(document).ready(function(){
 			$(".title>div").text(data.title);
 			var date = new Date(data.start_day);
 			date.setDate(date.getDate()+data.days-1);
-			$(".note_date>.date").text(data.start_day+'~'+date.getDate()+'('+data.days+'일)');
+			var today = date.getFullYear()+"-"+("0"+(date.getMonth()+1)).slice(-2)+"-"+("0"+date.getDate()).slice(-2);
+			$(".note_date>.date").text(data.start_day+'~'+today+'('+data.days+'일)');
 			$(".tema").text(data.name+'여행');
 			$(".rectangle>.view").text(data.view);
 			$("#note_img").css({
@@ -127,7 +128,7 @@ $(document).ready(function(){
 					else if(data[i].contenttypeid == 40){ 
 						var type_img = "https://cdn2.iconfinder.com/data/icons/pittogrammi/142/14-512.png";
 						$(".plan_info").append(
-							'<ul class="day_route"><li class="route"><div class="number"><span>'+data[i].order_num+'</span></div><div class="info"><a href="#"><img src='+search_data.firstimage2+' alt=""></a><div class="title">기차</div><div class="kinds"><img src='+type_img+' alt="" class="food_tour_hash"><a href="#"><img src="./mynote_jpg/info.png" alt="" class="info"></a></div><div class="arrow"></div></div></li></ul>'
+							'<ul class="day_route"><li class="route"><div class="number"><span>'+data[i].order_num+'</span></div><div class="info"><a href="#"><img src='+type_img+' alt=""></a><div class="title">기차</div><div class="kinds"><img src='+type_img+' alt="" class="food_tour_hash"><a href="#"><img src="./mynote_jpg/info.png" alt="" class="info"></a></div><div class="arrow"></div></div></li></ul>'
 						);
 					}
 				}
