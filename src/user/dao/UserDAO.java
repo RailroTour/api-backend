@@ -101,13 +101,13 @@ public class UserDAO {
 		return null;
 	}
 
-	public UserBean get(String email) {
+	public UserBean get(int id) {
 		PreparedStatement pstmt = null;
 		ResultSet rs = null;
 		try {
-			String sql = "select * from user where email=?";
+			String sql = "select * from user where id=?";
 			pstmt = conn.prepareStatement(sql);
-			pstmt.setString(1, email);
+			pstmt.setInt(1, id);
 			rs = pstmt.executeQuery();
 			if (rs.next()) {
 				return new UserBean(
