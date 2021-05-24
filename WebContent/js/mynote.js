@@ -1,5 +1,22 @@
 var scroll_position=0;
 $(document).ready(function(){
+	$.ajax({ //플래너 인증 (내꺼인지 아닌지)
+		url: './api/planneroauth/get', //request 보낼 서버의 경로
+		type: 'get', // 메소드(get, post, put 등)
+		data: {
+			planner_id: $.urlParam('planner_id')
+		},
+		success: function(data) {
+			console.log("플래너 인증 정보:" + JSON.stringify(data));
+			if(data == 0){ //내께 아니면
+				$(".cover_img").remove();
+			}
+		},
+		error: function(request, status, error) {
+			//서버로부터 응답이 정상적으로 처리되지 못햇을 때 실행
+			console.log("code:" + request.status + "\n" + "message:" + request.responseText + "\n" + "error:" + error);
+		}
+	});
 	$.ajax({ //상단 정보 셋팅
 		url: './api/plannerinfo/get', //request 보낼 서버의 경로
 		type: 'get', // 메소드(get, post, put 등)
@@ -16,6 +33,12 @@ $(document).ready(function(){
 			$(".note_date>.date").text(data.start_day+'~'+date.getDate()+'('+data.days+'일)');
 			$(".tema").text(data.name+'여행');
 			$(".rectangle>.view").text(data.view);
+			$("#note_img").css({
+				'background':'url('+data.img_path+')',
+				'background-repeat':'no-repeat',
+				'background-size':'cover',
+				'background-position':'center center'
+			});
 		},
 		error: function(request, status, error) {
 			//서버로부터 응답이 정상적으로 처리되지 못햇을 때 실행
@@ -110,6 +133,36 @@ $(document).ready(function(){
 		}
 	});
 	
+	
+	
+	$(".cover_img>#createNewsAndEventsForm>#img").change(function(){ //플래너 커버이미지 업로드
+		var frm = document.getElementById('createNewsAndEventsForm'); 
+		frm.method = 'POST'; 
+		frm.enctype = 'multipart/form-data'; 
+		var fileData = new FormData(frm);
+		fileData.append('planner_id', $.urlParam('planner_id'));
+		
+		$.ajax({
+			type: 'post',
+			enctype: 'multipart/form-data',
+			cache: false,
+			url: './api/planner_coverimg/post',
+			data: fileData,
+			async: false,
+			contentType: false,
+			processData: false,
+			dataType: 'json',
+			success: function(msg){
+				location.reload();
+			},
+			error: function(request, status, error) {
+				//서버로부터 응답이 정상적으로 처리되지 못햇을 때 실행
+				console.log("code:" + request.status + "\n" + "message:" + request.responseText + "\n" + "error:" + error);
+			}
+			
+		})
+
+	})
 	
     $('.select .view1').on('click', function(){
         $('.plan_route table').hide();

@@ -150,22 +150,21 @@ public class UserDAO {
 			pstmt.setString(5, user.getEmail());
 			pstmt.setString(6, user.getProfile_img());
 
-		return pstmt.executeUpdate();
-	}catch(
+			return pstmt.executeUpdate();
+		} catch (
 
-	SQLException e)
-	{
-		e.printStackTrace();
-	}finally
-	{
-		if (pstmt != null) {
-			try {
-				pstmt.close();
-			} catch (SQLException e) {
-				e.printStackTrace();
+		SQLException e) {
+			e.printStackTrace();
+		} finally {
+			if (pstmt != null) {
+				try {
+					pstmt.close();
+				} catch (SQLException e) {
+					e.printStackTrace();
+				}
 			}
 		}
-	}return 0;
+		return 0;
 	}
 
 	public int delete(String email) {

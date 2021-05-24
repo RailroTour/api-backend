@@ -32,6 +32,7 @@ public class PlannerInfoGetAction implements Action{
 		PlannerInfoBean data = null;
 		try {
 			plannerinfo = new PlannerInfoDAO(ConnectionProvider.getConnection());
+			plannerinfo.update(Integer.parseInt(planner_id));
 			data = plannerinfo.get(Integer.parseInt(planner_id));
 		} catch (SQLException e) {
 			// TODO Auto-generated catch block
