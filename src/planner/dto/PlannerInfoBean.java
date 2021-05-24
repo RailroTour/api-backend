@@ -7,8 +7,9 @@ public class PlannerInfoBean {
 	int days;
 	String name;
 	int view;
+	String img_path;
 	
-	public PlannerInfoBean(String nickname, String title, String start_day, int days, String name, int view) {
+	public PlannerInfoBean(String nickname, String title, String start_day, int days, String name, int view, String img_path) {
 		super();
 		this.nickname = nickname;
 		this.title = title;
@@ -16,8 +17,18 @@ public class PlannerInfoBean {
 		this.days = days;
 		this.name = name;
 		this.view = view;
+		this.img_path = img_path;
 	}
 	
+	public String getImg_path() {
+		return img_path;
+	}
+
+	public void setImg_path(String img_path) {
+		this.img_path = img_path;
+	}
+
+
 	public String getNickname() {
 		return nickname;
 	}

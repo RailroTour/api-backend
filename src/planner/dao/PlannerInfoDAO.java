@@ -22,7 +22,7 @@ public class PlannerInfoDAO {
 		ResultSet rs = null;
 	
 		try {
-			String sql = "select user.nickname, planner.title, planner.start_day, planner.days, tema.name, planner.view\r\n"
+			String sql = "select user.nickname, planner.img_path, planner.title, planner.start_day, planner.days, tema.name, planner.view\r\n"
 					+ "from user\r\n"
 					+ "inner join planner on user.id = planner.user_id \r\n"
 					+ "inner join tema on planner.tema_id = tema.id where planner.id = ?";
@@ -36,7 +36,8 @@ public class PlannerInfoDAO {
 						rs.getString("start_day"),
 						rs.getInt("days"),
 						rs.getString("name"),
-						rs.getInt("view")
+						rs.getInt("view"),
+						rs.getString("img_path")
 				);
 			}
 		}catch(SQLException e) {

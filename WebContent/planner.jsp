@@ -30,8 +30,8 @@
                     <ul class="note_info_center">
                         <div class="top">
                                  <li class="cover_img">
-                                 <form id="createNewsAndEventsForm" method="post" enctype="multipart/form-data" >
-                               <input type="file" id="img" accept="image/*" name="save" hidden>
+                               <form id="createNewsAndEventsForm" method="post" enctype="multipart/form-data" >
+                               <input type="file" id="img" accept="image/*" name="save" accept="image/gif, image/jpeg, image/png" hidden>
                                </form>
                                	<label for="img" class="img_change">커버사진 바꾸기</label>
                            </li>
@@ -179,7 +179,7 @@
 <div id="dialog" title="알림">
     해당 노트를 내 노트에 담으시겠어요?
 </div>
-    <script src="./js/mynote.js?ver=51"></script>
+    <script src="./js/mynote.js?ver=56"></script>
     <script src="./js/script.js"></script>
     <script>
     $(function () {

@@ -33,6 +33,7 @@ $(document).ready(function(){
 			$(".note_date>.date").text(data.start_day+'~'+date.getDate()+'('+data.days+'일)');
 			$(".tema").text(data.name+'여행');
 			$(".rectangle>.view").text(data.view);
+			$("#note_img").css({'background':'url('+data.img_path+')'});
 		},
 		error: function(request, status, error) {
 			//서버로부터 응답이 정상적으로 처리되지 못햇을 때 실행
@@ -129,24 +130,25 @@ $(document).ready(function(){
 	
 	
 	
-	$(".cover_img>#img").on('change', function(){
+	$(".cover_img>#createNewsAndEventsForm>#img").change(function(){ //플래너 커버이미지 업로드
 		var frm = document.getElementById('createNewsAndEventsForm'); 
 		frm.method = 'POST'; 
 		frm.enctype = 'multipart/form-data'; 
 		var fileData = new FormData(frm);
+		fileData.append('planner_id', $.urlParam('planner_id'));
 		
 		$.ajax({
 			type: 'post',
 			enctype: 'multipart/form-data',
 			cache: false,
-			url: '',
+			url: './api/planner_coverimg/post',
 			data: fileData,
 			async: false,
 			contentType: false,
 			processData: false,
 			dataType: 'json',
 			success: function(msg){
-				$("#createNewsAndEventsForm")[0].reset();
+				location.reload();
 			},
 			error: function(request, status, error) {
 				//서버로부터 응답이 정상적으로 처리되지 못햇을 때 실행
