@@ -53,4 +53,30 @@ public class PlannerInfoDAO {
 		}
 		return null;
 	}
+	
+	public int update(int planner_id) {
+		PreparedStatement pstmt = null;
+		ResultSet rs = null;
+		try {
+			String sql = "update planner set view=view+1 where id=?";
+			pstmt = conn.prepareStatement(sql);
+
+			pstmt.setInt(1, planner_id);
+
+			return pstmt.executeUpdate();
+		} catch (
+
+		SQLException e) {
+			e.printStackTrace();
+		} finally {
+			if (pstmt != null) {
+				try {
+					pstmt.close();
+				} catch (SQLException e) {
+					e.printStackTrace();
+				}
+			}
+		}
+		return 0;
+	}
 }
