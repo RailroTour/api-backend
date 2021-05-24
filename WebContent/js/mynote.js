@@ -90,10 +90,16 @@ $(document).ready(function(){
 					day = data[i].visit_day;
 					
 					//네비게이션 셋팅
-					$(".plan_nav>.nav_route").append(
-						'<li onclick="fnMove(' + (data[i].visit_day - 1) + ')">DAY' + data[i].visit_day + ' ' + data[i].sigungu_name + '<hr></li>'
-					);
-
+					if(day == 1){
+						$(".plan_nav>.nav_route").append(
+							'<li onclick="fnMove(' + (data[i].visit_day - 1) + ')">DAY' + data[i].visit_day + ' ' + data[i].sigungu_name + '</li>'
+						);
+					}
+					else{
+						$(".plan_nav>.nav_route").append(
+							'<li onclick="fnMove(' + (data[i].visit_day - 1) + ')"><hr>DAY' + data[i].visit_day + ' ' + data[i].sigungu_name + '</li>'
+						);
+					}
 					
 					//내용 셋팅
 					$(".plan_info").append(day_info(data[i].visit_day, data[i].sigungu_name));
