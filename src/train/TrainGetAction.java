@@ -21,7 +21,6 @@ import common.JsonConverter;
 import org.json.simple.JSONValue;
 public class TrainGetAction implements Action{
 
-	private static final String Train_Key = null;
 
 	@Override
 	public void execute(HttpServletRequest request, HttpServletResponse response) {

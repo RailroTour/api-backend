@@ -9,7 +9,7 @@
     <link rel="stylesheet" href="./css/commen.css">
     <link rel="stylesheet" href="./css/popup.css">
     <script src="https://ajax.googleapis.com/ajax/libs/jquery/3.4.1/jquery.min.js"></script>
-    <script src="./js/popup.js?ver=162"></script>
+    <script src="./js/popup.js?ver=169"></script>
 </head>
 <body>
     <center>기차시간 조회</center>
@@ -17,11 +17,11 @@
             <li>    
                 <select name="start-train-station" id="start">
                      <option value="">출발역 선택</option>
-                     <optgroup label="전라북도">
-                         <option value="NAT041993">여수EXPO</option>
-                        <option value="NAT030667">용동</option> 
+                     <optgroup label="전라북도" class="bukdo">
+<!--                          <option value="NAT041993">여수EXPO</option>
+                        <option value="NAT030667">용동</option>  -->
                      </optgroup>
-                    <optgroup label="전라남도">
+                    <optgroup label="전라남도" class="namdo">
 <!--                         <option value="NAT031998">나주</option>
                         <option value="NAT032099">다시</option> -->
                      </optgroup>
@@ -31,11 +31,11 @@
             <li>
                 <select name="end-train-station" id="end">
                      <option value="">도착역 선택</option>
-                     <optgroup label="전라북도">
-                         <option value="NAT041072">곡성</option>
-                        <option value="NAT030667">용동</option> 
+                     <optgroup label="전라북도" class="bukdo">
+<!--                          <option value="NAT041072">곡성</option>
+                        <option value="NAT030667">용동</option>  -->
                      </optgroup>
-                    <optgroup label="전라남도">
+                    <optgroup label="전라남도" class="namdo">
 <!--                         <option value="NAT031998">나주</option>
                         <option value="NAT032099">다시</option> -->
                      </optgroup>
