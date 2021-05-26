@@ -16,6 +16,32 @@ public class SearchPlannerDAO {
 		this.conn = conn;
 	}
 	
+	public int count(String keyword) {
+		PreparedStatement pstmt = null;
+		ResultSet rs = null;
+		List<MyPlannerBean> list = new ArrayList<MyPlannerBean>();
+		try {
+			String sql = "select count(*) as cnt from planner where title LIKE ?";
+			pstmt = conn.prepareStatement(sql);
+			pstmt.setString(1, "%"+keyword+"%");
+			rs = pstmt.executeQuery();
+			if (rs.next()) {
+				return rs.getInt("cnt");
+			}
+		}catch(SQLException e) {
+			e.printStackTrace();
+		}finally {
+			if(pstmt != null) {
+				try {
+					pstmt.close();
+				} catch (SQLException e) {
+					e.printStackTrace();
+				}
+			}
+		}
+		return 0;
+	}
+	
 	public List<MyPlannerBean> list(String keyword, int start_index) {
 		PreparedStatement pstmt = null;
 		ResultSet rs = null;

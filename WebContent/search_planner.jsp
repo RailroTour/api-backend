@@ -10,7 +10,7 @@
     <link rel="stylesheet" href="./css/search_bar.css">
     <script src="https://ajax.googleapis.com/ajax/libs/jquery/3.3.1/jquery.min.js">
     </script>
-    <script src="./js/search_planner.js"></script>
+    <script src="./js/search_planner.js?ver=2"></script>
     
     <script src="./js/script.js"></script>
         <link rel="stylesheet" href="css/header.css">

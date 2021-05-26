@@ -24,8 +24,22 @@ $(document).ready(function(){
 						data[i].nickname
 					));
 				}
+            },
+            error:function(){
+                console.log('ajax failed');
+            }
+        });
+
+        $.ajax({ //플래너 개수 검색
+            type:'GET',
+            url: './api/searchPlannerCount/get',
+            data:{
+                keyword:decodeURI($.urlParam('keyword'))
+            },
+            success:function(data){
+                console.log("플래너 개수 검색 : "+JSON.stringify(data));
 				                //데이터 목록
-                for(var i=0; i<Math.ceil(data.length/10); i++){
+                for(var i=0; i<Math.ceil(data/10); i++){
                     if((i+1)==$.urlParam('pageNo')){
                         $(".page_num_group").append('<a href=search_planner.jsp?keyword='+$.urlParam('keyword')+'&pageNo='+(i+1)+' class="selected">'+(i+1)+'</a>');
                     }
@@ -38,6 +52,7 @@ $(document).ready(function(){
                 console.log('ajax failed');
             }
         });
+
         
         $(".itemlist>.itembox>a").eq(0).prop('href', 'search_integrated.jsp?keyword='+$.urlParam('keyword'));
         $(".itemlist>.itembox>a").eq(1).prop('href', 'search_tour.jsp?pageNo=1&keyword='+$.urlParam('keyword'));

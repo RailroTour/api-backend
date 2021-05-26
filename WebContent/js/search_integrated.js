@@ -95,18 +95,35 @@ $(document).ready(function(){
             },
             success:function(data){
                 console.log("플래너 검색 : "+JSON.stringify(data));
-				for (var i = 0; i < data.length; i++) {
-					$(".plans_list_rows").append(planner_elements(
-						data[i].planner_id,
-						data[i].img_path,
-						data[i].start_day,
-						data[i].days,
-						data[i].title,
-						data[i].tema_name,
-						data[i].view,
-						data[i].trip_course,
-						data[i].nickname
-					));
+				if(data.length>2){
+					for (var i = 0; i < 3; i++) {
+						$(".plans_list_rows").append(planner_elements(
+							data[i].planner_id,
+							data[i].img_path,
+							data[i].start_day,
+							data[i].days,
+							data[i].title,
+							data[i].tema_name,
+							data[i].view,
+							data[i].trip_course,
+							data[i].nickname
+						));
+					}
+				}
+				else{
+					for (var i = 0; i < data.length; i++) {
+						$(".plans_list_rows").append(planner_elements(
+							data[i].planner_id,
+							data[i].img_path,
+							data[i].start_day,
+							data[i].days,
+							data[i].title,
+							data[i].tema_name,
+							data[i].view,
+							data[i].trip_course,
+							data[i].nickname
+						));
+					}
 				}
             },
             error:function(){
