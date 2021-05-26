@@ -368,7 +368,7 @@
 	<%@include file="footer.jsp"%>
 	<script type="text/javascript"
 		src="//cdn.jsdelivr.net/npm/slick-carousel@1.8.1/slick/slick.min.js"></script>
-	<script src="./js/detail_info.js?ver=4"></script>
+	<script src="./js/detail_info.js?ver=25"></script>
 
 
 	<script>
