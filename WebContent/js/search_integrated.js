@@ -85,6 +85,51 @@ $(document).ready(function(){
                 console.log('ajax failed');
             }
         });
+
+        $.ajax({ //플래너 검색
+            type:'GET',
+            url: './api/searchPlanner/get',
+            data:{
+                keyword:decodeURI($.urlParam('keyword')),
+				pageNo:1
+            },
+            success:function(data){
+                console.log("플래너 검색 : "+JSON.stringify(data));
+				if(data.length>2){
+					for (var i = 0; i < 3; i++) {
+						$(".plans_list_rows").append(planner_elements(
+							data[i].planner_id,
+							data[i].img_path,
+							data[i].start_day,
+							data[i].days,
+							data[i].title,
+							data[i].tema_name,
+							data[i].view,
+							data[i].trip_course,
+							data[i].nickname
+						));
+					}
+				}
+				else{
+					for (var i = 0; i < data.length; i++) {
+						$(".plans_list_rows").append(planner_elements(
+							data[i].planner_id,
+							data[i].img_path,
+							data[i].start_day,
+							data[i].days,
+							data[i].title,
+							data[i].tema_name,
+							data[i].view,
+							data[i].trip_course,
+							data[i].nickname
+						));
+					}
+				}
+            },
+            error:function(){
+                console.log('ajax failed');
+            }
+        });
         
         $(".itemlist>.itembox>a").eq(0).prop('href', 'search_integrated.jsp?keyword='+$.urlParam('keyword'));
         $(".itemlist>.itembox>a").eq(1).prop('href', 'search_tour.jsp?pageNo=1&keyword='+$.urlParam('keyword'));
@@ -128,5 +173,9 @@ $.urlParam = function(name){
 }
 
 function search_elements(contenttypeid, contentid, img, title, addr){
-    return '<ul class="Tour_group"><a href=detail_info.jsp?contenttypeid='+contenttypeid+'&contentid='+contentid+' target=_blank><li class="TourImage"><img src='+img+' alt="" width="148px"></li><div class="TourInfo"><li class="TourTitle">'+title+'</li><li class="shopping_add"><img src="./jpg/plus.png" alt=""></li><li class="TourContent">'+addr+'</li></div><div class="like_review"><span>321321</span><img src="./mynote_jpg/review.png" alt=""></div></a></ul>'
+    return '<ul class="Tour_group"><a href=detail_info.jsp?contenttypeid='+contenttypeid+'&contentid='+contentid+' target=_blank><li class="TourImage"><img src='+img+' alt="" width="148px"></li><div class="TourInfo"><li class="TourTitle">'+title+'</li><li class="shopping_add"><img src="./jpg/plus.png" alt=""></li><li class="TourContent">'+addr+'</li></div></a></ul>'
+}
+
+function planner_elements(planner_id, img_path, start_day, days, title, tema_name, view, trip_course, nickname){
+	return '<a href=./planner.jsp?planner_id='+planner_id+' data-planner_id='+planner_id+' target="_blank"><ul class="list_item"><li><img src='+img_path+' alt="" width="346px" height="200px"><div class="note_info"><h1>'+start_day+' ('+days+'일)</h1><h1>'+title+'</h1></div></li><li><div class="like"><span class="tema">'+tema_name+'여행</span><span>'+view+'</span><img src="./note_plans_list_jpg/eye.png" alt="" width="20px"></div><div class="route">'+trip_course+'</div><div class="person"><img src="./note_plans_list_jpg/user.png" alt="" width="20px"><span>&nbsp;'+nickname+'</span></div></li></ul></a>'
 }
