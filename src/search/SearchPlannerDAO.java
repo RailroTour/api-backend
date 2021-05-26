@@ -16,7 +16,7 @@ public class SearchPlannerDAO {
 		this.conn = conn;
 	}
 	
-	public List<MyPlannerBean> list(String keyword) {
+	public List<MyPlannerBean> list(String keyword, int start_index) {
 		PreparedStatement pstmt = null;
 		ResultSet rs = null;
 		List<MyPlannerBean> list = new ArrayList<MyPlannerBean>();
@@ -37,9 +37,10 @@ public class SearchPlannerDAO {
 					+ "inner join tema on planner.tema_id = tema.id\r\n"
 					+ "inner join planner_area on planner.id = planner_area.planner_id\r\n"
 					+ "left outer join sigungu_code on planner_area.sigungu_id = sigungu_code.id\r\n"
-					+ "where planner.title LIKE ? group by planner.id order by planner.register_date desc limit 3";
+					+ "where planner.title LIKE ? group by planner.id order by planner.register_date desc limit ?, 9";
 			pstmt = conn.prepareStatement(sql);
 			pstmt.setString(1, "%"+keyword+"%");
+			pstmt.setInt(2, start_index);
 			rs = pstmt.executeQuery();
 			while (rs.next()) {
 				list.add(new MyPlannerBean(

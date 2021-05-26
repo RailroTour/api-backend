@@ -90,7 +90,8 @@ $(document).ready(function(){
             type:'GET',
             url: './api/searchPlanner/get',
             data:{
-                keyword:decodeURI($.urlParam('keyword'))
+                keyword:decodeURI($.urlParam('keyword')),
+				pageNo:1
             },
             success:function(data){
                 console.log("플래너 검색 : "+JSON.stringify(data));

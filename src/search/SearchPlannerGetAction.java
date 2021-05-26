@@ -21,9 +21,13 @@ public class SearchPlannerGetAction implements Action{
 	public void execute(HttpServletRequest request, HttpServletResponse response) {
 		// TODO Auto-generated method stub
 		String keyword = request.getParameter("keyword");
-		
+		String pageNo = request.getParameter("pageNo");
 		try {
 			if(keyword == null) {
+				response.sendError(400, "keyword required");
+				return;
+			}
+			else if(pageNo == null) {
 				response.sendError(400, "keyword required");
 				return;
 			}
@@ -34,7 +38,7 @@ public class SearchPlannerGetAction implements Action{
 		List<MyPlannerBean> list = null;
 		try {
 			SearchPlannerDAO dao = new SearchPlannerDAO(ConnectionProvider.getConnection());
-			list = dao.list(keyword);
+			list = dao.list(keyword, (Integer.parseInt(pageNo)-1)*9);
 		} catch (SQLException e) {
 			// TODO Auto-generated catch block
 			e.printStackTrace();
