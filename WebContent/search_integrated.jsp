@@ -10,7 +10,7 @@
     <link rel="stylesheet" href="./css/search_bar.css">
     <script src="https://ajax.googleapis.com/ajax/libs/jquery/3.3.1/jquery.min.js">
     </script>
-    <script src="./js/search_integrated.js?ver=3"></script>
+    <script src="./js/search_integrated.js?ver=10"></script>
 
 
     <script src="./js/script.js"></script>
@@ -46,7 +46,7 @@
                 <div class="Tourist Tour">
                     <div class="Tourist_Title">
                         <h1>관광지</h1>
-                        <h2>더보기<a href=""><img src="./jpg/plus.png" alt=""></a></h2>
+                        <!-- <h2>더보기<a href=""><img src="./jpg/plus.png" alt=""></a></h2> -->
                     </div>
 <!--
 
@@ -70,7 +70,7 @@
                 <div class="Tourist Restaurant">
                     <div class="Tourist_Title">
                         <h1>음식점</h1>
-                        <h2>더보기<a href=""><img src="./jpg/plus.png" alt=""></a></h2>
+                        <!-- <h2>더보기<a href=""><img src="./jpg/plus.png" alt=""></a></h2> -->
                     </div>
 
                 
@@ -78,11 +78,11 @@
                 <div class="Travel_Course Tourist">
                     <div class="Tourist_Title">
                         <h1>플래너</h1>
-                        <h2>더보기<img src="./jpg/plus.png" alt=""></h2>
+                        <!-- <h2>더보기<img src="./jpg/plus.png" alt=""></h2> -->
                     </div>
 
                     <div class="plans_list_rows">
-                        <a href="">
+<!--                         <a href="">
                             <ul class="list_item">
                                 <li>
                                     <img src="./note_plans_list/seoul.jpg" alt="" width="346px" height="200px">
@@ -114,79 +114,15 @@
                                     </div>
                                 </li>
                             </ul>
-                        </a>
-                        <a href="">
-                            <ul class="list_item">
-                                <li>
-                                    <img src="./note_plans_list/seoul.jpg" alt="" width="346px" height="200px">
-                                    <div class="note_info">
-                                        <h1>2018-07-23 (7일)</h1>
-                                        <h1>수기수기한 여행</h1>
-                                    </div>
-                                </li>
-                                <li>
-                                    <div class="like">
-                                        <span class="tema">
-                                            체험여행
-                                        </span>
-                                        <span>
-                                            500
-                                        </span>
-                                        <img src="./note_plans_list_jpg/eye.png" alt="" width="20px">
-                                        <span>
-                                            11
-                                        </span>
-                                        <img src="./mynote_jpg/footprint.png" alt="" width="20px">
-                                    </div>
-                                    <div class="route">
-                                        여수-전주-담양-고창-순창-보성
-                                    </div>
-                                    <div class="person">
-                                        <img src="./note_plans_list_jpg/user.png" alt="" width="20px">
-                                        <span>사공수기</span>
-                                    </div>
-                                </li>
-                            </ul>
-                        </a>
-                        <a href="">
-                            <ul class="list_item">
-                                <li>
-                                    <img src="./note_plans_list/seoul.jpg" alt="" width="346px" height="200px">
-                                    <div class="note_info">
-                                        <h1>2018-07-23 (7일)</h1>
-                                        <h1>수기수기한 여행</h1>
-                                    </div>
-                                </li>
-                                <li>
-                                    <div class="like">
-                                        <span class="tema">
-                                            체험여행
-                                        </span>
-                                        <span>
-                                            500
-                                        </span>
-                                        <img src="./note_plans_list_jpg/eye.png" alt="" width="20px">
-                                        <span>
-                                            11
-                                        </span>
-                                        <img src="./mynote_jpg/footprint.png" alt="" width="20px">
-                                    </div>
-                                    <div class="route">
-                                        여수-전주-담양-고창-순창-보성
-                                    </div>
-                                    <div class="person">
-                                        <img src="./note_plans_list_jpg/user.png" alt="" width="20px">
-                                        <span>사공수기</span>
-                                    </div>
-                                </li>
-                            </ul>
-                        </a>
+                        </a> -->
+
+
                     </div>
                 </div>
                   <div class="Tourist Rooms">
                     <div class="Tourist_Title">
                         <h1>숙소</h1>
-                        <h2>더보기<a href=""><img src="./jpg/plus.png" alt=""></a></h2>
+                        <!-- <h2>더보기<a href=""><img src="./jpg/plus.png" alt=""></a></h2> -->
                     </div>
 
                     
