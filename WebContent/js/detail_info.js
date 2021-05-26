@@ -43,6 +43,7 @@ $(document).ready(function(){
         }
     });
 }(jQuery));
+
     $('#like').on('change', function(){
         if($('#like').is(':checked')){
             $('.like_btn').attr('src', './Food_More_Infomation_IMG/like2.png');

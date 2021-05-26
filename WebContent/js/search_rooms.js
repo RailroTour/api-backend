@@ -25,10 +25,14 @@ $(document).ready(function(){
                 const total_cnt = data.response.body.totalCount;
                 data = data.response.body.items.item;
                 //데이터 추가
-                for(var i=0; i<data.length; i++){
-                    $(".Tourist").append(search_elements(data[i].contenttypeid, data[i].contentid, data[i].firstimage, data[i].title, data[i].addr1));
+                if(total_cnt-($.urlParam('pageNo')*10)>1){
+					for (var i = 0; i < data.length; i++) {
+						$(".Tourist").append(search_elements(data[i].contenttypeid, data[i].contentid, data[i].firstimage, data[i].title, data[i].addr1));
+					}
                 }
-                
+                else{
+                	$(".Tourist").append(search_elements(data.contenttypeid, data.contentid, data.firstimage, data.title, data.addr1));
+                }
                 //데이터 목록
                 for(var i=0; i<Math.ceil(total_cnt/10); i++){
                     if((i+1)==$.urlParam('pageNo')){
