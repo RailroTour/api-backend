@@ -75,7 +75,10 @@ $(document).ready(function(){
 	detailImage(decoding_api_key, getParameterByName('contentid'));
 	//리뷰 조회
 	reviewData();
-
+	//리뷰 비율 조회
+	getReviewRatio();
+	
+	
     (function( $ ) {
     "use strict";
     $(function() {
@@ -470,8 +473,6 @@ function reviewData(){
 	});
 }
 
-
-
 function pop(img) { //이미지 프리뷰
 	 var win = window.open('', 'Detail', 'width=0, height=0, menubar=0, toolbar=0, directories=0, scrollbars=1, status=0, location=0, resizable=1');
 	 op="<html><head><title>크게 보기</title></head>";
@@ -480,4 +481,32 @@ function pop(img) { //이미지 프리뷰
 	 op+="</body></html>";
 
 	 win.document.write(op);
+}
+
+function getReviewRatio(){
+	$.ajax({
+		type: 'get',
+		url: './api/reviewRatio/get',
+		data: {
+			contentid: getParameterByName('contentid'),
+			contenttypeid:getParameterByName('contenttypeid')
+		},
+		success: function(data) {
+			console.log("리뷰 좋아요/싫어요 개수 : "+JSON.stringify(data));
+			$(".like_total .total").text(data.like+data.dislike);
+			$(".like_total .text").html(data.like+'개 리뷰<br>좋아요');
+			var like_ratio = Math.round(data.like/(data.like+data.dislike)*100);
+			var dislike_ratio = Math.round(data.dislike/(data.like+data.dislike)*100);
+			$(".like-bar>div.like").css('width', like_ratio+'%');
+			$(".dislike-bar>div.dislike").css('width', dislike_ratio+'%');
+			$(".like_ratio").text(like_ratio+'%');
+			$(".dislike_ratio").text(dislike_ratio+'%');
+			$("h3>strong.like_comment").text(like_ratio+'%의 여행자가 이 장소를 좋아합니다.')
+		},
+		error: function(request, status, error) {
+			//서버로부터 응답이 정상적으로 처리되지 못햇을 때 실행
+			console.log("code:" + request.status + "\n" + "message:" + request.responseText + "\n" + "error:" + error);
+		}
+
+	})
 }
