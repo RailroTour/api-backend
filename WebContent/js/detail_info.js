@@ -2,6 +2,10 @@
 const encoding_api_key = 'JXL40bCK2WGOu%2FE1WOGjuALpADt64Wb2mQVwNpxiA0bre%2FV8GozZggM2O01%2FPaTTyNm0A2JahebDf%2FPGwW8jbg%3D%3D';
 const decoding_api_key = 'JXL40bCK2WGOu/E1WOGjuALpADt64Wb2mQVwNpxiA0bre/V8GozZggM2O01/PaTTyNm0A2JahebDf/PGwW8jbg=='
 
+var files = [];
+var tags = [];
+var like = 0;
+
 if(getParameterByName('contenttypeid')==12){
     $(".listmenu>button.info_name").text('관광지 정보');
 	$(".text_group>.menu").hide(); //대표메뉴
@@ -94,23 +98,63 @@ $(document).ready(function(){
     });
 }(jQuery));
 
-    $('#like').on('change', function(){
+	$("#comment_add #submit").on('click', function(){ //리뷰 등록
+		var formData = new FormData();
+
+		
+		for(var i=0; i<files.length; i++){
+			formData.append('file'+i, files[i]);
+		}
+		formData.append('tags', tags);
+		formData.append('like', like);
+		formData.append('contents', $("#contents").val());
+		formData.append('contenttypeid', getParameterByName('contenttypeid'));
+		formData.append('contentid', getParameterByName('contentid'));
+		
+		$.ajax({
+			type: 'post',
+			enctype: 'multipart/form-data',
+			cache: false,
+			url: './api/review/post',
+			data: formData,
+			async: false,
+			contentType: false,
+			processData: false,
+			dataType: 'json',
+			success: function(msg){
+				console.log(msg);
+				if(msg.id != null){
+					location.reload();
+				}
+			},
+			error: function(request, status, error) {
+				//서버로부터 응답이 정상적으로 처리되지 못햇을 때 실행
+				console.log("code:" + request.status + "\n" + "message:" + request.responseText + "\n" + "error:" + error);
+			}
+			
+		})
+	})
+
+    $('#like').on('change', function(){ //좋아요
         if($('#like').is(':checked')){
             $('.like_btn').attr('src', './Food_More_Infomation_IMG/like2.png');
+			like = 1;
         }
         else{
             $('.like_btn').attr('src', './Food_More_Infomation_IMG/like1.png');
+			like = 0;
         }
     })
-    $('#comment_add textarea').on('focus', function(){
-        var text=$(this).attr('placeholder');
-        if(text=='로그인 후 이용가능합니다.'){
-            alert('로그인 후 이용 가능합니다.');
-        }
+    $('#comment_add textarea').on('focus', function(){ //리뷰 클릭 감지
+		if (getCookie("access_token") == null) {
+			alert('로그인 후 이용하실 수 있습니다.');
+			$(this).blur();
+			return;
+		}
     })
 
 	
-	$(".trip_cart").on('click', function(){
+	$(".trip_cart").on('click', function(){ //여행바구니 담기
 		$.ajax({
 			url: './api/tripcart', //request 보낼 서버의 경로
 			type: 'post', // 메소드(get, post, put 등)
@@ -130,11 +174,12 @@ $(document).ready(function(){
 		});
 	})
 
-    $(document).on('click', '.imgfile .preview',function(){
+    $(document).on('click', '.imgfile .preview',function(){ //사진 삭제
+		files.splice($(this).index(), 1);
         $(this).remove();
     })
 
-    $('#img').on('change', function(){
+    $('#img').on('change', function(){ //사진 추가
         if($(this).val()!=""){
             var ext=$(this).val().split(".").pop().toLowerCase();
             
@@ -157,13 +202,16 @@ $(document).ready(function(){
                 return;
             }
             readURL(this);
+			files.push($(this)[0].files[0]);
+			
             $(this).val('');
         }
     })
-    $(document).on('keydown', '.input_tag',function(key){
+    $(document).on('keydown', '.input_tag',function(key){ //태그 추가
         if(key.keyCode==13){//엔터키가 들어오면
             if($('.tags').length<10){
                 var tag=$(this).val();
+				tags.push(tag);
                 if(tag!=''){
                     $('.tag ul .input_tag').before('<li class="tags">#'+tag+'<img src="./Food_More_Infomation_IMG/cancel-button.png" alt=""></li>');
                 }
@@ -172,10 +220,12 @@ $(document).ready(function(){
                 swal('태그는 최대 10개까지 등록할 수 있습니다.');
             }
             $(this).val('');
+			return false;
         }
 
     })
-    $(document).on('click', '.tags img', function(){
+    $(document).on('click', '.tags img', function(){ //태그 삭제
+		tags.splice($(this).parent().index(), 1);
         $(this).parent().remove();
     })
    $('.btn_group .Previous').on("click", function(){

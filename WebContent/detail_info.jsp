@@ -157,10 +157,10 @@
 						<div id="map"></div>
 					</li>
 				</ul>
-				<div class="review1">내일러 후기</div>
-				<div class="review2">해당 장소의 리뷰를 적어주세요.</div>
+				<div class="review1">방문자 후기</div>
+				<div class="review2">장소의 리뷰를 적어주세요.</div>
 				<div class="comment">
-					<form action="" id="comment_add" onsubmit="return false">
+					<form action="post" id="comment_add" onsubmit="return false" enctype="multipart/form-data">
 						<div class="imgfile">
 							<!--
                             <ul class="preview" style="background-image: url('')">
@@ -172,7 +172,7 @@
 								src="./Food_More_Infomation_IMG/image-add-button.png" alt=""
 								width="17px">사진</label>
 						</div>
-						<textarea name="" id="" cols="50" rows="10" maxlength="200"
+						<textarea name="contents" id="contents" cols="50" rows="10" maxlength="200"
 							placeholder="200자 이하만 입력 가능합니다."></textarea>
 						<input type="submit" value="등록" id="submit">
 						<div class="tag">
@@ -212,7 +212,7 @@
 							</div>
 						</div>
 						<h3>
-							<strong>?% 의 내일러들이 이 관광지를 좋아합니다.</strong>
+							<strong>?%의 여행자가 이 관광지를 좋아합니다.</strong>
 						</h3>
 					</ul>
 					<div class="latest_review">
@@ -221,7 +221,7 @@
 					<ul class="reviews">
 						<li class="review">
 							<div class="btn">
-								<button class="modify">수정</button>
+								<!-- <button class="modify">수정</button> -->
 								<button class="remove">삭제</button>
 							</div>
 							<div class="imgs">
@@ -246,120 +246,14 @@
 								<span>#맛있어요</span> <span>#맛있어요</span> <span>#맛있어요</span>
 							</div>
 						</li>
-						<li class="review">
-							<div class="btn">
-								<button class="modify">수정</button>
-								<button class="remove">삭제</button>
-							</div>
-							<div class="imgs">
-								<img src="./jpg/2.jpg" alt="" width="100px"> <img
-									src="./jpg/2.jpg" alt="" width="100px">
-							</div>
-							<div class="contents">dddddd dddddd dddddd dddddd dddddd
-								dddddd dddddd dddddd dddddd dddddd dddddd dddddd dddddd dddddd
-								dddddd dddddd</div>
-							<div class="profile">
-								<div class="writer1">작성자</div>
-								<div class="writer2">손준호</div>
-								<div class="like1">좋아요</div>
-								<div class="like2">
-									<img src="./Food_More_Infomation_IMG/like2.png" alt="">
-								</div>
-								<div class="date1">작성일</div>
-								<div class="date2">2018-09-22 03:33:33</div>
-							</div>
-							<div class="hashtags">
-								<span>#맛있어요</span> <span>#맛있어요</span> <span>#맛있어요</span> <span>#맛있어요</span>
-								<span>#맛있어요</span> <span>#맛있어요</span> <span>#맛있어요</span>
-							</div>
-						</li>
-						<li class="review">
-							<div class="btn">
-								<button class="modify">수정</button>
-								<button class="remove">삭제</button>
-							</div>
-							<div class="imgs">
-								<img src="./jpg/2.jpg" alt="" width="100px"> <img
-									src="./jpg/2.jpg" alt="" width="100px">
-							</div>
-							<div class="contents">dddddd dddddd dddddd dddddd dddddd
-								dddddd dddddd dddddd dddddd dddddd dddddd dddddd dddddd dddddd
-								dddddd dddddd</div>
-							<div class="profile">
-								<div class="writer1">작성자</div>
-								<div class="writer2">손준호</div>
-								<div class="like1">좋아요</div>
-								<div class="like2">
-									<img src="./Food_More_Infomation_IMG/like2.png" alt="">
-								</div>
-								<div class="date1">작성일</div>
-								<div class="date2">2018-09-22 03:33:33</div>
-							</div>
-							<div class="hashtags">
-								<span>#맛있어요</span> <span>#맛있어요</span> <span>#맛있어요</span> <span>#맛있어요</span>
-								<span>#맛있어요</span> <span>#맛있어요</span> <span>#맛있어요</span>
-							</div>
-						</li>
-						<li class="review">
-							<div class="btn">
-								<button class="modify">수정</button>
-								<button class="remove">삭제</button>
-							</div>
-							<div class="imgs">
-								<img src="./jpg/2.jpg" alt="" width="100px"> <img
-									src="./jpg/2.jpg" alt="" width="100px">
-							</div>
-							<div class="contents">dddddd dddddd dddddd dddddd dddddd
-								dddddd dddddd dddddd dddddd dddddd dddddd dddddd dddddd dddddd
-								dddddd dddddd</div>
-							<div class="profile">
-								<div class="writer1">작성자</div>
-								<div class="writer2">손준호</div>
-								<div class="like1">좋아요</div>
-								<div class="like2">
-									<img src="./Food_More_Infomation_IMG/like2.png" alt="">
-								</div>
-								<div class="date1">작성일</div>
-								<div class="date2">2018-09-22 03:33:33</div>
-							</div>
-							<div class="hashtags">
-								<span>#맛있어요</span> <span>#맛있어요</span> <span>#맛있어요</span> <span>#맛있어요</span>
-								<span>#맛있어요</span> <span>#맛있어요</span> <span>#맛있어요</span>
-							</div>
-						</li>
-						<li class="review">
-							<div class="btn">
-								<button class="modify">수정</button>
-								<button class="remove">삭제</button>
-							</div>
-							<div class="imgs">
-								<img src="./jpg/2.jpg" alt="" width="100px"> <img
-									src="./jpg/2.jpg" alt="" width="100px">
-							</div>
-							<div class="contents">dddddd dddddd dddddd dddddd dddddd
-								dddddd dddddd dddddd dddddd dddddd dddddd dddddd dddddd dddddd
-								dddddd dddddd</div>
-							<div class="profile">
-								<div class="writer1">작성자</div>
-								<div class="writer2">손준호</div>
-								<div class="like1">좋아요</div>
-								<div class="like2">
-									<img src="./Food_More_Infomation_IMG/like2.png" alt="">
-								</div>
-								<div class="date1">작성일</div>
-								<div class="date2">2018-09-22 03:33:33</div>
-							</div>
-							<div class="hashtags">
-								<span>#맛있어요</span> <span>#맛있어요</span> <span>#맛있어요</span> <span>#맛있어요</span>
-								<span>#맛있어요</span> <span>#맛있어요</span> <span>#맛있어요</span>
-							</div>
-						</li>
+
+
 					</ul>
-					<div class="page_num_group">
+<!-- 					<div class="page_num_group">
 						<a href="#">이전</a> <a href="#" class="selected">1</a> <a href="#">2</a>
 						<a href="#">3</a> <a href="#">4</a> <a href="#">5</a> <a href="#">6</a>
 						<a href="#">7</a> <a href="#">8</a> <a href="#">다음</a>
-					</div>
+					</div> -->
 				</div>
 			</div>
 		</section>
@@ -368,7 +262,7 @@
 	<%@include file="footer.jsp"%>
 	<script type="text/javascript"
 		src="//cdn.jsdelivr.net/npm/slick-carousel@1.8.1/slick/slick.min.js"></script>
-	<script src="./js/detail_info.js?ver=25"></script>
+	<script src="./js/detail_info.js?ver=47"></script>
 
 
 	<script>

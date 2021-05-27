@@ -4,6 +4,7 @@ import java.sql.Connection;
 import java.sql.PreparedStatement;
 import java.sql.ResultSet;
 import java.sql.SQLException;
+import java.sql.Statement;
 
 import org.json.JSONArray;
 import org.json.JSONObject;
@@ -16,18 +17,48 @@ public class ReviewDAO {
 	}
 	
 	public int insert(ReviewBean review, String email) {
-
 		PreparedStatement pstmt = null;
+		ResultSet rs = null;
 		try {
-			String sql = "insert into review(user_id, content_id, content_type_id, image_path,content, register_date) values((select id from user where email=?),?,?,?,?,now())";
-			pstmt = conn.prepareStatement(sql);
+			String sql = "insert into review(user_id, content_id, content_type_id, content, register_date, likes) "
+					+ "values((select id from user where email=?),?,?,?,now(),?)";
+			pstmt = conn.prepareStatement(sql, Statement.RETURN_GENERATED_KEYS);
 			
 			pstmt.setString(1, email);
 			pstmt.setInt(2, review.getContent_id());
 			pstmt.setInt(3, review.getContent_type_id());
-			pstmt.setString(4, review.getImage_path());
-			pstmt.setString(5, review.getContent());
+			pstmt.setString(4, review.getContent());
+			pstmt.setInt(5, review.getLike());
 			
+			pstmt.executeUpdate();
+			rs = pstmt.getGeneratedKeys();
+			rs.next();
+			return rs.getInt(1);
+		}catch(SQLException e) {
+			e.printStackTrace();
+		}finally {
+			if(pstmt != null) {
+				try {
+					pstmt.close();
+				} catch (SQLException e) {
+					e.printStackTrace();
+				}
+			}
+		}
+		return 0;
+	}
+	
+	public int insertTags(int review_id, String tag) {
+		PreparedStatement pstmt = null;
+		ResultSet rs = null;
+		try {
+			String sql = "INSERT INTO railro_tour.review_tags\r\n"
+					+ "(review_id, hashtag)\r\n"
+					+ "VALUES(?, ?);";
+			pstmt = conn.prepareStatement(sql, Statement.RETURN_GENERATED_KEYS);
+			
+			pstmt.setInt(1, review_id);
+			pstmt.setString(2, tag);
 			
 			return pstmt.executeUpdate();
 		}catch(SQLException e) {
@@ -44,6 +75,32 @@ public class ReviewDAO {
 		return 0;
 	}
 	
+	public int insertImgs(int review_id, String img) {
+		PreparedStatement pstmt = null;
+		ResultSet rs = null;
+		try {
+			String sql = "INSERT INTO railro_tour.review_img\r\n"
+					+ "(review_id, img_path)\r\n"
+					+ "VALUES(?, ?);";
+			pstmt = conn.prepareStatement(sql, Statement.RETURN_GENERATED_KEYS);
+			
+			pstmt.setInt(1, review_id);
+			pstmt.setString(2, img);
+			
+			return pstmt.executeUpdate();
+		}catch(SQLException e) {
+			e.printStackTrace();
+		}finally {
+			if(pstmt != null) {
+				try {
+					pstmt.close();
+				} catch (SQLException e) {
+					e.printStackTrace();
+				}
+			}
+		}
+		return 0;
+	}
 	public JSONArray get(String email) {
 		PreparedStatement pstmt = null;
 		ResultSet rs = null;
