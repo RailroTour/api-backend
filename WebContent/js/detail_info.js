@@ -4,12 +4,59 @@ const decoding_api_key = 'JXL40bCK2WGOu/E1WOGjuALpADt64Wb2mQVwNpxiA0bre/V8GozZgg
 
 if(getParameterByName('contenttypeid')==12){
     $(".listmenu>button.info_name").text('관광지 정보');
+	$(".text_group>.menu").hide(); //대표메뉴
+	$(".text_group>.open_time").hide(); //영업시간
+	$(".text_group>.rest").hide(); //휴무일
+	$(".more_info>.discount").hide(); //할인정보
+	$(".more_info>.representative_menu").hide() //대표메뉴
+	$(".more_info>.kid").hide(); //어린이 놀이방 여부
+	$(".more_info>.opening").hide(); //개업일
+	$(".more_info>.packing").hide(); //포장 가능
+	$(".more_info>.reserv").hide(); //예약안내
+	$(".more_info>.scale").hide(); //규모
+	$(".more_info>.seats").hide(); //좌석수
+	$(".more_info>.smoking").hide(); //금연/흡연여부
+	$(".more_info>.handling_menu").hide(); //취급메뉴
 }
 else if(getParameterByName('contenttypeid')==32){
     $(".listmenu>button.info_name").text('숙박 정보');
+	$(".text_group>.menu").hide();//대표메뉴
+	$(".text_group>.open_time").hide(); //영업시간
+	$(".text_group>.rest").hide(); //휴무일
+	$(".more_info>.stroller").hide(); //유모차 대여 여부
+	$(".more_info>.credit_card").hide(); //신용카드 대여 여부
+	$(".more_info>.animal").hide(); //애완동물 가능 여부
+	$(".more_info>.available_age").hide(); //체험가능 연령
+	$(".more_info>.experience").hide(); //체험 안내
+	$(".more_info>.open").hide(); //개장일
+	$(".more_info>.parking").hide(); //주차시설
+	$(".more_info>.rest_day").hide(); //쉬는날
+	$(".more_info>.use").hide(); //이용시기
+	$(".more_info>.use_time").hide(); //이용시간
+	$(".more_info>.discount").hide(); //할인정보
+	$(".more_info>.representative_menu").hide() //대표메뉴
+	$(".more_info>.kid").hide(); //어린이 놀이방 여부
+	$(".more_info>.opening").hide(); //개업일
+	$(".more_info>.packing").hide(); //포장 가능
+	$(".more_info>.reserv").hide(); //예약안내
+	$(".more_info>.scale").hide(); //규모
+	$(".more_info>.seats").hide(); //좌석수
+	$(".more_info>.smoking").hide(); //금연/흡연여부
+	$(".more_info>.handling_menu").hide(); //취급메뉴
 }
 else if(getParameterByName('contenttypeid')==39){
     $(".listmenu>button.info_name").text('음식점 정보');
+	$(".text_group>.rest").hide(); //휴무일
+	$(".more_info>.people").hide(); //수용인원
+	$(".more_info>.stroller").hide(); //유모차 대여 여부
+	$(".more_info>.animal").hide(); //애완동물 가능 여부
+	$(".more_info>.available_age").hide(); //체험가능 연령
+	$(".more_info>.experience").hide(); //체험 안내
+	$(".more_info>.experience").hide(); //문의 및 안내
+	$(".more_info>.open").hide(); //개장일
+	$(".more_info>.rest_day").hide(); //쉬는날
+	$(".more_info>.use").hide(); //이용시기
+	$(".more_info>.use_time").hide(); //이용시간
 }
 
 $(document).ready(function(){
@@ -20,6 +67,9 @@ $(document).ready(function(){
     detailCommon(decoding_api_key, getParameterByName('contenttypeid'), getParameterByName('contentid'));
     //소개정보 조회
     detailIntro(decoding_api_key, getParameterByName('contenttypeid'), getParameterByName('contentid'));
+	//이미지 조회
+	detailImage(decoding_api_key, getParameterByName('contentid'));
+
 
     (function( $ ) {
     "use strict";
@@ -43,6 +93,7 @@ $(document).ready(function(){
         }
     });
 }(jQuery));
+
     $('#like').on('change', function(){
         if($('#like').is(':checked')){
             $('.like_btn').attr('src', './Food_More_Infomation_IMG/like2.png');
@@ -176,36 +227,38 @@ function readURL(input){
     }
 }
 function detailCommon(api_key, contentTypeId, contentId){
-    $.get('http://api.visitkorea.or.kr/openapi/service/rest/KorService/detailCommon', {
-        pageNo: 1,
-        numOfRows: 10,
-        MobileOS: 'ETC',
-        MobileApp: 'railro',
-        serviceKey: api_key,
-        contentTypeId: contentTypeId,
-        _type: 'json',
-        contentId: contentId,
-        defaultYN: 'Y',
-        firstImageYN: 'Y',
-        addrinfoYN: 'Y',
-        overviewYN: 'Y'
-    }, function(data){
-        //console.log('success : '+JSON.stringify(data));
-        //console.log('success : '+JSON.stringify(data.response.body));
-        //console.log(data.response.body.items.item);
-        data = data.response.body.items.item;
-        $(document).attr('title', '상세정보 : '+data.title);
-        $(".text>.text_group>.title>span:first-child").text(data.title); //제목
-        $(".text>.text_group>.rotate>div:last-child").text(data.addr1); //주소
-        $(".img_collection").append( //이미지
-            '<li style="display: block"><img src='+data.firstimage+' alt=""></li>'
-        );
-        $(".text>.text_group>.homepage>div:last-child").html(data.homepage); //홈페이지
-        $(".more_info>.overview>span:last-child").html(data.overview); //개요
-        $(".more_info>.post>span:last-child").text(data.zipcode); //우편번호
-        $(".text>.text_group>.phone>div:last-child").text(data.tel); //전화번호
-    }
-);
+	$.get('http://api.visitkorea.or.kr/openapi/service/rest/KorService/detailCommon', {
+		pageNo: 1,
+		numOfRows: 10,
+		MobileOS: 'ETC',
+		MobileApp: 'railro',
+		serviceKey: api_key,
+		contentTypeId: contentTypeId,
+		_type: 'json',
+		contentId: contentId,
+		defaultYN: 'Y',
+		firstImageYN: 'Y',
+		addrinfoYN: 'Y',
+		overviewYN: 'Y'
+	}, function(data) {
+		console.log('공통정보 조회 : '+JSON.stringify(data));
+		//console.log('success : '+JSON.stringify(data.response.body));
+		//console.log(data.response.body.items.item);
+		data = data.response.body.items.item;
+		$(document).attr('title', '상세정보 : ' + data.title);
+		$(".text>.text_group>.title>span:first-child").text(data.title); //제목
+		$(".text>.text_group>.rotate>div:last-child").text(data.addr1); //주소
+		
+		var none_img = data.firstimage==undefined ? "https://lh3.googleusercontent.com/proxy/g-K2vc17c_0QH-IwpjFdLFbxZrzEJIJ8Zy-qzSx58Xvow2OnCZ-VIkqAkxi4e1vmneRL59IhpJ524lIKa3Hyprb687aEOgs":data.firstimage;
+		$(".img_collection").append( //이미지
+			'<li style="display: block"><img src=' + none_img + ' alt=""></li>'
+		);
+		$(".text>.text_group>.homepage>div:last-child").html(data.homepage); //홈페이지
+		$(".more_info>.overview>span:last-child").html(data.overview); //개요
+		$(".more_info>.post>span:last-child").text(data.zipcode); //우편번호
+		$(".text>.text_group>.phone>div:last-child").text(data.tel); //전화번호
+	}
+	);
 }
 function detailIntro(api_key, contentTypeId, contentId){
 
@@ -228,16 +281,16 @@ function detailIntro(api_key, contentTypeId, contentId){
                 $(".more_info>.credit_card>span:last-child").text(data.chkcreditcard);
                 $(".more_info>.animal>span:last-child").text(data.chkpet);
                 $(".more_info>.available_age>span:last-child").text(data.expagerange);
-                $(".more_info>.experience>span:last-child").text(data.expguide);
+                $(".more_info>.experience>span:last-child").text(data.expguide == "" ? '미표시':data.expguide);
                 $(".more_info>.question>span:last-child").text(data.infocenter);
                 $(".more_info>.open>span:last-child").text(data.opendate);
-                $(".more_info>.parking>span:last-child").text(data.parking);
+                $(".more_info>.parking>span:last-child").text(data.parking == "" ? '미표시':data.parking);
                 $(".more_info>.rest_day>span:last-child").text(data.restdate);
                 $(".more_info>.use>span:last-child").text(data.useseason);
-                $(".more_info>.use_time>span:last-child").text(data.usetime);
+                $(".more_info>.use_time>span:last-child").html(data.usetime == "" ? '미표시':data.usetime);
             }
             else if(contentTypeId==39){
-                $(".more_info>.discount>span:last-child").text(data.discountinfofood);
+                $(".more_info>.discount>span:last-child").text(data.discountinfofood == "" ? '미표시':data.discountinfofood);
                 $(".more_info>.representative_menu>span:last-child").text(data.firstmenu);
                 $(".more_info>.kid>span:last-child").text(data.kidsfacility);
                 $(".more_info>.opening>span:last-child").text(data.opendatefood);
@@ -246,8 +299,17 @@ function detailIntro(api_key, contentTypeId, contentId){
                 $(".more_info>.scale>span:last-child").text(data.scalefood);
                 $(".more_info>.seats>span:last-child").text(data.seat);
                 $(".more_info>.smoking>span:last-child").text(data.smoking);
-                $(".more_info>.handling_menu>span:last-child").text(data.treatmenu);
+                $(".more_info>.handling_menu>span:last-child").text(data.treatmenu == "" ? '미표시':data.treatmenu);
             }
+/*			else if(contentTypeId==32){
+				for(key in data){
+					if(data[key] != ""){
+						$(".more_info").append(
+							'<li class="post"><span>&#8226; '+key+'</span> <span>'+data[key]+'</span></li>'
+						);
+					}
+				}
+			}*/
         }
     );
 }
@@ -256,4 +318,33 @@ function getParameterByName(name) {
         var regex = new RegExp("[\\?&]" + name + "=([^&#]*)"),
                 results = regex.exec(location.search);
         return results == null ? "" : decodeURIComponent(results[1].replace(/\+/g, " "));
+}
+
+
+function detailImage(api_key, contentId){
+	$.get('http://api.visitkorea.or.kr/openapi/service/rest/KorService/detailImage', {
+		pageNo: 1,
+		numOfRows: 100,
+		MobileOS: 'ETC',
+		MobileApp: 'railro',
+		serviceKey: api_key,
+		_type: 'json',
+		contentId: contentId,
+		imageYN: 'Y',
+		subImageYN: 'Y'
+	}, function(data) {
+		console.log('이미지 조회 : '+JSON.stringify(data));
+		//console.log('success : '+JSON.stringify(data.response.body));
+		//console.log(data.response.body.items.item);
+		var cnt = data.response.body.totalCount;
+		if(cnt != 0){
+			data = data.response.body.items.item;
+			for (var i = 0; i < data.length; i++) {
+				$(".img_collection").append(
+					'<li><img src=' + data[i].originimgurl + ' alt=""></li>'
+				);
+			}
+		}
+	}
+	);
 }

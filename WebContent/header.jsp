@@ -106,7 +106,7 @@
                                 <dd><a href="./search_tour.jsp">관광지 검색</a></dd>
                                 <dd><a href="./search_foods.jsp">음식점 검색</a></dd>
                                 <dd><a href="./search_rooms.jsp">숙소 검색</a></dd>
-                                <dd><a href="#">플래너 검색</a></dd>
+                                <dd><a href="./search_planner.jsp">플래너 검색</a></dd>
                             </dl>
                             <dl class="hoverbg5 hoverbg" onmouseover="bgcolor(5)" onmouseout="removecolor(5)">
                                 <dd><a href="./html/sub02.html">정보공유</a></dd>
