@@ -14,7 +14,69 @@ public class ReviewBean {
 	private List<String> img_paths; 
 	private List<String> tags;
 	int like;
+	int mine; //내꺼인지
+	String nickname;
 	
+	public int getMine() {
+		return mine;
+	}
+
+	public void setMine(int mine) {
+		this.mine = mine;
+	}
+
+	public String getNickname() {
+		return nickname;
+	}
+
+	public void setNickname(String nickname) {
+		this.nickname = nickname;
+	}
+	
+	
+
+	public ReviewBean(int id, int user_id, int content_id, int content_type_id, String content, String register_date,
+			List<String> img_paths, List<String> tags, int like, int mine, String nickname) {
+		super();
+		this.id = id;
+		this.user_id = user_id;
+		this.content_id = content_id;
+		this.content_type_id = content_type_id;
+		this.content = content;
+		this.register_date = register_date;
+		this.img_paths = img_paths;
+		this.tags = tags;
+		this.like = like;
+		this.mine = mine;
+		this.nickname = nickname;
+	}
+
+	public ReviewBean(int id, int user_id, int content_id, int content_type_id, String content, String register_date,
+			int like) {
+		super();
+		this.id = id;
+		this.user_id = user_id;
+		this.content_id = content_id;
+		this.content_type_id = content_type_id;
+		this.content = content;
+		this.register_date = register_date;
+		this.like = like;
+	}
+	
+	public ReviewBean(int id, int user_id, int content_id, int content_type_id, String content, String register_date,
+			int like, int mine, String nickname) {
+		super();
+		this.id = id;
+		this.user_id = user_id;
+		this.content_id = content_id;
+		this.content_type_id = content_type_id;
+		this.content = content;
+		this.register_date = register_date;
+		this.like = like;
+		this.mine = mine;
+		this.nickname = nickname;
+	}
+
 	public ReviewBean(int id, int user_id, int content_id, int content_type_id, String content, String register_date,
 			List<String> img_paths, List<String> tags, int like) {
 		super();

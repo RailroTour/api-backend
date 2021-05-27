@@ -23,27 +23,25 @@ public class ReviewController extends HttpServlet{
 	
 	public void doGet(HttpServletRequest request, HttpServletResponse response) throws ServletException, IOException {
 		request.setCharacterEncoding("utf-8");
-		action = new ReviewGetAction();
+		String servletpath = request.getRequestURI();
+		if(servletpath.equals("/api-backend/api/review/get")) {
+			action = new ReviewGetAction();
+			System.out.println("review get");
+		}
 		action.execute(request, response);
-		System.out.println("get");
 	}
 	public void doPost(HttpServletRequest request, HttpServletResponse response) throws ServletException, IOException {
 		request.setCharacterEncoding("utf-8");
 		String servletpath = request.getRequestURI();
 		if(servletpath.equals("/api-backend/api/review/post")) {
 			action = new ReviewAddAction();
-			System.out.println("myplanner get");
+			System.out.println("review post");
 		}
-//		else if(servletpath.equals("/api-backend/api/planner2/put")) {
-//			action = new Planner2PutAction();
-//			System.out.println("planner1 put");
-//		}
+		else if(servletpath.equals("/api-backend/api/review/put")) {
+			action = new ReviewDeleteAction();
+			System.out.println("review delete");
+		}
 		action.execute(request, response);
 	}
-	public void doDelete(HttpServletRequest request, HttpServletResponse response) throws ServletException, IOException {
-		request.setCharacterEncoding("utf-8");
-		action = new ReviewDeleteAction();
-		action.execute(request, response);
-		System.out.println("delete");
-	}
+
 }

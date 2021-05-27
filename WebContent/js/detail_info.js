@@ -56,7 +56,7 @@ else if(getParameterByName('contenttypeid')==39){
 	$(".more_info>.animal").hide(); //애완동물 가능 여부
 	$(".more_info>.available_age").hide(); //체험가능 연령
 	$(".more_info>.experience").hide(); //체험 안내
-	$(".more_info>.experience").hide(); //문의 및 안내
+	$(".more_info>.question").hide(); //문의 및 안내
 	$(".more_info>.open").hide(); //개장일
 	$(".more_info>.rest_day").hide(); //쉬는날
 	$(".more_info>.use").hide(); //이용시기
@@ -73,7 +73,8 @@ $(document).ready(function(){
     detailIntro(decoding_api_key, getParameterByName('contenttypeid'), getParameterByName('contentid'));
 	//이미지 조회
 	detailImage(decoding_api_key, getParameterByName('contentid'));
-
+	//리뷰 조회
+	reviewData();
 
     (function( $ ) {
     "use strict";
@@ -331,7 +332,7 @@ function detailIntro(api_key, contentTypeId, contentId){
                 $(".more_info>.credit_card>span:last-child").text(data.chkcreditcard);
                 $(".more_info>.animal>span:last-child").text(data.chkpet);
                 $(".more_info>.available_age>span:last-child").text(data.expagerange);
-                $(".more_info>.experience>span:last-child").text(data.expguide == "" ? '미표시':data.expguide);
+                $(".more_info>.experience>span:last-child").html(data.expguide == "" ? '미표시':data.expguide);
                 $(".more_info>.question>span:last-child").text(data.infocenter);
                 $(".more_info>.open>span:last-child").text(data.opendate);
                 $(".more_info>.parking>span:last-child").text(data.parking == "" ? '미표시':data.parking);
@@ -397,4 +398,54 @@ function detailImage(api_key, contentId){
 		}
 	}
 	);
+}
+
+function reviewData(){
+	$.ajax({
+		url: './api/review/get', //request 보낼 서버의 경로
+		type: 'get', // 메소드(get, post, put 등)
+		data: {
+			contentid: getParameterByName('contentid'),
+			contenttypeid: getParameterByName('contenttypeid')
+		},
+		success: function(data) {
+			console.log("리뷰 :" + JSON.stringify(data));
+			for(var i=0; i<data.length; i++){
+				var review = '<li class="review" data-review_id='+data[i].id+'><div class="btn">';
+				if(data[i].mine == 1){
+					review+='<button class="remove">삭제</button>';
+				}
+				review+='</div>';
+				review+='<div class="imgs">';
+				for(var o=0; o<data[i].img_paths.length; o++){
+					var img = '"'+data[i].img_paths[o]+'"';
+					review+='<img src='+img+' alt="" width="100px">';
+				}
+				review+='</div>';
+				review+='<div class="contents">';
+				review+=data[i].content;
+				review+='</div>';
+				review+='<div class="profile">';
+				review+='<div class="writer1">작성자</div>';
+				review+='<div class="writer2">'+data[i].nickname+'</div>';
+				review+='<div class="like1">좋아요</div>';
+				var like = data[i].like==1 ? './Food_More_Infomation_IMG/like2.png':'./Food_More_Infomation_IMG/like1.png';
+				review+='<div class="like2"><img src='+like+' alt=""></div>';
+				review+='<div class="date1">작성일</div>';
+				review+='<div class="date2">'+data[i].register_date+'</div>';
+				review+='</div>';
+				review+='<div class="hashtags">';
+				for(var o=0; o<data[i].tags.length; o++){
+					review+='<span>#'+data[i].tags[o]+'</span> ';
+				}
+				review+='</div></li>';
+				
+				$(".reviews").append(review);
+			}
+		},
+		error: function(request, status, error) {
+			//서버로부터 응답이 정상적으로 처리되지 못햇을 때 실행
+			console.log("code:" + request.status + "\n" + "message:" + request.responseText + "\n" + "error:" + error);
+		}
+	});
 }

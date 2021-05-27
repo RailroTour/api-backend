@@ -7,7 +7,7 @@
 <title>서브페이지</title>
 <link rel="stylesheet" href="./css/commen.css">
 <link rel="stylesheet" href="./css/sub-banner.css">
-<link rel="stylesheet" href="./css/detail_info.css">
+<link rel="stylesheet" href="./css/detail_info.css?ver=2">
 <script
 	src="https://ajax.googleapis.com/ajax/libs/jquery/3.3.1/jquery.min.js">
 	
@@ -216,21 +216,23 @@
 						</h3>
 					</ul>
 					<div class="latest_review">
-						<span>최신순</span> 리뷰 (1111)
+						<span>최신순</span> 리뷰
 					</div>
 					<ul class="reviews">
-						<li class="review">
+<!--  						<li class="review">
 							<div class="btn">
-								<!-- <button class="modify">수정</button> -->
+								<button class="modify">수정</button>
 								<button class="remove">삭제</button>
 							</div>
 							<div class="imgs">
-								<img src="./jpg/2.jpg" alt="" width="100px"> <img
-									src="./jpg/2.jpg" alt="" width="100px">
+								<img src="./jpg/2.jpg" alt="" width="100px"> 
+								<img src="./jpg/2.jpg" alt="" width="100px">
 							</div>
-							<div class="contents">dddddd dddddd dddddd dddddd dddddd
+							<div class="contents">
+								dddddd dddddd dddddd dddddd dddddd
 								dddddd dddddd dddddd dddddd dddddd dddddd dddddd dddddd dddddd
-								dddddd dddddd</div>
+								dddddd dddddd
+							</div>
 							<div class="profile">
 								<div class="writer1">작성자</div>
 								<div class="writer2">손준호</div>
@@ -245,7 +247,7 @@
 								<span>#맛있어요</span> <span>#맛있어요</span> <span>#맛있어요</span> <span>#맛있어요</span>
 								<span>#맛있어요</span> <span>#맛있어요</span> <span>#맛있어요</span>
 							</div>
-						</li>
+						</li> -->
 
 
 					</ul>
@@ -262,7 +264,7 @@
 	<%@include file="footer.jsp"%>
 	<script type="text/javascript"
 		src="//cdn.jsdelivr.net/npm/slick-carousel@1.8.1/slick/slick.min.js"></script>
-	<script src="./js/detail_info.js?ver=47"></script>
+	<script src="./js/detail_info.js?ver=54"></script>
 
 
 	<script>
