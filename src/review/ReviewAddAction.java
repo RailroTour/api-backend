@@ -22,7 +22,6 @@ public class ReviewAddAction implements Action{
 	@Override
 	public void execute(HttpServletRequest request, HttpServletResponse response){
 		 
-		
 		HttpSession session = request.getSession();
 		String email= (String)session.getAttribute("email");
 		//System.out.print(email);

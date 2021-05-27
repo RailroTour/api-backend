@@ -200,19 +200,19 @@
 							</div>
 						</li>
 						<div class="zt-span6 last">
-							<div class="zt-skill-bar">
-								<div data-width="88" style="">
-									좋아요<span>88%</span>
+							<div class="zt-skill-bar like-bar">
+								<div data-width="0" style="" class="like">
+									좋아요<span class="like_ratio">0%</span>
 								</div>
 							</div>
-							<div class="zt-skill-bar">
-								<div data-width="92" style="">
-									싫어요<span>92%</span>
+							<div class="zt-skill-bar dislike-bar">
+								<div data-width="0" style="" class="dislike">
+									싫어요<span class="dislike_ratio">0%</span>
 								</div>
 							</div>
 						</div>
 						<h3>
-							<strong>?%의 여행자가 이 관광지를 좋아합니다.</strong>
+							<strong class="like_comment">?%의 여행자가 이 관광지를 좋아합니다.</strong>
 						</h3>
 					</ul>
 					<div class="latest_review">
@@ -264,7 +264,7 @@
 	<%@include file="footer.jsp"%>
 	<script type="text/javascript"
 		src="//cdn.jsdelivr.net/npm/slick-carousel@1.8.1/slick/slick.min.js"></script>
-	<script src="./js/detail_info.js?ver=61"></script>
+	<script src="./js/detail_info.js?ver=77"></script>
 
 
 	<script>
