@@ -2,6 +2,10 @@
 const encoding_api_key = 'JXL40bCK2WGOu%2FE1WOGjuALpADt64Wb2mQVwNpxiA0bre%2FV8GozZggM2O01%2FPaTTyNm0A2JahebDf%2FPGwW8jbg%3D%3D';
 const decoding_api_key = 'JXL40bCK2WGOu/E1WOGjuALpADt64Wb2mQVwNpxiA0bre/V8GozZggM2O01/PaTTyNm0A2JahebDf/PGwW8jbg=='
 
+var files = [];
+var tags = [];
+var like = 0;
+
 if(getParameterByName('contenttypeid')==12){
     $(".listmenu>button.info_name").text('관광지 정보');
 	$(".text_group>.menu").hide(); //대표메뉴
@@ -52,7 +56,7 @@ else if(getParameterByName('contenttypeid')==39){
 	$(".more_info>.animal").hide(); //애완동물 가능 여부
 	$(".more_info>.available_age").hide(); //체험가능 연령
 	$(".more_info>.experience").hide(); //체험 안내
-	$(".more_info>.experience").hide(); //문의 및 안내
+	$(".more_info>.question").hide(); //문의 및 안내
 	$(".more_info>.open").hide(); //개장일
 	$(".more_info>.rest_day").hide(); //쉬는날
 	$(".more_info>.use").hide(); //이용시기
@@ -69,7 +73,8 @@ $(document).ready(function(){
     detailIntro(decoding_api_key, getParameterByName('contenttypeid'), getParameterByName('contentid'));
 	//이미지 조회
 	detailImage(decoding_api_key, getParameterByName('contentid'));
-
+	//리뷰 조회
+	reviewData();
 
     (function( $ ) {
     "use strict";
@@ -94,23 +99,63 @@ $(document).ready(function(){
     });
 }(jQuery));
 
-    $('#like').on('change', function(){
+	$("#comment_add #submit").on('click', function(){ //리뷰 등록
+		var formData = new FormData();
+
+		
+		for(var i=0; i<files.length; i++){
+			formData.append('file'+i, files[i]);
+		}
+		formData.append('tags', tags);
+		formData.append('like', like);
+		formData.append('contents', $("#contents").val());
+		formData.append('contenttypeid', getParameterByName('contenttypeid'));
+		formData.append('contentid', getParameterByName('contentid'));
+		
+		$.ajax({
+			type: 'post',
+			enctype: 'multipart/form-data',
+			cache: false,
+			url: './api/review/post',
+			data: formData,
+			async: false,
+			contentType: false,
+			processData: false,
+			dataType: 'json',
+			success: function(msg){
+				console.log(msg);
+				if(msg.id != null){
+					location.reload();
+				}
+			},
+			error: function(request, status, error) {
+				//서버로부터 응답이 정상적으로 처리되지 못햇을 때 실행
+				console.log("code:" + request.status + "\n" + "message:" + request.responseText + "\n" + "error:" + error);
+			}
+			
+		})
+	})
+
+    $('#like').on('change', function(){ //좋아요
         if($('#like').is(':checked')){
             $('.like_btn').attr('src', './Food_More_Infomation_IMG/like2.png');
+			like = 1;
         }
         else{
             $('.like_btn').attr('src', './Food_More_Infomation_IMG/like1.png');
+			like = 0;
         }
     })
-    $('#comment_add textarea').on('focus', function(){
-        var text=$(this).attr('placeholder');
-        if(text=='로그인 후 이용가능합니다.'){
-            alert('로그인 후 이용 가능합니다.');
-        }
+    $('#comment_add textarea').on('focus', function(){ //리뷰 클릭 감지
+		if (getCookie("access_token") == null) {
+			alert('로그인 후 이용하실 수 있습니다.');
+			$(this).blur();
+			return;
+		}
     })
 
 	
-	$(".trip_cart").on('click', function(){
+	$(".trip_cart").on('click', function(){ //여행바구니 담기
 		$.ajax({
 			url: './api/tripcart', //request 보낼 서버의 경로
 			type: 'post', // 메소드(get, post, put 등)
@@ -130,11 +175,12 @@ $(document).ready(function(){
 		});
 	})
 
-    $(document).on('click', '.imgfile .preview',function(){
+    $(document).on('click', '.imgfile .preview',function(){ //사진 삭제
+		files.splice($(this).index(), 1);
         $(this).remove();
     })
 
-    $('#img').on('change', function(){
+    $('#img').on('change', function(){ //사진 추가
         if($(this).val()!=""){
             var ext=$(this).val().split(".").pop().toLowerCase();
             
@@ -157,13 +203,16 @@ $(document).ready(function(){
                 return;
             }
             readURL(this);
+			files.push($(this)[0].files[0]);
+			
             $(this).val('');
         }
     })
-    $(document).on('keydown', '.input_tag',function(key){
+    $(document).on('keydown', '.input_tag',function(key){ //태그 추가
         if(key.keyCode==13){//엔터키가 들어오면
             if($('.tags').length<10){
                 var tag=$(this).val();
+				tags.push(tag);
                 if(tag!=''){
                     $('.tag ul .input_tag').before('<li class="tags">#'+tag+'<img src="./Food_More_Infomation_IMG/cancel-button.png" alt=""></li>');
                 }
@@ -172,10 +221,12 @@ $(document).ready(function(){
                 swal('태그는 최대 10개까지 등록할 수 있습니다.');
             }
             $(this).val('');
+			return false;
         }
 
     })
-    $(document).on('click', '.tags img', function(){
+    $(document).on('click', '.tags img', function(){ //태그 삭제
+		tags.splice($(this).parent().index(), 1);
         $(this).parent().remove();
     })
    $('.btn_group .Previous').on("click", function(){
@@ -281,7 +332,7 @@ function detailIntro(api_key, contentTypeId, contentId){
                 $(".more_info>.credit_card>span:last-child").text(data.chkcreditcard);
                 $(".more_info>.animal>span:last-child").text(data.chkpet);
                 $(".more_info>.available_age>span:last-child").text(data.expagerange);
-                $(".more_info>.experience>span:last-child").text(data.expguide == "" ? '미표시':data.expguide);
+                $(".more_info>.experience>span:last-child").html(data.expguide == "" ? '미표시':data.expguide);
                 $(".more_info>.question>span:last-child").text(data.infocenter);
                 $(".more_info>.open>span:last-child").text(data.opendate);
                 $(".more_info>.parking>span:last-child").text(data.parking == "" ? '미표시':data.parking);
@@ -347,4 +398,54 @@ function detailImage(api_key, contentId){
 		}
 	}
 	);
+}
+
+function reviewData(){
+	$.ajax({
+		url: './api/review/get', //request 보낼 서버의 경로
+		type: 'get', // 메소드(get, post, put 등)
+		data: {
+			contentid: getParameterByName('contentid'),
+			contenttypeid: getParameterByName('contenttypeid')
+		},
+		success: function(data) {
+			console.log("리뷰 :" + JSON.stringify(data));
+			for(var i=0; i<data.length; i++){
+				var review = '<li class="review" data-review_id='+data[i].id+'><div class="btn">';
+				if(data[i].mine == 1){
+					review+='<button class="remove">삭제</button>';
+				}
+				review+='</div>';
+				review+='<div class="imgs">';
+				for(var o=0; o<data[i].img_paths.length; o++){
+					var img = '"'+data[i].img_paths[o]+'"';
+					review+='<img src='+img+' alt="" width="100px">';
+				}
+				review+='</div>';
+				review+='<div class="contents">';
+				review+=data[i].content;
+				review+='</div>';
+				review+='<div class="profile">';
+				review+='<div class="writer1">작성자</div>';
+				review+='<div class="writer2">'+data[i].nickname+'</div>';
+				review+='<div class="like1">좋아요</div>';
+				var like = data[i].like==1 ? './Food_More_Infomation_IMG/like2.png':'./Food_More_Infomation_IMG/like1.png';
+				review+='<div class="like2"><img src='+like+' alt=""></div>';
+				review+='<div class="date1">작성일</div>';
+				review+='<div class="date2">'+data[i].register_date+'</div>';
+				review+='</div>';
+				review+='<div class="hashtags">';
+				for(var o=0; o<data[i].tags.length; o++){
+					review+='<span>#'+data[i].tags[o]+'</span> ';
+				}
+				review+='</div></li>';
+				
+				$(".reviews").append(review);
+			}
+		},
+		error: function(request, status, error) {
+			//서버로부터 응답이 정상적으로 처리되지 못햇을 때 실행
+			console.log("code:" + request.status + "\n" + "message:" + request.responseText + "\n" + "error:" + error);
+		}
+	});
 }

@@ -34,9 +34,7 @@ public class PlannerCoverImgUploadAction implements Action{
 		
 		int max=1024*1024*10;
 		MultipartRequest multi = null;
-
 		
-	
 		File dir = new File("C:\\Users\\carto\\Documents\\GitHub\\api-backend\\WebContent\\upload_images\\planner\\");
 		// 디렉토리들이 있는지 확인
 		if(dir.isDirectory()){//디렉토리가 있으면
