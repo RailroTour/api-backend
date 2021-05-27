@@ -61,6 +61,7 @@ public class ReviewAddAction implements Action{
 		ReviewBean review = new ReviewBean();
 		for(int i=0; i<5; i++) {
 			if(multi.getFilesystemName("file"+i)!=null) {
+				System.out.println(multi.getFilesystemName("file"+i));
 				review.getImg_paths().add("./upload_images/review/"+multi.getFilesystemName("file"+i));
 			}
 			else {

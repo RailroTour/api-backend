@@ -86,7 +86,6 @@ public class ReviewDAO {
 			
 			pstmt.setInt(1, review_id);
 			pstmt.setString(2, img);
-			
 			return pstmt.executeUpdate();
 		}catch(SQLException e) {
 			e.printStackTrace();
@@ -202,14 +201,13 @@ public class ReviewDAO {
 		return null;
 	}
 	
-	public int delete(int id, int content_id) {
+	public int delete(int id) {
 		
 		PreparedStatement pstmt = null;
 		try {
-			String sql = "delete from review where id=? and content_id=?";
+			String sql = "delete from review where id=?";
 			pstmt = conn.prepareStatement(sql);
 			pstmt.setInt(1, id);
-			pstmt.setInt(2, content_id);
 			return pstmt.executeUpdate();
 		}catch(SQLException e) {
 			e.printStackTrace();

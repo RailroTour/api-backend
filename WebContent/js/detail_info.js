@@ -99,10 +99,30 @@ $(document).ready(function(){
     });
 }(jQuery));
 
+	$(document).on('click', ".review .remove", function(){ //리뷰 삭제
+		var check = confirm('리뷰를 삭제하시겠습니까?');
+		if(check == true){
+			$.ajax({
+				type: 'post',
+				url: './api/review/delete',
+				data: {
+					review_id: $(this).parent().parent().data('review_id')
+				},
+				success: function(msg) {
+					location.reload();
+				},
+				error: function(request, status, error) {
+					//서버로부터 응답이 정상적으로 처리되지 못햇을 때 실행
+					console.log("code:" + request.status + "\n" + "message:" + request.responseText + "\n" + "error:" + error);
+				}
+
+			})
+		}
+	})
+
 	$("#comment_add #submit").on('click', function(){ //리뷰 등록
 		var formData = new FormData();
 
-		
 		for(var i=0; i<files.length; i++){
 			formData.append('file'+i, files[i]);
 		}
@@ -419,7 +439,7 @@ function reviewData(){
 				review+='<div class="imgs">';
 				for(var o=0; o<data[i].img_paths.length; o++){
 					var img = '"'+data[i].img_paths[o]+'"';
-					review+='<img src='+img+' alt="" width="100px">';
+					review+='<img src='+img+' alt="" width="100px" onclick="pop(this)">';
 				}
 				review+='</div>';
 				review+='<div class="contents">';
@@ -448,4 +468,16 @@ function reviewData(){
 			console.log("code:" + request.status + "\n" + "message:" + request.responseText + "\n" + "error:" + error);
 		}
 	});
+}
+
+
+
+function pop(img) { //이미지 프리뷰
+	 var win = window.open('', 'Detail', 'width=0, height=0, menubar=0, toolbar=0, directories=0, scrollbars=1, status=0, location=0, resizable=1');
+	 op="<html><head><title>크게 보기</title></head>";
+	 op+="<body leftmargin='0' topmargin='0'>";
+	 op+="<img src='"+ img.src +"' border='0' style='cursor:pointer' onclick='window.close();' onload='window.resizeTo(this.width+30, this.height+90); window.moveTo( (screen.width-this.width)/2 ,  (screen.height-this.height)/2-50 )'>";
+	 op+="</body></html>";
+
+	 win.document.write(op);
 }

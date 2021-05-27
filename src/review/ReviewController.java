@@ -37,7 +37,7 @@ public class ReviewController extends HttpServlet{
 			action = new ReviewAddAction();
 			System.out.println("review post");
 		}
-		else if(servletpath.equals("/api-backend/api/review/put")) {
+		else if(servletpath.equals("/api-backend/api/review/delete")) {
 			action = new ReviewDeleteAction();
 			System.out.println("review delete");
 		}

@@ -15,16 +15,11 @@ public class ReviewDeleteAction implements Action{
 	@SuppressWarnings("unused")
 	@Override
 	public void execute(HttpServletRequest request, HttpServletResponse response) {
-		Integer id = Integer.parseInt(request.getParameter("id"));
-		Integer content_id = Integer.parseInt(request.getParameter("content_id"));
+		String review_id = request.getParameter("review_id");
 		
 		try {
-			if(id == null) {
-				response.sendError(400, "id required");
-				return;
-			}
-			else if(content_id == null) {
-				response.sendError(400, "content_id required");
+			if(review_id == null) {
+				response.sendError(400, "review_id required");
 				return;
 			}
 		} catch (IOException e) {
@@ -34,9 +29,9 @@ public class ReviewDeleteAction implements Action{
 		
 		try {
 			ReviewDAO reviewdao = new ReviewDAO(ConnectionProvider.getConnection());
-			reviewdao.delete(id,content_id);
+			reviewdao.delete(Integer.parseInt(review_id));
 			
-			response.setStatus(404);
+			response.setStatus(204);
 			response.setContentType("application/json");
 			response.setCharacterEncoding("UTF-8");
 		} catch (SQLException e) {
