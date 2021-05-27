@@ -269,9 +269,34 @@
 
 	<script>
 		//워드클라우드 스크립트 
+	var words = [];
+	$.ajax({
+		type: 'get',
+		url: './api/wordcloud/get',
+		data: {
+			contentid: getParameterByName('contentid'),
+			contenttypeid:getParameterByName('contenttypeid')
+		},
+		success: function(data) {
+			console.log("워드클라우드 사용할 해시태그 개수 : "+JSON.stringify(data));
+			for(var i=0; i<data.length; i++){
+				words.push(
+					{text: data[i].hashtag, size: data[i].frequency}
+				);
+			}
+			d3.wordcloud().size([ 500, 300 ]).fill(
+					d3.scale.ordinal().range(
+							[ "#884400", "#448800", "#888800", "#444400" ])).words(
+					words).start();
+		},
+		error: function(request, status, error) {
+			//서버로부터 응답이 정상적으로 처리되지 못햇을 때 실행
+			console.log("code:" + request.status + "\n" + "message:" + request.responseText + "\n" + "error:" + error);
+		}
 
+	})
 		// word frequencies of first two chapters of Oliver Twist
-		var words = [
+/* 		var words = [
 				{
 					text : '장어탕',
 					size : 50
@@ -312,12 +337,12 @@
 				}, {
 					text : '서비스가 좋아요',
 					size : 26
-				}, ];
+				}, ]; */
 
-		d3.wordcloud().size([ 500, 300 ]).fill(
+/* 		d3.wordcloud().size([ 500, 300 ]).fill(
 				d3.scale.ordinal().range(
 						[ "#884400", "#448800", "#888800", "#444400" ])).words(
-				words).start();
+				words).start(); */
 	</script>
 </body>
 </html>
