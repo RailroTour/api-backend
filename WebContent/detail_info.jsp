@@ -7,7 +7,7 @@
 <title>서브페이지</title>
 <link rel="stylesheet" href="./css/commen.css">
 <link rel="stylesheet" href="./css/sub-banner.css">
-<link rel="stylesheet" href="./css/detail_info.css">
+<link rel="stylesheet" href="./css/detail_info.css?ver=2">
 <script
 	src="https://ajax.googleapis.com/ajax/libs/jquery/3.3.1/jquery.min.js">
 	
@@ -157,10 +157,10 @@
 						<div id="map"></div>
 					</li>
 				</ul>
-				<div class="review1">내일러 후기</div>
-				<div class="review2">해당 장소의 리뷰를 적어주세요.</div>
+				<div class="review1">방문자 후기</div>
+				<div class="review2">장소의 리뷰를 적어주세요.</div>
 				<div class="comment">
-					<form action="" id="comment_add" onsubmit="return false">
+					<form action="post" id="comment_add" onsubmit="return false" enctype="multipart/form-data">
 						<div class="imgfile">
 							<!--
                             <ul class="preview" style="background-image: url('')">
@@ -172,7 +172,7 @@
 								src="./Food_More_Infomation_IMG/image-add-button.png" alt=""
 								width="17px">사진</label>
 						</div>
-						<textarea name="" id="" cols="50" rows="10" maxlength="200"
+						<textarea name="contents" id="contents" cols="50" rows="10" maxlength="200"
 							placeholder="200자 이하만 입력 가능합니다."></textarea>
 						<input type="submit" value="등록" id="submit">
 						<div class="tag">
@@ -200,37 +200,39 @@
 							</div>
 						</li>
 						<div class="zt-span6 last">
-							<div class="zt-skill-bar">
-								<div data-width="88" style="">
-									좋아요<span>88%</span>
+							<div class="zt-skill-bar like-bar">
+								<div data-width="0" style="" class="like">
+									좋아요<span class="like_ratio">0%</span>
 								</div>
 							</div>
-							<div class="zt-skill-bar">
-								<div data-width="92" style="">
-									싫어요<span>92%</span>
+							<div class="zt-skill-bar dislike-bar">
+								<div data-width="0" style="" class="dislike">
+									싫어요<span class="dislike_ratio">0%</span>
 								</div>
 							</div>
 						</div>
 						<h3>
-							<strong>?% 의 내일러들이 이 관광지를 좋아합니다.</strong>
+							<strong class="like_comment">?%의 여행자가 이 관광지를 좋아합니다.</strong>
 						</h3>
 					</ul>
 					<div class="latest_review">
-						<span>최신순</span> 리뷰 (1111)
+						<span>최신순</span> 리뷰
 					</div>
 					<ul class="reviews">
-						<li class="review">
+<!--  						<li class="review">
 							<div class="btn">
 								<button class="modify">수정</button>
 								<button class="remove">삭제</button>
 							</div>
 							<div class="imgs">
-								<img src="./jpg/2.jpg" alt="" width="100px"> <img
-									src="./jpg/2.jpg" alt="" width="100px">
+								<img src="./jpg/2.jpg" alt="" width="100px"> 
+								<img src="./jpg/2.jpg" alt="" width="100px">
 							</div>
-							<div class="contents">dddddd dddddd dddddd dddddd dddddd
+							<div class="contents">
+								dddddd dddddd dddddd dddddd dddddd
 								dddddd dddddd dddddd dddddd dddddd dddddd dddddd dddddd dddddd
-								dddddd dddddd</div>
+								dddddd dddddd
+							</div>
 							<div class="profile">
 								<div class="writer1">작성자</div>
 								<div class="writer2">손준호</div>
@@ -245,121 +247,15 @@
 								<span>#맛있어요</span> <span>#맛있어요</span> <span>#맛있어요</span> <span>#맛있어요</span>
 								<span>#맛있어요</span> <span>#맛있어요</span> <span>#맛있어요</span>
 							</div>
-						</li>
-						<li class="review">
-							<div class="btn">
-								<button class="modify">수정</button>
-								<button class="remove">삭제</button>
-							</div>
-							<div class="imgs">
-								<img src="./jpg/2.jpg" alt="" width="100px"> <img
-									src="./jpg/2.jpg" alt="" width="100px">
-							</div>
-							<div class="contents">dddddd dddddd dddddd dddddd dddddd
-								dddddd dddddd dddddd dddddd dddddd dddddd dddddd dddddd dddddd
-								dddddd dddddd</div>
-							<div class="profile">
-								<div class="writer1">작성자</div>
-								<div class="writer2">손준호</div>
-								<div class="like1">좋아요</div>
-								<div class="like2">
-									<img src="./Food_More_Infomation_IMG/like2.png" alt="">
-								</div>
-								<div class="date1">작성일</div>
-								<div class="date2">2018-09-22 03:33:33</div>
-							</div>
-							<div class="hashtags">
-								<span>#맛있어요</span> <span>#맛있어요</span> <span>#맛있어요</span> <span>#맛있어요</span>
-								<span>#맛있어요</span> <span>#맛있어요</span> <span>#맛있어요</span>
-							</div>
-						</li>
-						<li class="review">
-							<div class="btn">
-								<button class="modify">수정</button>
-								<button class="remove">삭제</button>
-							</div>
-							<div class="imgs">
-								<img src="./jpg/2.jpg" alt="" width="100px"> <img
-									src="./jpg/2.jpg" alt="" width="100px">
-							</div>
-							<div class="contents">dddddd dddddd dddddd dddddd dddddd
-								dddddd dddddd dddddd dddddd dddddd dddddd dddddd dddddd dddddd
-								dddddd dddddd</div>
-							<div class="profile">
-								<div class="writer1">작성자</div>
-								<div class="writer2">손준호</div>
-								<div class="like1">좋아요</div>
-								<div class="like2">
-									<img src="./Food_More_Infomation_IMG/like2.png" alt="">
-								</div>
-								<div class="date1">작성일</div>
-								<div class="date2">2018-09-22 03:33:33</div>
-							</div>
-							<div class="hashtags">
-								<span>#맛있어요</span> <span>#맛있어요</span> <span>#맛있어요</span> <span>#맛있어요</span>
-								<span>#맛있어요</span> <span>#맛있어요</span> <span>#맛있어요</span>
-							</div>
-						</li>
-						<li class="review">
-							<div class="btn">
-								<button class="modify">수정</button>
-								<button class="remove">삭제</button>
-							</div>
-							<div class="imgs">
-								<img src="./jpg/2.jpg" alt="" width="100px"> <img
-									src="./jpg/2.jpg" alt="" width="100px">
-							</div>
-							<div class="contents">dddddd dddddd dddddd dddddd dddddd
-								dddddd dddddd dddddd dddddd dddddd dddddd dddddd dddddd dddddd
-								dddddd dddddd</div>
-							<div class="profile">
-								<div class="writer1">작성자</div>
-								<div class="writer2">손준호</div>
-								<div class="like1">좋아요</div>
-								<div class="like2">
-									<img src="./Food_More_Infomation_IMG/like2.png" alt="">
-								</div>
-								<div class="date1">작성일</div>
-								<div class="date2">2018-09-22 03:33:33</div>
-							</div>
-							<div class="hashtags">
-								<span>#맛있어요</span> <span>#맛있어요</span> <span>#맛있어요</span> <span>#맛있어요</span>
-								<span>#맛있어요</span> <span>#맛있어요</span> <span>#맛있어요</span>
-							</div>
-						</li>
-						<li class="review">
-							<div class="btn">
-								<button class="modify">수정</button>
-								<button class="remove">삭제</button>
-							</div>
-							<div class="imgs">
-								<img src="./jpg/2.jpg" alt="" width="100px"> <img
-									src="./jpg/2.jpg" alt="" width="100px">
-							</div>
-							<div class="contents">dddddd dddddd dddddd dddddd dddddd
-								dddddd dddddd dddddd dddddd dddddd dddddd dddddd dddddd dddddd
-								dddddd dddddd</div>
-							<div class="profile">
-								<div class="writer1">작성자</div>
-								<div class="writer2">손준호</div>
-								<div class="like1">좋아요</div>
-								<div class="like2">
-									<img src="./Food_More_Infomation_IMG/like2.png" alt="">
-								</div>
-								<div class="date1">작성일</div>
-								<div class="date2">2018-09-22 03:33:33</div>
-							</div>
-							<div class="hashtags">
-								<span>#맛있어요</span> <span>#맛있어요</span> <span>#맛있어요</span> <span>#맛있어요</span>
-								<span>#맛있어요</span> <span>#맛있어요</span> <span>#맛있어요</span>
-							</div>
-						</li>
+						</li> -->
+
+
 					</ul>
-					<div class="page_num_group">
+<!-- 					<div class="page_num_group">
 						<a href="#">이전</a> <a href="#" class="selected">1</a> <a href="#">2</a>
 						<a href="#">3</a> <a href="#">4</a> <a href="#">5</a> <a href="#">6</a>
 						<a href="#">7</a> <a href="#">8</a> <a href="#">다음</a>
-					</div>
+					</div> -->
 				</div>
 			</div>
 		</section>
@@ -368,14 +264,39 @@
 	<%@include file="footer.jsp"%>
 	<script type="text/javascript"
 		src="//cdn.jsdelivr.net/npm/slick-carousel@1.8.1/slick/slick.min.js"></script>
-	<script src="./js/detail_info.js?ver=25"></script>
+	<script src="./js/detail_info.js?ver=77"></script>
 
 
 	<script>
 		//워드클라우드 스크립트 
+	var words = [];
+	$.ajax({
+		type: 'get',
+		url: './api/wordcloud/get',
+		data: {
+			contentid: getParameterByName('contentid'),
+			contenttypeid:getParameterByName('contenttypeid')
+		},
+		success: function(data) {
+			console.log("워드클라우드 사용할 해시태그 개수 : "+JSON.stringify(data));
+			for(var i=0; i<data.length; i++){
+				words.push(
+					{text: data[i].hashtag, size: data[i].frequency}
+				);
+			}
+			d3.wordcloud().size([ 500, 300 ]).fill(
+					d3.scale.ordinal().range(
+							[ "#884400", "#448800", "#888800", "#444400" ])).words(
+					words).start();
+		},
+		error: function(request, status, error) {
+			//서버로부터 응답이 정상적으로 처리되지 못햇을 때 실행
+			console.log("code:" + request.status + "\n" + "message:" + request.responseText + "\n" + "error:" + error);
+		}
 
+	})
 		// word frequencies of first two chapters of Oliver Twist
-		var words = [
+/* 		var words = [
 				{
 					text : '장어탕',
 					size : 50
@@ -416,12 +337,12 @@
 				}, {
 					text : '서비스가 좋아요',
 					size : 26
-				}, ];
+				}, ]; */
 
-		d3.wordcloud().size([ 500, 300 ]).fill(
+/* 		d3.wordcloud().size([ 500, 300 ]).fill(
 				d3.scale.ordinal().range(
 						[ "#884400", "#448800", "#888800", "#444400" ])).words(
-				words).start();
+				words).start(); */
 	</script>
 </body>
 </html>
