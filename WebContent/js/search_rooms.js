@@ -25,7 +25,7 @@ $(document).ready(function(){
                 const total_cnt = data.response.body.totalCount;
                 data = data.response.body.items.item;
                 //데이터 추가
-                if(total_cnt-($.urlParam('pageNo')*10)>1){
+                if(total_cnt-(($.urlParam('pageNo')-1)*10)>2){
 					for (var i = 0; i < data.length; i++) {
 						$(".Tourist").append(search_elements(data[i].contenttypeid, data[i].contentid, data[i].firstimage, data[i].title, data[i].addr1));
 					}
