@@ -53,12 +53,14 @@ $(document).ready(function(){
 		data: {
 			planner_id: $.urlParam('planner_id')
 		},
+		async:false,
 		success: function(data) {
 			console.log("플래너2~3 정보:" + JSON.stringify(data));
 			var day = 0;
+			var sigungu_name = '';
 			
 			for(var i=0; i<data.length; i++){
-				if(data[i].visit_day == day){
+				if(data[i].visit_day == day && sigungu_name == data[i].sigungu_name){
 					//관광지, 음식점, 숙소이면
 					if (data[i].contenttypeid == 12 || data[i].contenttypeid == 32 || data[i].contenttypeid == 39) {
 						var search_data = get_api(data[i].contentid, data[i].contenttypeid);
@@ -92,9 +94,9 @@ $(document).ready(function(){
 				}
 				else{
 					day = data[i].visit_day;
-					
+					sigungu_name = data[i].sigungu_name;
 					//네비게이션 셋팅
-					if(day == 1){
+					if($(".nav_route>li").length == 0){
 						$(".plan_nav>.nav_route").append(
 							'<li onclick="fnMove(' + (data[i].visit_day - 1) + ')">DAY' + data[i].visit_day + ' ' + data[i].sigungu_name + '</li>'
 						);
