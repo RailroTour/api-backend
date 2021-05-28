@@ -1,7 +1,10 @@
-package review;
+package community;
+
 
 import java.io.IOException;
 import java.sql.SQLException;
+import java.util.List;
+
 import javax.servlet.http.HttpServletRequest;
 import javax.servlet.http.HttpServletResponse;
 import javax.servlet.http.HttpSession;
@@ -12,29 +15,20 @@ import common.Action;
 import common.ConnectionProvider;
 import common.JsonConverter;
 
-public class ReviewGetAction implements Action{
+
+
+public class CommunityGetAction implements Action{
 	@Override
 	public void execute(HttpServletRequest request, HttpServletResponse response) {
-		HttpSession session = request.getSession();
-		String email= (String)session.getAttribute("email");
 		
 		try {
-			if(email == null) {
-				response.sendError(400, "email required");
-				return;
-			}
-		} catch (IOException e) {
-			// TODO Auto-generated catch block
-			e.printStackTrace();
-		}
-		
-		try {
-			ReviewDAO reviewdao = new ReviewDAO(ConnectionProvider.getConnection());
-			JSONArray review = reviewdao.get(email);
+			CommunityDAO communitydao = new CommunityDAO(ConnectionProvider.getConnection());
+			List<CommunityBean> community = communitydao.get();
 			
 			response.setContentType("application/json");
 			response.setCharacterEncoding("UTF-8");
-			response.getWriter().print(review);
+			response.getWriter().print(JsonConverter.objectToJson(community));
+			
 		} catch (SQLException | IOException e) {
 			e.printStackTrace();
 		}

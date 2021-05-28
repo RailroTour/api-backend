@@ -109,7 +109,7 @@
                                 <dd><a href="./search_planner.jsp">플래너 검색</a></dd>
                             </dl>
                             <dl class="hoverbg5 hoverbg" onmouseover="bgcolor(5)" onmouseout="removecolor(5)">
-                                <dd><a href="./html/sub02.html">정보공유</a></dd>
+                                <dd><a href="./community.jsp">정보공유</a></dd>
                                 <dd><a href="#">동행자</a></dd>
                             </dl>
                             </div>
