@@ -31,7 +31,7 @@ public class TripCourseDAO {
 					+ "inner join sigungu_code on planner_area.sigungu_id = sigungu_code.id \r\n"
 					+ "inner join planner_elements on planner_area.id = planner_elements.planner_area_id\r\n"
 					+ "where planner_area.planner_id = ?\r\n"
-					+ "order by planner_area.visit_day asc, planner_elements.order_num asc;";
+					+ "order by planner_area.visit_day asc, planner_area.sigungu_id, planner_elements.order_num asc;";
 			pstmt = conn.prepareStatement(sql);
 			pstmt.setInt(1, planner_id);
 			rs = pstmt.executeQuery();

@@ -77,7 +77,7 @@ $(document).ready(function(){
 						}
 
 
-						$(".plan_info .day_route").eq(day-1).append(
+						$(".plan_info .day_route").eq($(".plan_info .day_route").length-1).append(
 							'<hr class="line"><li class="route"><div class="number"><span>'+data[i].order_num+'</span></div><div class="info"><a href=./detail_info.jsp?contenttypeid='+search_data.contenttypeid+'&contentid='+search_data.contentid+' target="_blank"><img src='+search_data.firstimage2+' alt=""></a><div class="title">'+search_data.title+'</div><div class="kinds"><img src='+type_img+' alt="" class="food_tour_hash"><a href=./detail_info.jsp?contenttypeid='+search_data.contenttypeid+'&contentid='+search_data.contentid+' target="_blank"><img src="./mynote_jpg/info.png" alt="" class="info"></a></div><div class="arrow"></div></div></li>'
 						);
 					}
@@ -87,7 +87,7 @@ $(document).ready(function(){
 						
 					
 						
-						$(".plan_info .day_route").eq(day-1).append(
+						$(".plan_info .day_route").eq($(".plan_info .day_route").length-1).append(
 							'<hr class="line"><li class="route"><div class="number"><span>'+data[i].order_num+'</span></div><div class="info"><a href="#" target="_blank"><img src='+type_img+' alt=""></a><div class="title">기차</div><div class="kinds"><img src=https://cdn.pixabay.com/photo/2017/01/31/13/39/icon-2024124_960_720.png alt="" class="food_tour_hash"><a href="#none" onclick=popup()><img src="./mynote_jpg/info.png" alt="" class="info"></a></div><div class="arrow"></div></div></li>'
 						);
 					}
@@ -98,12 +98,12 @@ $(document).ready(function(){
 					//네비게이션 셋팅
 					if($(".nav_route>li").length == 0){
 						$(".plan_nav>.nav_route").append(
-							'<li onclick="fnMove(' + (data[i].visit_day - 1) + ')">DAY' + data[i].visit_day + ' ' + data[i].sigungu_name + '</li>'
+							'<li onclick="fnMove(' + ($(".nav_route>li").length) + ')">DAY' + data[i].visit_day + ' ' + data[i].sigungu_name + '</li>'
 						);
 					}
 					else{
 						$(".plan_nav>.nav_route").append(
-							'<li onclick="fnMove(' + (data[i].visit_day - 1) + ')"><hr>DAY' + data[i].visit_day + ' ' + data[i].sigungu_name + '</li>'
+							'<li onclick="fnMove(' + ($(".nav_route>li").length) + ')"><hr>DAY' + data[i].visit_day + ' ' + data[i].sigungu_name + '</li>'
 						);
 					}
 					
