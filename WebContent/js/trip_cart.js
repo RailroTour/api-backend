@@ -71,10 +71,10 @@ function elements(contentid, img, title, contenttypeid){ //추가 요소
 	if (contenttypeid == 12) {
 		classify = '관광지';
 	}
-	else if (contenttypeid = 39) {
+	else if (contenttypeid == 39) {
 		classify = '음식점';
 	}
-	else if (contenttypeid = 32) {
+	else if (contenttypeid == 32) {
 		classify = '숙소';
 	}
 	var link = "./detail_info.jsp?contenttypeid="+contenttypeid+"&contentid="+contentid;
