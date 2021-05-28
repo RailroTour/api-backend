@@ -37,7 +37,7 @@ public class UserDeleteAction implements Action{
 			UserDAO userdao = new UserDAO(ConnectionProvider.getConnection());
 			int num = userdao.delete(email);
 			System.out.println("삭제된 계정 개수 : "+num);
-			response.setStatus(200);
+			response.setStatus(204);
 			response.setContentType("application/json");
 			response.setCharacterEncoding("UTF-8");
 			try {

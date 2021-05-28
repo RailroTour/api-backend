@@ -83,8 +83,7 @@ public class UserDAO {
 			if (rs.next()) {
 				return new UserBean(rs.getInt("id"), rs.getString("username"), rs.getString("password"),
 						rs.getString("name"), rs.getString("nickname"), rs.getString("email"),
-						rs.getString("register_date"), null
-
+						rs.getString("register_date"), rs.getString("profile_img")
 				);
 			}
 		} catch (SQLException e) {
@@ -136,19 +135,45 @@ public class UserDAO {
 	}
 	
 	
-	public int update(UserBean user) {
+	public int update(String name, String nickname, String profile_img, String email) {
 		PreparedStatement pstmt = null;
 		ResultSet rs = null;
 		try {
-			String sql = "update user set username=?, password=?, name=?, nickname=?, email=?, profile_img=? where id=?";
+			String sql = "update user set name=?, nickname=?, profile_img=? where email=?";
 			pstmt = conn.prepareStatement(sql);
 
-			pstmt.setString(1, user.getUsername());
-			pstmt.setString(2, user.getPassword());
-			pstmt.setString(3, user.getName());
-			pstmt.setString(4, user.getNickname());
-			pstmt.setString(5, user.getEmail());
-			pstmt.setString(6, user.getProfile_img());
+			pstmt.setString(1, name);
+			pstmt.setString(2, nickname);
+			pstmt.setString(3, profile_img);
+			pstmt.setString(4, email);
+
+			return pstmt.executeUpdate();
+		} catch (
+
+		SQLException e) {
+			e.printStackTrace();
+		} finally {
+			if (pstmt != null) {
+				try {
+					pstmt.close();
+				} catch (SQLException e) {
+					e.printStackTrace();
+				}
+			}
+		}
+		return 0;
+	}
+	
+	public int nofile_update(String name, String nickname, String email) {
+		PreparedStatement pstmt = null;
+		ResultSet rs = null;
+		try {
+			String sql = "update user set name=?, nickname=? where email=?";
+			pstmt = conn.prepareStatement(sql);
+
+			pstmt.setString(1, name);
+			pstmt.setString(2, nickname);
+			pstmt.setString(3, email);
 
 			return pstmt.executeUpdate();
 		} catch (

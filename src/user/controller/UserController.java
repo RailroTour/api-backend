@@ -39,34 +39,8 @@ public class UserController extends HttpServlet {
 
 		if (servletpath.equals("/api-backend/api/user/get")) {
 			action = new UserGetAction();
-			System.out.println("get");
-		} else if (servletpath.equals("/api-backend/api/user/put")) {
-			// 세션 이메일 불러오기
-			HttpSession session = request.getSession();
-			String email = (String) session.getAttribute("email");
-			
-			try {
-				UserDAO user = new UserDAO(ConnectionProvider.getConnection());
-				UserBean userbean = user.get(email);
-
-				// 파일 경로 저장.
-				String saveFolder = "C:\\Users\\carto\\Documents\\GitHub\\api-backend/Webcontent/profile_img/"
-						+ userbean.username;
-				int maxsize = 3 * 1024 * 1024;// 3MB
-				String encoding = "utf-8";
-				MultipartRequest multi = new MultipartRequest(request, saveFolder, maxsize, encoding,
-						new DefaultFileRenamePolicy());
-				System.out.println("절대경로 >> " + saveFolder);
-
-				String file = multi.getFilesystemName("profile_img");
-				request.setAttribute("profile_img", saveFolder + file);
-			} catch (Exception e) {
-				e.printStackTrace();
-			}
-
-			action = new UserPutAction();
-			System.out.println("put");
-		}
+			System.out.println("user get");
+		} 
 		action.execute(request, response);
 
 	}
@@ -79,11 +53,14 @@ public class UserController extends HttpServlet {
 		if (servletpath.equals("/api-backend/api/user/post")) {
 
 			action = new UserAddAction();
-			System.out.println("post");
+			System.out.println("user post");
 		} else if (servletpath.equals("/api-backend/api/user/delete")) {
 
 			action = new UserDeleteAction();
-			System.out.println("delete");
+			System.out.println("user delete");
+		} else if (servletpath.equals("/api-backend/api/user/put")) {
+			action = new UserPutAction();
+			System.out.println("user put");
 		}
 		action.execute(request, response);
 

@@ -11,7 +11,7 @@
    <script src="https://unpkg.com/sweetalert/dist/sweetalert.min.js"></script>
     <script src="https://ajax.googleapis.com/ajax/libs/jquery/3.3.1/jquery.min.js">
     </script>
- 	<script type="text/javascript" src="./js/mypage_manage.js?ver=24"></script>
+ 	<script type="text/javascript" src="./js/mypage_manage.js?ver=29"></script>
  	
  	<script src="./js/script.js"></script>
     <link rel="stylesheet" href="css/header.css">
@@ -50,19 +50,19 @@
                        </li>
                        <li class="id">
                            <span class="text">아이디</span>
-                           <div>cartoonpoet</div>
+                           <div></div>
                        </li>
                        <li class="name">
                            <span class="text">이름</span>
-                           <div>손준호</div>
+                           <div><input type="text" value=""></div>
                        </li>
                        <li class="nickname">
                            <span class="text">닉네임</span>
-                           <div><input type="text" value="하루"></div>
+                           <div><input type="text" value=""></div>
                        </li>
                        <li class="email">
                            <span class="text">이메일</span>
-                           <div><input type="text" value="cartoonpoet@naver.com"></div>
+                           <div></div>
                        </li>
                    </ul>
                    <div class="btn-group">
