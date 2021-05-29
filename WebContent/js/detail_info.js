@@ -323,7 +323,7 @@ function detailCommon(api_key, contentTypeId, contentId){
 		$(".text>.text_group>.title>span:first-child").text(data.title); //제목
 		$(".text>.text_group>.rotate>div:last-child").text(data.addr1); //주소
 		
-		var none_img = data.firstimage==undefined ? "https://lh3.googleusercontent.com/proxy/g-K2vc17c_0QH-IwpjFdLFbxZrzEJIJ8Zy-qzSx58Xvow2OnCZ-VIkqAkxi4e1vmneRL59IhpJ524lIKa3Hyprb687aEOgs":data.firstimage;
+		var none_img = data.firstimage==undefined ? "https://us.123rf.com/450wm/koblizeek/koblizeek1902/koblizeek190200055/125337077-no-image-vector-symbol-missing-available-icon-no-gallery-for-this-moment-.jpg?ver=6":data.firstimage;
 		$(".img_collection").append( //이미지
 			'<li style="display: block"><img src=' + none_img + ' alt=""></li>'
 		);

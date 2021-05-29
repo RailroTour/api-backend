@@ -25,7 +25,7 @@ $(document).ready(function(){
                 const total_cnt = data.response.body.totalCount;
                 data = data.response.body.items.item;
                 //데이터 추가
-                if(total_cnt-(($.urlParam('pageNo')-1)*10)>2){
+                if(total_cnt-(($.urlParam('pageNo')-1)*10)>1){
 					for (var i = 0; i < data.length; i++) {
 						$(".Tourist").append(search_elements(data[i].contenttypeid, data[i].contentid, data[i].firstimage, data[i].title, data[i].addr1));
 					}
@@ -91,5 +91,7 @@ $.urlParam = function(name){
 
 
 function search_elements(contenttypeid, contentid, img, title, addr){
+	img = img == undefined ? "https://globalimpactnetwork.org/wp-content/themes/globalimpact/images/no-image-found-360x250.png" : img;
+
     return '<ul class="Tour_group"><a href=detail_info.jsp?contenttypeid='+contenttypeid+'&contentid='+contentid+' target=_blank><li class="TourImage"><img src='+img+' alt="" width="148px"></li><div class="TourInfo"><li class="TourTitle">'+title+'</li><li class="shopping_add"><img src="./jpg/plus.png" alt=""></li><li class="TourContent">'+addr+'</li></div></a></ul>'
 }
