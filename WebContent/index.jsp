@@ -58,16 +58,16 @@
                         <div id="ban02-1">
                             <div class="ban-iconbox">
                                 <ul>
-                                    <li class="one"><a href="#">
+                                    <li class="one"><a href="./top100_food_tour_rooms.jsp?contenttypeid=12&pageNo=1">
                                         <img src="./jpg/ban-icon1.jpg" alt="">
                                     </a></li>
-                                    <li class="two"><a href="#">
+                                    <li class="two"><a href="./top100_food_tour_rooms.jsp?contenttypeid=32&pageNo=1">
                                         <img src="./jpg/ban-icon5.jpg" alt="">
                                     </a></li>
                                     <li class="three"><a href="#">
                                         <img src="./jpg/ban-icon3.jpg" alt="">
                                     </a></li>
-                                    <li class="four"><a href="#">
+                                    <li class="four"><a href="./top100_food_tour_rooms.jsp?contenttypeid=39&pageNo=1">
                                         <img src="./jpg/ban-icon4.jpg" alt="">
                                     </a></li>
                                 </ul>
