@@ -329,26 +329,39 @@ function getTourData(areaCode, contentTypeId, sigunguCode, api_key){
             sigunguCode: sigunguCode,
             _type: 'json'
         }, function(data){
-            console.log('success : '+data);
+            console.log('success : '+JSON.stringify(data));
         
             const cnt = data.response.body.items.item.length;
             let totalCount = data.response.body.totalCount;
             data = data.response.body.items.item;
             let markers = [];
-                  
-            for(let i=0; i<cnt; i++){ 
-                $(".search_result>.all").append( //요소들 추가
-                    search_tour_element(
-                        data[i].firstimage2==undefined ? none_img:data[i].firstimage2,
-                        data[i].title,
-                        data[i].contentid,
-                        data[i].mapx,
-                        data[i].mapy,
-                        contentTypeId
-                    )
-                );
-
-            }
+            
+			if(totalCount>1){
+				for (let i = 0; i < cnt; i++) {
+					$(".search_result>.all").append( //요소들 추가
+						search_tour_element(
+							data[i].firstimage2 == undefined ? none_img : data[i].firstimage2,
+							data[i].title,
+							data[i].contentid,
+							data[i].mapx,
+							data[i].mapy,
+							contentTypeId
+						)
+					);
+				}
+			}
+			else{
+				$(".search_result>.all").append(
+					search_tour_element(
+						data.firstimage2,
+						data.title,
+						data.contentid,
+						data.mapx,
+						data.mapy,
+						contentTypeId
+					)
+				);
+			}
         }
     );
 }
