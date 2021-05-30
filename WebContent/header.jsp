@@ -70,7 +70,7 @@
                                 
                             </li>
                             <li class="list02 list" onmouseover="bgcolor(2)" onmouseout="removecolor(2)">
-                                <a href="#" class="list_a2">TOP 100</a>
+                                <a href="./top100_food_tour_rooms.jsp?contenttypeid=12&pageNo=1" class="list_a2">TOP 100</a>
                             </li>
                             <li class="list03 list" onmouseover="bgcolor(3)" onmouseout="removecolor(3)">
                                 <a href="#" class="list_a3">플래너</a>
@@ -89,13 +89,13 @@
                             <dl class="hoverbg1 hoverbg" onmouseover="bgcolor(1)" onmouseout="removecolor(1)">
 <!--                                            <dt>지우지 말것</dt>-->
                                 <dd><a href="./railro_intro.jsp">내일로 란?</a></dd>
-                                <dd><a href="#">발권지 혜택</a></dd>
+                                <dd><a href="./railro_voucher.jsp">내일로 바우처</a></dd>
                             </dl>
                             <dl class="hoverbg2 hoverbg" onmouseover="bgcolor(2)" onmouseout="removecolor(2)">
-                                <dd><a href="#">관광지</a></dd>
-                                <dd><a href="#">맛집</a></dd>
-                                <dd><a href="#">코스</a></dd>
-                                <dd><a href="#">숙소</a></dd>
+                                <dd><a href="./top100_food_tour_rooms.jsp?contenttypeid=12&pageNo=1">관광지</a></dd>
+                                <dd><a href="./top100_food_tour_rooms.jsp?contenttypeid=39&pageNo=1">맛집</a></dd>
+                                <dd><a href="./top100_planner.jsp?pageNo=1">코스</a></dd>
+                                <dd><a href="./top100_food_tour_rooms.jsp?contenttypeid=32&pageNo=1">숙소</a></dd>
                             </dl>
                             <dl class="hoverbg3 hoverbg" onmouseover="bgcolor(3)" onmouseout="removecolor(3)">
                                 <dd><a href="./planner1.jsp">새 플래너 작성</a></dd>
