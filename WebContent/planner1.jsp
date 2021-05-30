@@ -4,7 +4,7 @@
 <html lang="en">
 <head>
     <meta charset="UTF-8">
-    <title>새 플래너 작성 : 기본 정보 입력</title>
+    <title>플래너 정보 입력</title>
     <link rel="stylesheet" href="./css/commen.css">
     <link rel="stylesheet" href="./css/sub-banner.css?ver=1">
     <link rel="stylesheet" href="./css/planner1.css?ver=1">

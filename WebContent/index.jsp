@@ -4,7 +4,7 @@
 <html lang="en">
 <head>
     <meta charset="UTF-8">
-    <title>내일로 투어</title>
+    <title>내일로투어</title>
     <link rel="stylesheet" href="css/commen.css">
     <link rel="stylesheet" href="css/style.css?ver=21">
     <link rel="stylesheet" href="bxslide/dist/jquery.bxslider.css">

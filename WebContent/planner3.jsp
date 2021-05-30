@@ -4,7 +4,7 @@
 <html lang="en">
 <head>
     <meta charset="UTF-8">
-    <title>플래너 :: 상세일정 만들기</title>
+    <title>상세일정 만들기</title>
     <link rel="stylesheet" href="./css/commen.css">
     <link rel="stylesheet" href="./css/planner3.css">
     <script src="https://ajax.googleapis.com/ajax/libs/jquery/3.3.1/jquery.min.js">

@@ -4,7 +4,7 @@
 <html lang="en">
 <head>
     <meta charset="UTF-8">
-    <title>Railro Tour</title>
+    <title>관광지 검색</title>
     <link rel="stylesheet" href="./css/commen.css">
     <link rel="stylesheet" href="./css/search_integrated.css">
     <link rel="stylesheet" href="./css/search_bar.css">

@@ -4,7 +4,7 @@
 <html lang="en">
 <head>
 <meta charset="UTF-8">
-<title>서브페이지</title>
+<title>세부정보</title>
 <link rel="stylesheet" href="./css/commen.css">
 <link rel="stylesheet" href="./css/sub-banner.css">
 <link rel="stylesheet" href="./css/detail_info.css?ver=2">

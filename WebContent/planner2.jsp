@@ -4,7 +4,7 @@
 <html lang="en">
 <head>
     <meta charset="UTF-8">
-    <title>새 플래너 작성 : 지역 선택</title>
+    <title>지역 선택</title>
     <link rel="stylesheet" href="./css/commen.css">
     <link rel="stylesheet" href="./css/sub-banner.css">
     <link rel="stylesheet" href="./css/planner2.css?ver=9">

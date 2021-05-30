@@ -4,7 +4,7 @@
 <html lang="en">
 <head>
     <meta charset="UTF-8">
-    <title>내일로투어 :: 여행바구니</title>
+    <title>여행바구니</title>
     <link rel="stylesheet" href="./css/commen.css">
     <link rel="stylesheet" href="./css/sub01.css">
     <link rel="stylesheet" href="./css/styles.css">

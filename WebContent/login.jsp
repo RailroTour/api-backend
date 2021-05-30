@@ -9,7 +9,7 @@
     <script src="https://developers.kakao.com/sdk/js/kakao.min.js"></script>
     <script src="./js/jquery.cookie.js"></script>
     <script src="./js/kakaologin.js?ver=6"></script>
-    <title>내일로 투어 : 로그인</title>
+    <title>로그인</title>
 
     
 </head>

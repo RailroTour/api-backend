@@ -4,7 +4,7 @@
 <html lang="en">
 <head>
     <meta charset="UTF-8">
-    <title>서브페이지</title>
+    <title>내일로 소개</title>
     <link rel="stylesheet" href="./css/commen.css">
     
     <link rel="stylesheet" href="./css/styles.css">
