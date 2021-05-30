@@ -173,7 +173,7 @@
                                 <ul>
                                     <li class="Search-Title">
                                         <img src="jpg/search.png" alt="">
-                                        사용자 맞춤 여행코스 검색
+                                        사용자 맞춤 여행플래너 검색
                                     </li>
                                     <li class="day">기간</li>
                                     <li class="r-button">
