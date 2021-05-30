@@ -6,7 +6,7 @@
     <meta charset="UTF-8">
     <title>플래너</title>
     <link rel="stylesheet" href="./css/commen.css">
-    <link rel="stylesheet" href="./css/mynote.css?ver=2">
+    <link rel="stylesheet" href="./css/mynote.css?ver=7">
 <script src="https://ajax.googleapis.com/ajax/libs/jquery/3.4.1/jquery.min.js"></script>
     </script>
     
