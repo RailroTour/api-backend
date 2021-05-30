@@ -12,6 +12,7 @@
 <script src="https://ajax.googleapis.com/ajax/libs/jquery/3.4.1/jquery.min.js"></script>
     <script src="bxslide/dist/jquery.bxslider.min.js">
     </script>
+    <script src="./js/main.js?ver=2"></script>
     <script> /* 배너 슬라이드 */
             $(document).ready(function(){
                 $('.slider').bxSlider({
@@ -210,7 +211,7 @@
                         <section id="timeline-title">
                            <div class="real_time">
                            		<span class="time">실시간</span>
-                            	<span>&nbsp;여행기</span>
+                            	<span>&nbsp;플래너</span>
                             	<a href="#">
 <!--                                 	<img src="jpg/reset.png" alt="" class="reset">
                                 	<span class="resettext">&nbsp;새로고침</span> -->
@@ -220,16 +221,16 @@
                             
                             <div class="timeline1">
                                <a href="#">
-                                   <img src="jpg/timeline1.jpg" alt="">
+                                   <img src="jpg/timeline1.jpg" alt="" style="width:81px; height:81px" target="_blank">
                                </a>
                                 <div class="bubble">
                                    <a href="#">
-                                        <div class="text">바다로 가즈아~~!</div>
+                                        <div class="text"><!-- 바다로 가즈아~~! --></div>
                                    </a>
                                    <span class="travel-bar">
                                        <i>Traveler</i>
                                        <span class="traveler">
-                                           &nbsp;권재인
+                                           <!-- &nbsp;권재인 -->
                                        </span>
 <!--                                        <div class="stamp_comment_cnt">
                                        	<input type="text" value="50" readonly>
@@ -242,16 +243,16 @@
                             </div>
     						<div class="timeline1">
                                <a href="#">
-                                   <img src="jpg/timeline1.jpg" alt="">
+                                   <img src="jpg/timeline1.jpg" alt="" style="width:81px; height:81px" target="_blank">
                                </a>
                                 <div class="bubble">
                                    <a href="#">
-                                        <div class="text">바다로 가즈아~~!</div>
+                                        <div class="text"></div>
                                    </a>
                                    <span class="travel-bar">
                                        <i>Traveler</i>
                                        <span class="traveler">
-                                           &nbsp;권재인
+                                           <!-- &nbsp;권재인 -->
                                        </span>
 <!--                                        <div class="stamp_comment_cnt">
                                        	<input type="text" value="50" readonly>
@@ -368,9 +369,9 @@
                            </ul>
                            <ul class="planner_view">
                                <li class="title">
-                                   <a href="">
-                                       <img src="jpg/profil.jpg" alt="">
-                                    </a>
+    <!--                                <a href="">
+                                       <img src="https://lh3.googleusercontent.com/proxy/5MJovSjo7PGIVdSIw3Zabjp1iXF5VGeyAro2ggFtcfvu56k1gw3dxouHUPzEzCCgMcq5MwcYMXvvwBn0cT1D4cJO-Jo1Am6dOgrWLxVjlU8L5GdLk2hBfPImAqvALi6xPPNR69woqbu0eUCYy8qXktbkbK6BR38zUlq8mAssvRiyED4" alt="" style="width:36px; height: 29px">
+                                    </a> -->
                                    <span class="traveler">
                                        <i>traveler<br></i>
                                        <a href=""><span class="name">손준호</span></a>
