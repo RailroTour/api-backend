@@ -178,18 +178,18 @@
                                     <li class="day">기간</li>
                                     <li class="r-button">
                                             <select name="" id="">
-                                                <option value="">5일</option>
-                                                <option value="">7일</option>
+                                                <option value="3">3일</option>
+                                                <option value="7">7일</option>
                                             </select>
                                     </li>
                                     <li class="tema">테마</li>
                                     <li>
                                         <span class="tema_group">
                                             <select name="" id="">
-                                                <option value="">관광</option>
-                                                <option value="">식도락</option>
-                                                <option value="">휴식</option>
-                                                <option value="">익스트림</option>
+                                                <option value="14">관광</option>
+                                                <option value="15">휴식</option>
+                                                <option value="16">체험</option>
+                                                <option value="17">힐링</option>
                                             </select>
                                         </span>
                                     </li>
