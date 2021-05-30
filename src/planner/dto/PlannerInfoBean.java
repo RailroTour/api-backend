@@ -8,8 +8,9 @@ public class PlannerInfoBean {
 	String name;
 	int view;
 	String img_path;
+	String profile_img;
 	
-	public PlannerInfoBean(String nickname, String title, String start_day, int days, String name, int view, String img_path) {
+	public PlannerInfoBean(String nickname, String title, String start_day, int days, String name, int view, String img_path, String profile_img) {
 		super();
 		this.nickname = nickname;
 		this.title = title;
@@ -18,8 +19,17 @@ public class PlannerInfoBean {
 		this.name = name;
 		this.view = view;
 		this.img_path = img_path;
+		this.profile_img = profile_img;
 	}
 	
+	public String getProfile_img() {
+		return profile_img;
+	}
+
+	public void setProfile_img(String profile_img) {
+		this.profile_img = profile_img;
+	}
+
 	public String getImg_path() {
 		return img_path;
 	}

@@ -40,6 +40,7 @@ $(document).ready(function(){
 				'background-size':'cover',
 				'background-position':'center center'
 			});
+			$(".user_img>img").attr('src', data.profile_img);
 		},
 		error: function(request, status, error) {
 			//서버로부터 응답이 정상적으로 처리되지 못햇을 때 실행
