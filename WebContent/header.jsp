@@ -73,7 +73,7 @@
                                 <a href="./top100_food_tour_rooms.jsp?contenttypeid=12&pageNo=1" class="list_a2">TOP 100</a>
                             </li>
                             <li class="list03 list" onmouseover="bgcolor(3)" onmouseout="removecolor(3)">
-                                <a href="#" class="list_a3">플래너</a>
+                                <a href="./planner1.jsp" class="list_a3">플래너</a>
                             </li>
                             <li class="list04 list" onmouseover="bgcolor(4)" onmouseout="removecolor(4)">
                                 <a href="./search_integrated.jsp" class="list_a4">검색</a>
