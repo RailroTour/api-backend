@@ -6,13 +6,13 @@
     <meta charset="UTF-8">
     <title>내일로 투어</title>
     <link rel="stylesheet" href="css/commen.css">
-    <link rel="stylesheet" href="css/style.css?ver=8">
+    <link rel="stylesheet" href="css/style.css?ver=21">
     <link rel="stylesheet" href="bxslide/dist/jquery.bxslider.css">
    <meta name="viewport" content="width=device-width, initial-scale=1">
 <script src="https://ajax.googleapis.com/ajax/libs/jquery/3.4.1/jquery.min.js"></script>
     <script src="bxslide/dist/jquery.bxslider.min.js">
     </script>
-    <script src="./js/main.js?ver=5"></script>
+    <script src="./js/main.js?ver=7"></script>
     <script> /* 배너 슬라이드 */
             $(document).ready(function(){
                 $('.slider').bxSlider({
