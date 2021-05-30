@@ -45,12 +45,12 @@
                 <div class="section">
                     <section id="ban01"><!--내일로 소개 부분 -->
                         <div class="ban-textbox">
-                            <a href="#">
+                            <a href="./railro_intro.jsp">
                                 <img src="./jpg/introduce_railro.jpg" alt="">
                             </a>
                         </div>
                         <div class="ban-imgbox">
-                            <a href="#">
+                            <a href="./railro_intro.jsp">
                                 <img src="./jpg/bn01.jpg" alt="">
                             </a>
                         </div>
