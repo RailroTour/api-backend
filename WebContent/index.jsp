@@ -64,7 +64,7 @@
                                     <li class="two"><a href="./top100_food_tour_rooms.jsp?contenttypeid=32&pageNo=1">
                                         <img src="./jpg/ban-icon5.jpg" alt="">
                                     </a></li>
-                                    <li class="three"><a href="#">
+                                    <li class="three"><a href="./top100_planner.jsp?pageNo=1">
                                         <img src="./jpg/ban-icon3.jpg" alt="">
                                     </a></li>
                                     <li class="four"><a href="./top100_food_tour_rooms.jsp?contenttypeid=39&pageNo=1">

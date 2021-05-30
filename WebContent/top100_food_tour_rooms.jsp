@@ -12,7 +12,7 @@
    
     <script src="https://ajax.googleapis.com/ajax/libs/jquery/3.3.1/jquery.min.js">
     </script>
-     <script src="./js/top100.js?ver=13">
+     <script src="./js/top100.js?ver=14">
     </script>
  
  
@@ -101,8 +101,5 @@
        
     </div>
     <%@include file="footer.jsp" %>
-    <script src="./js/script.js"></script>
-    <script>
-  </script>
 </body>
 </html>

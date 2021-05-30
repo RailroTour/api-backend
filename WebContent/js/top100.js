@@ -31,6 +31,9 @@ $(document).ready(function(){
 		);
 		$(".s-c-b-title>h2").text("음식점");
 	}
+	$(".listmenu>.sub-box").append(
+		'<li><a href="./top100_planner.jsp?pageNo=1">플래너</a></li>'
+	);
 	
 	if ($.urlParam('pageNo') == 1) {
 		$(".page_num_group").append(
