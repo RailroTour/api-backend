@@ -19,15 +19,16 @@ public class UserPutAction implements Action{
 
 	@Override
 	public void execute(HttpServletRequest request, HttpServletResponse response) {
-		// 세션 이메일 불러오기
+		// �꽭�뀡 �씠硫붿씪 遺덈윭�삤湲�
 		HttpSession session = request.getSession();
 		String email = (String) session.getAttribute("email");
 		
 		try {
 			UserDAO user = new UserDAO(ConnectionProvider.getConnection());
 			UserBean userbean = user.get(email);
-			// 파일 경로 저장.
+			// �뙆�씪 寃쎈줈 ���옣.
 			String saveFolder = "C:\\Users\\carto\\Documents\\GitHub\\api-backend/Webcontent/upload_images/profile/";
+			String server_path = "/ggp02250/tomcat/webapps/ROOT/WebContent/upload_images/profile/";
 			int maxsize = 3 * 1024 * 1024;// 3MB
 			String encoding = "utf-8";
 			MultipartRequest multi = new MultipartRequest(request, saveFolder, maxsize, encoding,
