@@ -20,6 +20,12 @@
                     adaptiveHeight:true,
                     mode:'fade'
                 });
+                
+                $(".CustomSearch .search").on('click', function(){
+                	var days = $("select[name=days]").val();
+                	var tema = $("select[name=tema]").val();
+                	location.href = "./custom_search.jsp?days="+days+"&tema_id="+tema;
+                });
             });
     </script>
     <link rel="stylesheet" href="css/header.css">
@@ -177,7 +183,7 @@
                                     </li>
                                     <li class="day">기간</li>
                                     <li class="r-button">
-                                            <select name="" id="">
+                                            <select name="days" id="">
                                                 <option value="3">3일</option>
                                                 <option value="7">7일</option>
                                             </select>
@@ -185,7 +191,7 @@
                                     <li class="tema">테마</li>
                                     <li>
                                         <span class="tema_group">
-                                            <select name="" id="">
+                                            <select name="tema" id="">
                                                 <option value="14">관광</option>
                                                 <option value="15">휴식</option>
                                                 <option value="16">체험</option>
