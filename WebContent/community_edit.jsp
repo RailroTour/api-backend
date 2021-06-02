@@ -1,5 +1,9 @@
 <%@ page language="java" contentType="text/html; charset=UTF-8"
 	pageEncoding="UTF-8"%>
+	<%@ page import="java.util.*"%>
+<%@ page import="java.sql.*"%>
+<%@ page import="common.*"%>
+<%@ page import="community.*"%>
 <!DOCTYPE html>
 <html lang="en">
 <head>
@@ -18,6 +22,12 @@
 </head>
 <body>
 <jsp:include page="header.jsp" />
+<%
+	int id = Integer.parseInt(request.getParameter("id"));
+	CommunityDAO dao = new CommunityDAO(ConnectionProvider.getConnection());
+	CommunityBean community = dao.get(id);
+	 
+	%>
 	<div id="wrap">
 		<!-- 전체를 감싸는 부분 -->
 		<section id="sub-imgbanner">
@@ -70,12 +80,12 @@
 					<form class="edit" id="community_add" enctype="multipart/form-data">
 						<div class="title">
 							<label for="title">제목</label> <input type="text" name="title"
-								id="title" placeholder="제목을 입력하세요">
+								id="title" placeholder="제목을 입력하세요" value="<%=community.getTitle()%>">
 						</div>
 						<div class="content">
 							<label for="content">내용</label>
 							<textarea name="content" id="content" cols="30" rows="10"
-								placeholder="내용을 입력하세요"></textarea>
+								placeholder="내용을 입력하세요"><%=community.getContent()%></textarea>
 						</div>
 						<div class="file" style="height: 40px;">
 							<label for="file" style="padding: 15px 10px;">파일 첨부</label>
@@ -89,6 +99,9 @@
 						<div class="btn">
 							<input type="button" id="uploadbutton" value="작성하기"> <input
 								type="button" value="취소하기" onclick="location.href='community.jsp'">
+						</div>
+						<div class="board_id_value">
+							<input value="<%=id%>" name="id" id="board_id" type="number" style="display:none;">
 						</div>
 
 					</form>
@@ -111,12 +124,13 @@
 
 				var formData = new FormData();
 				var fileInput = document.querySelector("#img_file");
-
+				
+				formData.append('id', $("#board_id").val());
 				formData.append('title', $("#title").val());
 				formData.append('content', $("#content").val());
 				formData.append('community_img', fileInput.files[0]);
 				$.ajax({
-					url : './api/community/post',
+					url : './api/community/put',
 					enctype : 'multipart/form-data',
 					processData : false,
 					contentType : false,
@@ -125,8 +139,8 @@
 					dataType : 'json',
 					type : 'post',
 					success : function(data) {
-						location.href='community.jsp';
 						
+						location.href='community.jsp';
 					},
 					error : function(data, request, status, error) {
 						console.log("code: " + request.status + "\n"

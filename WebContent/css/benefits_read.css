@@ -338,6 +338,7 @@
     background-color: #ff3d3d;
     color: white;
     margin-right: 10px;
+    padding: 8px 20px;
 }
 
 .search-right .search_btn {
@@ -350,8 +351,60 @@
     cursor: pointer;
     border: none;
 }
+
+.comment #contents{
+	width:95%;
+}
+.comment #comment_add {
+    width: 100%;
+    background-color: #f9f9f9;
+    margin: 0 auto;
+    margin-top: 20px;
+    padding: 0px 20px;
+    padding-top: 5px;
+    padding-right: 0px;
+    overflow: hidden;
+    display:flex;
+}
+.comments{
+	margin: 30px 0px;
+}
+.comments .comment{
+	width: 98%;
+	display: flex;
+    justify-content: space-between;
+    border-top: 1px solid #ccc;
+    border-bottom: 1px solid #ccc;
+    padding: 10px;
+}
+.comments .comment .contents{
+	padding: 10px;
+}
+.comments .comment .contents .profile{
+	border-left: 1px solid black;
+    padding: 10px;
+}
+.profile .writer1{
+	padding: 5px;
+    color: #9a9696;
+}
+.profile .writer2{
+	    border-bottom: 1px solid #ccc;
+    padding: 5px;
 }
 
+.profile .date1{
+	  color: #9a9696;
+    padding: 5px;
+}
+.profile .date2{
+	   padding: 5px;
+}
+.profile .delete{
+	padding-left: 5px;
+    font-weight: 600;
+}
+}
 /*모바일 기기에서*/
 @media screen and (max-width: 768px) {
     #wrap {
@@ -702,4 +755,63 @@
     cursor: pointer;
     border: none;
 }
+.comment #contents{
+	width:90%;
+}
+.comment #comment_add {
+    width: 100%;
+    background-color: #f9f9f9;
+    margin: 0 auto;
+    margin-top: 20px;
+    padding: 0px 20px;
+    padding-top: 5px;
+    padding-right: 0px;
+    overflow: hidden;
+    display:flex;
+}
+.comments{
+	margin: 30px 0px;
+}
+.comments .comment{
+	width: 98%;
+	display: flex;
+    justify-content: space-between;
+    border-top: 1px solid #ccc;
+    border-bottom: 1px solid #ccc;
+    padding: 10px;
+}
+.comments .comment .contents{
+	padding: 10px;
+}
+.comments .comment .contents .profile{
+	border-left: 1px solid black;
+    padding: 10px;
+}
+.profile .writer1{
+	padding: 5px;
+    color: #9a9696;
+}
+.profile .writer2{
+	    border-bottom: 1px solid #ccc;
+    padding: 5px;
+}
+
+.profile .date1{
+	  color: #9a9696;
+    padding: 5px;
+}
+.profile .delete{
+	padding-left: 5px;
+    font-weight: 600;
+}
+.profile .date2{
+	   padding: 5px;}
+	   .view_form .bt_group .delete {
+    float: right;
+    background-color: #ff3d3d;
+    color: white;
+    margin-right: 10px;
+    padding: 8px 20px;
+}
+
 }

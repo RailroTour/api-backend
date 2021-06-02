@@ -1,6 +1,4 @@
-package community;
-
-
+package community_comment;
 
 import java.io.IOException;
 import java.sql.SQLException;
@@ -14,11 +12,11 @@ import common.ConnectionProvider;
 import common.JsonConverter;
 
 
-public class CommunityDeleteAction implements Action{
-	
+public class CommentDeleteAction implements Action{
 	@Override
 	public void execute(HttpServletRequest request, HttpServletResponse response) {
 		String id = request.getParameter("id");
+		System.out.println("comment id: "+id);
 		
 		try {
 			if(id == null) {
@@ -31,9 +29,8 @@ public class CommunityDeleteAction implements Action{
 		}
 		
 		try {
-			CommunityDAO communitydao = new CommunityDAO(ConnectionProvider.getConnection());
-			communitydao.delete(Integer.parseInt(id));
-			communitydao.initialize_id(Integer.parseInt(id));
+			CommentDAO commentdao = new CommentDAO(ConnectionProvider.getConnection());
+			commentdao.delete(Integer.parseInt(id));
 			
 			response.setStatus(204);
 			response.setContentType("application/json");
@@ -44,4 +41,5 @@ public class CommunityDeleteAction implements Action{
 		}
 		
 	}
+
 }

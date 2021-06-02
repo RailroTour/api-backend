@@ -3,7 +3,8 @@
 <%@ page import="java.util.*"%>
 <%@ page import="java.sql.*"%>
 <%@ page import="community.*"%>
-<%@ page import="common.*" %>
+<%@ page import="common.*"%>
+<%@ page import="javax.servlet.http.HttpSession"%>
 <!DOCTYPE html>
 <html lang="en">
 <head>
@@ -13,6 +14,7 @@
 
 <link rel="stylesheet" href="./css/sub-banner.css">
 <link rel="stylesheet" href="./css/benefits_list.css">
+<link rel="stylesheet" href="css/header.css">
 
 <script
 	src="https://ajax.googleapis.com/ajax/libs/jquery/3.3.1/jquery.min.js">
@@ -23,6 +25,22 @@
 </head>
 
 <body>
+
+	<jsp:include page="header.jsp" />
+	<%
+	CommunityDAO daocount = new CommunityDAO(ConnectionProvider.getConnection());
+	int count = daocount.count();
+	HttpSession ses = request.getSession();
+	String email = (String) ses.getAttribute("email");
+	System.out.println("email 은 이거입니다: " + email);
+
+	int pageNumber = 1; //기본은 1 페이지를 할당
+	// 만약 파라미터로 넘어온 오브젝트 타입 'pageNumber'가 존재한다면
+	// 'int'타입으로 캐스팅을 해주고 그 값을 'pageNumber'변수에 저장한다
+	if (request.getParameter("pageNumber") != null) {
+		pageNumber = Integer.parseInt(request.getParameter("pageNumber"));
+	}
+	%>
 	<div id="wrap">
 		<!-- 전체를 감싸는 부분 -->
 		<section id="sub-imgbanner">
@@ -74,15 +92,10 @@
 				<div class="s-c-b-cover">
 					<div class="cover-search">
 						<p>
-							· Total : <b>11</b>건 <b>[1/2]</b> 페이지
+							· Total : <b><%=count%></b>건 <b><%=pageNumber%>/<%=count / 10 + 1%></b>
+							페이지
 						</p>
-						<div class="search-right">
-							<select name="" id="">
-								<option value="">제목</option>
-								<option value="">내용</option>
-							</select> <input type="text"> <input type="submit" value="검색"
-								class="search_btn">
-						</div>
+
 					</div>
 					<div class="cover-table">
 						<table>
@@ -97,83 +110,98 @@
 							</thead>
 							<%
 							Connection conn = null;
-							try{
+							try {
 								CommunityDAO dao = new CommunityDAO(ConnectionProvider.getConnection());
-								List<CommunityBean> list = dao.get();
-								for(CommunityBean p: list){
+								List<CommunityBean> list = dao.getList(pageNumber);
+								for (CommunityBean p : list) {
 									Integer id = p.getId();
 									String title = p.getTitle();
 									String username = p.getUsername();
 									String date = p.getRegister_date();
+									Integer views = p.getViews();
 							%>
 							<tbody>
 
 								<tr class="tdbgcolor">
-									<td><%= id %></td>
-									<td><a href="community_detail.jsp?id=<%= id%>"><%= title %></a></td>
-									<td><%= username %></td>
-									<td><%= date %></td>
-									<td>43</td>
+									<td><%=id%></td>
+									<td><a href="community_detail.jsp?id=<%=id%>"><%=title%></a></td>
+									<td><%=username%></td>
+									<td><%=date%></td>
+									<td><%=views%></td>
 								</tr>
 							</tbody>
 							<%
-								}
-								
-							} catch(SQLException ex){
-								out.println("Fail to connection");
-								
 							}
-%>
+
+							} catch (SQLException ex) {
+							out.println("Fail to connection");
+
+							}
+							%>
 						</table>
 					</div>
+
+					<!-- 페이징 처리 영역 -->
 					<div class="cover-btn">
-						<div class="bt_group" style="width: 410px;">
-							<button>
-								<a href="#">&lt;&lt;</a>
-							</button>
-							<button>
-								<a href="#">&lt;</a>
-							</button>
-							<button>
-								<a href="#">1</a>
-							</button>
-							<button>
-								<a href="#">1</a>
-							</button>
-							<button>
-								<a href="#">1</a>
-							</button>
-							<button>
-								<a href="#">1</a>
-							</button>
-							<button>
-								<a href="#">1</a>
-							</button>
-							<button>
-								<a href="#">1</a>
-							</button>
-							<button>
-								<a href="#">1</a>
-							</button>
-							<button>
-								<a href="#">1</a>
-							</button>
-							<button>
-								<a href="#">1</a>
-							</button>
-							<button>
-								<a href="#">10</a>
-							</button>
-							<button>
-								<a href="#">&gt;</a>
-							</button>
-							<button>
-								<a href="#">&gt;&gt;</a>
-							</button>
+						<%
+						if (pageNumber != 1) {
+						%>
+						<div
+							style="display: flex; justify-content: flex-start; width: 100%;">
+							<div class="btn_community_previous" style="margin-right:5px">
+								<a href="community.jsp?pageNumber=<%=pageNumber - 1%>">이전</a>
+							</div>
+							
+
+
+
+
+							<%
+							}
+							if (daocount.nextPage(pageNumber + 1)) {
+							%>
+							<div class="btn_community_next">
+								<a href="community.jsp?pageNumber=<%=pageNumber + 1%>">다음</a>
+
+
+							</div>
+						<%
+						if (pageNumber != 1) {
+						%>	
 						</div>
-						<button class="post">
-							<a href="community_add.jsp">글 쓰기</a>
-						</button>
+						<%} %>
+						<%
+						}
+						%>
+						
+						<%
+						if (email == null) {
+						%>
+						<script>
+							function login_required(email) {
+								alert("로그인이 필요합니다");
+								location.href = "login.jsp";
+							}
+						</script>
+						<%
+}
+%>
+						<%
+						if (email != null) {
+						%>
+						<script>
+							function login_required(email) {
+
+								location.href = "community_add.jsp";
+							}
+						</script>
+						<%
+}
+%>
+						<input type="button" class="post" value="글쓰기"
+							onclick="login_required('<%=email%>')">
+						
+
 					</div>
 
 				</div>
@@ -186,5 +214,6 @@
 
 	</div>
 	<script src="./js/script.js"></script>
+
 </body>
 </html>

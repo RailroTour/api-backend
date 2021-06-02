@@ -1,5 +1,4 @@
-package community;
-
+package community_comment;
 
 import java.io.IOException;
 
@@ -15,26 +14,27 @@ import javax.servlet.http.HttpSession;
 import common.Action;
 
 
-
-
-@WebServlet("/api/community/*")
-public class CommunityController extends HttpServlet{
-	
+@WebServlet("/api/comment/*")
+public class CommentController extends HttpServlet{
 	Action action;
 	//get,delete
 	public void doGet(HttpServletRequest request, HttpServletResponse response) throws ServletException, IOException {
 		String servletpath = request.getRequestURI();
 		request.setCharacterEncoding("utf-8");
 		
-		if (servletpath.equals("/api-backend/api/community/get")) {
-			action = new CommunityGetAction();
+		if (servletpath.equals("/api-backend/api/comment/get")) {
+			action = new CommentGetAction();
 			System.out.println("get");
-		} else if (servletpath.equals("/api-backend/api/community/delete")) {
-			action = new CommunityDeleteAction();
+			action.execute(request, response);
+			
+		} else if (servletpath.equals("/api-backend/api/comment/delete")) {
+			System.out.print("댓글 번호  ");
+			action = new CommentDeleteAction();
 			System.out.println("delete");
+			action.execute(request, response);
 		}
 		
-		action.execute(request, response);
+		
 		
 	}
 	//post, put
@@ -42,7 +42,7 @@ public class CommunityController extends HttpServlet{
 		String servletpath = request.getRequestURI();
 		request.setCharacterEncoding("utf-8");
 		
-		if (servletpath.equals("/api-backend/api/community/post")) {
+		if (servletpath.equals("/api-backend/api/comment/post")) {
 			
 			/*ServletContext context = getServletContext(); //어플리케이션에 대한 정보를 ServletContext 객체가 갖게 됨. 
 			String saveDir = context.getRealPath("community_img"); //절대경로를 가져옴
@@ -58,19 +58,15 @@ public class CommunityController extends HttpServlet{
 			 
 	          System.out.println(content);
 	          System.out.println(title);*/
-			action = new CommunityAddAction();
+			action = new CommentAddAction();
 			System.out.println("post");
 			action.execute(request, response);
 			
-		} else if (servletpath.equals("/api-backend/api/community/put")) {
-			action = new CommunityPutAction();
-			System.out.println("put");
-			action.execute(request, response);
-			
-		}
-		
+		} 
 		
 		
 	}
 	
+	
+
 }
