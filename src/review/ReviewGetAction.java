@@ -15,7 +15,6 @@ import org.json.JSONArray;
 import common.Action;
 import common.ConnectionProvider;
 import common.JsonConverter;
-import tripcart.dao.TripCartDAO;
 
 public class ReviewGetAction implements Action{
 	@Override
