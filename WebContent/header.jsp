@@ -110,7 +110,7 @@ pageEncoding="UTF-8"%>
                   onmouseover="bgcolor(5)"
                   onmouseout="removecolor(5)"
                 >
-                  <a href="#" class="list_a5">커뮤니티</a>
+                  <a href="./community.jsp" class="list_a5">커뮤니티</a>
                 </li>
               </ul>
             </nav>

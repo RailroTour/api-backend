@@ -11,22 +11,31 @@
 <meta charset="UTF-8">
 <title>커뮤니티</title>
 <link rel="stylesheet" href="./css/commen.css">
-
+<link rel="stylesheet" href="css/style.css?ver=21">
+<link rel="stylesheet" href="bxslide/dist/jquery.bxslider.css">
+<link rel="stylesheet" href="css/footer.css">
 <link rel="stylesheet" href="./css/sub-banner.css">
 <link rel="stylesheet" href="./css/benefits_list.css">
-<link rel="stylesheet" href="css/header.css">
+<link rel="stylesheet" href="./css/header.css">
+<script src="./js/header.js?ver=2"></script>
+<link
+	href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/5.13.0/css/all.min.css"
+	rel="stylesheet">
 
+<script src="./js/main.js?ver=7"></script>
 <script
 	src="https://ajax.googleapis.com/ajax/libs/jquery/3.3.1/jquery.min.js">
 	
 </script>
-
-
+<script src="bxslide/dist/jquery.bxslider.min.js">
+	
+</script>
+<script src="./js/header.js"></script>
+<script src="./js/script.js"></script>
 </head>
 
 <body>
 
-	<jsp:include page="header.jsp" />
 	<%
 	CommunityDAO daocount = new CommunityDAO(ConnectionProvider.getConnection());
 	int count = daocount.count();
@@ -41,6 +50,7 @@
 		pageNumber = Integer.parseInt(request.getParameter("pageNumber"));
 	}
 	%>
+	<%@include file="header.jsp"%>
 	<div id="wrap">
 		<!-- 전체를 감싸는 부분 -->
 		<section id="sub-imgbanner">
@@ -63,7 +73,7 @@
 					<div class="listmenu">
 						<button>내일로 소개</button>
 						<ul class="listbox">
-							<li><a href="#">내일로 소개</a></li>
+							<li><a href="./IntroRailro.me">내일로 소개</a></li>
 							<li><a href="#">TOP 100</a></li>
 							<li><a href="#">플래너</a></li>
 							<li><a href="#">내 주변</a></li>
@@ -148,10 +158,10 @@
 						%>
 						<div
 							style="display: flex; justify-content: flex-start; width: 100%;">
-							<div class="btn_community_previous" style="margin-right:5px">
+							<div class="btn_community_previous" style="margin-right: 5px">
 								<a href="community.jsp?pageNumber=<%=pageNumber - 1%>">이전</a>
 							</div>
-							
+
 
 
 
@@ -165,15 +175,17 @@
 
 
 							</div>
-						<%
-						if (pageNumber != 1) {
-						%>	
+							<%
+							if (pageNumber != 1) {
+							%>
 						</div>
-						<%} %>
 						<%
 						}
 						%>
-						
+						<%
+						}
+						%>
+
 						<%
 						if (email == null) {
 						%>
@@ -200,7 +212,7 @@
 %>
 						<input type="button" class="post" value="글쓰기"
 							onclick="login_required('<%=email%>')">
-						
+
 
 					</div>
 
@@ -213,6 +225,7 @@
 
 
 	</div>
+	<%@include file="footer.jsp"%>
 	<script src="./js/script.js"></script>
 
 </body>
