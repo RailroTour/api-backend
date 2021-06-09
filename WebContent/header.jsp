@@ -146,7 +146,7 @@ pageEncoding="UTF-8"%>
                         >맛집</a
                       >
                     </dd>
-                    <dd><a href="./top100_planner.jsp?pageNo=1">코스</a></dd>
+                    <dd><a href="./top100_planner.jsp?pageNo=1">플래너</a></dd>
                     <dd>
                       <a
                         href="./top100_food_tour_rooms.jsp?contenttypeid=32&pageNo=1"
