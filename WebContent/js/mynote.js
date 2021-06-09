@@ -89,7 +89,7 @@ $(document).ready(function(){
 					
 						
 						$(".plan_info .day_route").eq($(".plan_info .day_route").length-1).append(
-							'<hr class="line"><li class="route"><div class="number"><span>'+data[i].order_num+'</span></div><div class="info"><a href="#" target="_blank"><img src='+type_img+' alt=""></a><div class="title">기차</div><div class="kinds"><img src=https://cdn.pixabay.com/photo/2017/01/31/13/39/icon-2024124_960_720.png alt="" class="food_tour_hash"><a href="#none" onclick=popup()><img src="./mynote_jpg/info.png" alt="" class="info"></a></div><div class="arrow"></div></div></li>'
+							'<hr class="line"><li class="route"><div class="number"><span>'+data[i].order_num+'</span></div><div class="info"><a href="#none" onclick=popup()><img src='+type_img+' alt=""></a><div class="title">기차</div><div class="kinds"><img src=https://cdn.pixabay.com/photo/2017/01/31/13/39/icon-2024124_960_720.png alt="" class="food_tour_hash"><a href="#none" onclick=popup()><img src="./mynote_jpg/info.png" alt="" class="info"></a></div><div class="arrow"></div></div></li>'
 						);
 					}
 				}
@@ -134,7 +134,7 @@ $(document).ready(function(){
 					else if(data[i].contenttypeid == 40){ 
 						var type_img = "https://cdn2.iconfinder.com/data/icons/pittogrammi/142/14-512.png";
 						$(".plan_info").append(
-							'<ul class="day_route"><li class="route"><div class="number"><span>'+data[i].order_num+'</span></div><div class="info"><a href="#"><img src='+type_img+' alt=""></a><div class="title">기차</div><div class="kinds"><img src=https://cdn.pixabay.com/photo/2017/01/31/13/39/icon-2024124_960_720.png alt="" class="food_tour_hash"><a href="#none" onclick=popup()><img src="./mynote_jpg/info.png" alt="" class="info"></a></div><div class="arrow"></div></div></li></ul>'
+							'<ul class="day_route"><li class="route"><div class="number"><span>'+data[i].order_num+'</span></div><div class="info"><a href="#none" onclick=popup()><img src='+type_img+' alt=""></a><div class="title">기차</div><div class="kinds"><img src=https://cdn.pixabay.com/photo/2017/01/31/13/39/icon-2024124_960_720.png alt="" class="food_tour_hash"><a href="#none" onclick=popup()><img src="./mynote_jpg/info.png" alt="" class="info"></a></div><div class="arrow"></div></div></li></ul>'
 						);
 					}
 				}

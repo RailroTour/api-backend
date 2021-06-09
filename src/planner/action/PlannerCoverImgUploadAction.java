@@ -35,12 +35,12 @@ public class PlannerCoverImgUploadAction implements Action{
 		int max=1024*1024*10;
 		MultipartRequest multi = null;
 		String path = "C:\\Users\\carto\\Documents\\GitHub\\api-backend\\WebContent\\upload_images\\planner\\";
-		String server_path = "/ggp02250/tomcat/webapps/ROOT/WebContent/upload_images/planner/";
+		String server_path = "/ggp02250/tomcat/webapps/api-backend/upload_images/planner/";
 		File dir = new File(path);
 		// �뵒�젆�넗由щ뱾�씠 �엳�뒗吏� �솗�씤
 		if(dir.isDirectory()){//�뵒�젆�넗由ш� �엳�쑝硫�
 			try {
-				multi=new MultipartRequest(request, path, max, "UTF-8");
+				multi=new MultipartRequest(request, server_path, max, "UTF-8");
 			} catch (IOException e) {
 				// TODO Auto-generated catch block
 				e.printStackTrace();
@@ -49,7 +49,7 @@ public class PlannerCoverImgUploadAction implements Action{
 		else{//�뵒�젆�넗由ш� �뾾�쑝硫�
 			dir.mkdirs();
 			try {
-				multi=new MultipartRequest(request, path, max, "UTF-8");
+				multi=new MultipartRequest(request, server_path, max, "UTF-8");
 			} catch (IOException e) {
 				// TODO Auto-generated catch block
 				e.printStackTrace();

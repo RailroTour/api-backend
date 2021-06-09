@@ -823,6 +823,10 @@
         font-size: 1.8rem;
         font-family: "Nanum Gothic", sans-serif;
         display: inline-block;
+        width: 160px;
+        overflow: hidden;
+  		text-overflow: ellipsis;
+  		white-space: nowrap;
     }
     .plan_info .day_route .info .kinds{
         overflow: hidden;

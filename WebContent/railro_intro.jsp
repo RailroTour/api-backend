@@ -4,6 +4,7 @@
 <html lang="en">
 <head>
     <meta charset="UTF-8">
+    <link rel="shortcut icon" type="image⁄x-icon" href="favicon.ico">
     <title>내일로 소개</title>
     <link rel="stylesheet" href="./css/commen.css">
     
@@ -14,7 +15,7 @@
     </script>
  
     <link rel="stylesheet" href="css/header.css">
-    <link rel="stylesheet" href="css/footer.css">
+    <link rel="stylesheet" href="css/footer.css?ver=2">
     <script src="./js/header.js?ver=2"></script>
     <link href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/5.13.0/css/all.min.css" rel="stylesheet">
     
@@ -37,28 +38,23 @@
             <div id="sub-con-navi">
                 <div class="sub-con-navi-box">
                     <div class="homebtn">
-                        <a href="../index.html">
+                        <a href="./index.jsp">
                             <img src="./jpg/home.jpg" alt="">
                         </a>
                     </div>
                     <div class="listmenu">
                         <button>내일로 소개</button>
                         <ul class="listbox">
-                            <li><a href="#">내일로 소개</a></li>
-                            <li><a href="#">TOP 100</a></li>
-                            <li><a href="#">플래너</a></li>
-                            <li><a href="#">내 주변</a></li>
-                            <li><a href="sub02.html">고객센터</a></li>
+                            <li><a href="./top100_food_tour_rooms.jsp?contenttypeid=12&pageNo=1">TOP 100</a></li>
+                            <li><a href="./planner1.jsp">플래너</a></li>
+                            <li><a href="./search_integrated.jsp">검색</a></li>
+                            <li><a href="./community.jsp">커뮤니티</a></li>
                         </ul>
                     </div>
                     <div class="listmenu">
                          <button>내일로 란?</button>
                         <ul class="listbox">
-                            <li><a href="#">내일로 소개</a></li>
-                            <li><a href="#">TOP 100</a></li>
-                            <li><a href="#">플래너</a></li>
-                            <li><a href="#">내 주변</a></li>
-                            <li><a href="#">고객센터</a></li>
+                            <li><a href="./railro_voucher.jsp">내일로 바우처</a></li>
                         </ul>
                     </div>
                     

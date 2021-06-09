@@ -21,12 +21,14 @@ public class CommunityPutAction implements Action{
 
 		int max = 1024 * 1024 * 10;
 		MultipartRequest multi = null;
-		File dir = new File("C:\\Users\\carto\\Documents\\GitHub\\api-backend\\WebContent\\upload_images\\community\\");
+		String server_path = "/ggp02250/tomcat/webapps/api-backend/upload_images/community/";
+		String dev_path = "C:\\Users\\carto\\Documents\\GitHub\\api-backend\\WebContent\\upload_images\\community\\";
+		File dir = new File(server_path);
 		// 디렉토리들이 있는지 확인
 		if (dir.isDirectory()) {// 디렉토리가 있으면
 			try {
 				multi = new MultipartRequest(request,
-						"C:\\Users\\carto\\Documents\\GitHub\\api-backend\\WebContent\\upload_images\\community\\", max,
+						server_path, max,
 						"UTF-8");
 			} catch (IOException e) {
 				// TODO Auto-generated catch block
@@ -36,7 +38,7 @@ public class CommunityPutAction implements Action{
 			dir.mkdirs();
 			try {
 				multi = new MultipartRequest(request,
-						"C:\\Users\\carto\\Documents\\GitHub\\api-backend\\WebContent\\upload_images\\community\\", max,
+						server_path, max,
 						"UTF-8");
 			} catch (IOException e) {
 				// TODO Auto-generated catch block

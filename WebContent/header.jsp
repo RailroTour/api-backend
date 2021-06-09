@@ -44,9 +44,11 @@ pageEncoding="UTF-8"%>
                 </li>
                 <li>
                   <a href="./mypage.jsp">마이페이지</a>
+                  <span></span>
                 </li>
                 <li>
                   <a href="./trip_cart.jsp">여행바구니</a>
+                  <span></span>
                 </li>
                 <%} %>
               </ul>

@@ -4,6 +4,7 @@
 <html lang="en">
 <head>
     <meta charset="UTF-8">
+    <link rel="shortcut icon" type="image⁄x-icon" href="favicon.ico">
     <title>내일로 소개</title>
     <link rel="stylesheet" href="./css/commen.css">
     
@@ -37,17 +38,17 @@
             <div id="sub-con-navi">
                 <div class="sub-con-navi-box">
                     <div class="homebtn">
-                        <a href="../index.html">
+                        <a href="./index.jsp">
                             <img src="./jpg/home.jpg" alt="">
                         </a>
                     </div>
                     <div class="listmenu">
                         <button>내일로 소개</button>
                         <ul class="listbox">
-                            <li><a href="#">TOP 100</a></li>
-                            <li><a href="#">플래너</a></li>
-                            <li><a href="#">검색</a></li>
-                            <li><a href="sub02.html">커뮤니티</a></li>
+                            <li><a href="./top100_food_tour_rooms.jsp?contenttypeid=12&pageNo=1">TOP 100</a></li>
+                            <li><a href="./planner1.jsp">플래너</a></li>
+                            <li><a href="./search_integrated.jsp">검색</a></li>
+                            <li><a href="./community.jsp">커뮤니티</a></li>
                         </ul>
                     </div>
                     <div class="listmenu">

@@ -4,6 +4,7 @@
 <html lang="en">
 <head>
     <meta charset="UTF-8">
+    <link rel="shortcut icon" type="image⁄x-icon" href="favicon.ico">
     <title>내 플래너 목록</title>
         
     <link rel="stylesheet" href="./css/commen.css">
@@ -44,9 +45,9 @@
                         <button>플래너</button>
                         <ul class="listbox">
                             <li><a href="./railro_intro.jsp">내일로 소개</a></li>
-                            <li><a href="#">TOP 100</a></li>
+                            <li><a href="./top100_food_tour_rooms.jsp?contenttypeid=12&pageNo=1">TOP 100</a></li>
                             <li><a href="./search_integrated.jsp">검색</a></li>
-                            <li><a href="sub02.html">커뮤니티</a></li>
+                            <li><a href="./community.jsp">커뮤니티</a></li>
                         </ul>
                     </div>
                     <div class="listmenu">

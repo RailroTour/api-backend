@@ -12,7 +12,8 @@
 <html lang="en">
 <head>
 <meta charset="UTF-8">
-<title>서브페이지</title>
+<link rel="shortcut icon" type="image⁄x-icon" href="favicon.ico">
+<title>게시물 보기</title>
 <link rel="stylesheet" href="./css/commen.css">
 <link rel="stylesheet" href="./css/benefits_read.css">
 <link rel="stylesheet" href="./css/sub-banner.css">
@@ -100,23 +101,22 @@
 						</a>
 					</div>
 					<div class="listmenu">
-						<button>내일로 소개</button>
+						<button>커뮤니티</button>
 						<ul class="listbox">
-							<li><a href="#">내일로 소개</a></li>
-							<li><a href="#">TOP 100</a></li>
-							<li><a href="#">플래너</a></li>
-							<li><a href="#">내 주변</a></li>
-							<li><a href="sub02.html">고객센터</a></li>
+							<li><a href="./railro_intro.jsp">내일로 소개</a></li>
+							<li><a href="./top100_food_tour_rooms.jsp?contenttypeid=12&pageNo=1">TOP 100</a></li>
+							<li><a href="./planner1.jsp">플래너</a></li>
+							<li><a href="./search_integrated.jsp">검색</a></li>
 						</ul>
 					</div>
 					<div class="listmenu">
-						<button>내일로 란?</button>
+						<button>정보공유</button>
 						<ul class="listbox">
-							<li><a href="#">내일로 소개</a></li>
+<!-- 							<li><a href="#">내일로 소개</a></li>
 							<li><a href="#">TOP 100</a></li>
 							<li><a href="#">플래너</a></li>
 							<li><a href="#">내 주변</a></li>
-							<li><a href="#">고객센터</a></li>
+							<li><a href="#">고객센터</a></li> -->
 						</ul>
 					</div>
 

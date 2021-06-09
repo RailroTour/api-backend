@@ -5,6 +5,7 @@
 <html lang="en">
 <head>
     <meta charset="UTF-8">
+    <link rel="shortcut icon" type="image⁄x-icon" href="favicon.ico">
     <title>기차시간 조회</title>
     <link rel="stylesheet" href="./css/commen.css">
     <link rel="stylesheet" href="./css/popup.css">

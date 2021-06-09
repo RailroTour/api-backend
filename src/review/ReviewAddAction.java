@@ -35,14 +35,14 @@ public class ReviewAddAction implements Action{
 			e.printStackTrace();
 		}
 		String path = "C:\\Users\\carto\\Documents\\GitHub\\api-backend\\WebContent\\upload_images\\review\\";
-		String server_path = "/ggp02250/tomcat/webapps/ROOT/WebContent/upload_images/review/";
+		String server_path = "/ggp02250/tomcat/webapps/api-backend/upload_images/review/";
 		int max=1024*1024*10;
 		MultipartRequest multi = null;
 		File dir = new File(path);
 		// 디렉토리들이 있는지 확인
 		if(dir.isDirectory()){//디렉토리가 있으면
 			try {
-				multi=new MultipartRequest(request, path, max, "UTF-8");
+				multi=new MultipartRequest(request, server_path, max, "UTF-8");
 			} catch (IOException e) {
 				// TODO Auto-generated catch block
 				e.printStackTrace();
@@ -51,7 +51,7 @@ public class ReviewAddAction implements Action{
 		else{//디렉토리가 없으면
 			dir.mkdirs();
 			try {
-				multi=new MultipartRequest(request, path, max, "UTF-8");
+				multi=new MultipartRequest(request, server_path, max, "UTF-8");
 			} catch (IOException e) {
 				// TODO Auto-generated catch block
 				e.printStackTrace();

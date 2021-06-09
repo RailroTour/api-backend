@@ -4,9 +4,10 @@
 <html lang="en">
 <head>
     <meta charset="UTF-8">
+    <link rel="shortcut icon" type="image⁄x-icon" href="favicon.ico">
     <title>플래너 보기</title>
     <link rel="stylesheet" href="./css/commen.css">
-    <link rel="stylesheet" href="./css/mynote.css?ver=7">
+    <link rel="stylesheet" href="./css/mynote.css?ver=15">
 <script src="https://ajax.googleapis.com/ajax/libs/jquery/3.4.1/jquery.min.js"></script>
     </script>
     
@@ -16,7 +17,7 @@
 
 
     <link rel="stylesheet" href="css/header.css">
-    <link rel="stylesheet" href="css/footer.css">
+    <link rel="stylesheet" href="css/footer.css?ver=1">
     <script src="./js/header.js?ver=2"></script>
     <link href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/5.13.0/css/all.min.css" rel="stylesheet">
     
@@ -80,17 +81,17 @@
                     <div class="listmenu">
                         <button>플래너</button>
                         <ul class="listbox">
-                            <li><a href="#">내일로 소개</a></li>
-                            <li><a href="#">TOP 100</a></li>
-                            <li><a href="#">검색</a></li>
-                            <li><a href="sub02.html">커뮤니티</a></li>
+                            <li><a href="./railro_intro.jsp">내일로 소개</a></li>
+                            <li><a href="./top100_food_tour_rooms.jsp?contenttypeid=12&pageNo=1">TOP 100</a></li>
+                            <li><a href="./search_integrated.jsp">검색</a></li>
+                            <li><a href="./community.jsp">커뮤니티</a></li>
                         </ul>
                     </div>
                     <div class="listmenu">
                          <button>여행 플래너</button>
                         <ul class="listbox">
-                            <li><a href="#">새 플래너 작성</a></li>
-                            <li><a href="#">플래너 목록</a></li>
+                            <li><a href="./planner1.jsp">새 플래너 작성</a></li>
+                            <li><a href="./myplanner.jsp">플래너 목록</a></li>
                         </ul>
                     </div>
                     
@@ -179,7 +180,7 @@
 <div id="dialog" title="알림">
     해당 노트를 내 노트에 담으시겠어요?
 </div>
-    <script src="./js/mynote.js?ver=69"></script>
+    <script src="./js/mynote.js?ver=73"></script>
     <script src="./js/script.js"></script>
     <script>
     $(function () {

@@ -4,9 +4,10 @@
 <html lang="en">
 <head>
     <meta charset="UTF-8">
+    <link rel="shortcut icon" type="image⁄x-icon" href="favicon.ico">
     <title>플래너 정보 입력</title>
     <link rel="stylesheet" href="./css/commen.css">
-    <link rel="stylesheet" href="./css/sub-banner.css?ver=1">
+    <link rel="stylesheet" href="./css/sub-banner.css?ver=2">
     <link rel="stylesheet" href="./css/planner1.css?ver=1">
     <link rel="stylesheet" href="./css/toggle-switchy.css">
     <script src="https://ajax.googleapis.com/ajax/libs/jquery/3.3.1/jquery.min.js">
@@ -28,7 +29,7 @@ $(function(){
 
  	<script src="./js/script.js"></script>
     <link rel="stylesheet" href="css/header.css">
-    <link rel="stylesheet" href="css/footer.css">
+    <link rel="stylesheet" href="css/footer.css?ver=5">
     <script src="./js/header.js"></script>
     <link href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/5.13.0/css/all.min.css" rel="stylesheet">
 </head>
@@ -49,24 +50,23 @@ $(function(){
             <div id="sub-con-navi">
                 <div class="sub-con-navi-box">
                     <div class="homebtn">
-                        <a href="../index.html">
+                        <a href="./index.jsp">
                             <img src="./jpg/home.jpg" alt="">
                         </a>
                     </div>
                     <div class="listmenu">
                         <button>플래너</button>
                         <ul class="listbox">
-                            <li><a href="#">내일로 소개</a></li>
-                            <li><a href="#">TOP 100</a></li>
-                            <li><a href="#">플래너</a></li>
-                            <li><a href="#">내 주변</a></li>
-                            <li><a href="sub02.html">고객센터</a></li>
+                            <li><a href="./railro_intro.jsp">내일로 소개</a></li>
+                            <li><a href="./top100_food_tour_rooms.jsp?contenttypeid=12&pageNo=1">TOP 100</a></li>
+                            <li><a href="./search_integrated.jsp">검색</a></li>
+                            <li><a href="./community.jsp">커뮤니티</a></li>
                         </ul>
                     </div>
                     <div class="listmenu">
                          <button>새 플래너 작성</button>
                         <ul class="listbox">
-                            <li><a href="#">플래너 목록</a></li>
+                            <li><a href="./myplanner.jsp">내 플래너 목록</a></li>
                         </ul>
                     </div>
                     

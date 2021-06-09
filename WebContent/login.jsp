@@ -4,6 +4,7 @@
 
 <head>
     <meta charset="UTF-8" />
+    <link rel="shortcut icon" type="image⁄x-icon" href="favicon.ico">
     <link rel="stylesheet" href="css/styles.css" />
     <script src="https://ajax.googleapis.com/ajax/libs/jquery/3.4.1/jquery.min.js"></script>
     <script src="https://developers.kakao.com/sdk/js/kakao.min.js"></script>

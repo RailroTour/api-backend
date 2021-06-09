@@ -4,6 +4,7 @@
 <html lang="en">
 <head>
     <meta charset="UTF-8">
+    <link rel="shortcut icon" type="image⁄x-icon" href="favicon.ico">
     <title>마이페이지</title>
     <link rel="stylesheet" href="./css/commen.css">
     <link rel="stylesheet" href="./css/mypage_home.css?ver=2">
@@ -39,7 +40,7 @@
                 </div>
 -->
                 <div class="mypage">
-                   <a href="./MyPageManagement.me">
+                   <a href="#">
                     <ul class="box1">
                         <div><img src="./mypage_img/notification.png" alt="" width="15px">&nbsp;&nbsp;추천하는 보호설정</div>
                         <li class="text1">내 개인정보를 항상</li>

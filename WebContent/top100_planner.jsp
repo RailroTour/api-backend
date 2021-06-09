@@ -4,6 +4,7 @@
 <html lang="en">
 <head>
     <meta charset="UTF-8">
+    <link rel="shortcut icon" type="image⁄x-icon" href="favicon.ico">
     <title>Top 100</title>
     <link rel="stylesheet" href="./css/commen.css">
     <link rel="stylesheet" href="./css/note_plans.css">
@@ -46,9 +47,10 @@
                     <div class="listmenu">
                         <button>TOP 100</button>
                         <ul class="listbox">
-                            <li><a href="./IntroRailro.me">내일로 소개</a></li>
-                            <li><a href="./Note_Plans_List.pl">플래너</a></li>
-                            <li><a href="./NoticeList.no">커뮤니티</a></li>
+                            <li><a href="./railro_intro.jsp">내일로 소개</a></li>
+                            <li><a href="./planner1.jsp">플래너</a></li>
+                            <li><a href="./search_integrated.jsp">검색</a></li>
+                            <li><a href="./community.jsp">커뮤니티</a></li>
                         </ul>
                     </div>
                     <div class="listmenu">

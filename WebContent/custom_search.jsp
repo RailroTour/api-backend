@@ -4,16 +4,18 @@
 <html lang="en">
 <head>
     <meta charset="UTF-8">
+    <link rel="shortcut icon" type="image⁄x-icon" href="favicon.ico">
     <title>사용자 맞춤 내일로노트 검색</title>
     <link rel="stylesheet" href="./css/commen.css">
+     <link rel="stylesheet" href="./css/sub-banner.css?ver=2">
     <link rel="stylesheet" href="./css/note_plans.css">
    <link rel="stylesheet" href="./css/customize.css">
     <script src="https://ajax.googleapis.com/ajax/libs/jquery/3.3.1/jquery.min.js">
     </script>
- 
+
 <script src="./js/script.js"></script>
 <link rel="stylesheet" href="css/header.css">
-<link rel="stylesheet" href="css/footer.css">
+<link rel="stylesheet" href="css/footer.css?ver=2">
 <script src="./js/header.js"></script>
 <link
 	href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/5.13.0/css/all.min.css"
@@ -22,7 +24,7 @@
 <body>
 	<%@include file="header.jsp"%>
     <div id="wrap"> <!-- 전체를 감싸는 부분 -->
-        <section id="sub-imgbanner1">
+        <section id="sub-imgbanner">
             <div class="section">
                 <div class="sub-img-text">
                     <h3>Let's Go!</h3>

@@ -65,8 +65,8 @@
 	footer {
 		background: #222;
 		color: #999;
-		position: absolute;
-		bottom: 0;
+		display: block;
+		overflow: hidden;
 		width: 100%;
 	}
 	#f_logo {

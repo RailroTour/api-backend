@@ -4,6 +4,7 @@
 <html lang="en">
 <head>
     <meta charset="UTF-8">
+    <link rel="shortcut icon" type="image⁄x-icon" href="favicon.ico">
     <title>상세일정 만들기</title>
     <link rel="stylesheet" href="./css/commen.css">
     <link rel="stylesheet" href="./css/planner3.css">

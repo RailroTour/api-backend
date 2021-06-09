@@ -4,6 +4,7 @@
 <html lang="en">
 <head>
     <meta charset="UTF-8">
+    <link rel="shortcut icon" type="image⁄x-icon" href="favicon.ico">
     <title>내일로투어</title>
     <link rel="stylesheet" href="css/commen.css">
     <link rel="stylesheet" href="css/style.css?ver=21">
@@ -29,7 +30,7 @@
             });
     </script>
     <link rel="stylesheet" href="css/header.css">
-    <link rel="stylesheet" href="css/footer.css">
+    <link rel="stylesheet" href="css/footer.css?ver=2">
     <script src="./js/header.js?ver=2"></script>
     <link href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/5.13.0/css/all.min.css" rel="stylesheet">
     
@@ -313,7 +314,7 @@
         
     </div>
     <%@include file="footer.jsp" %>
-    <script src="js/script.js?ver=18"></script>
+    <script src="js/script.js?ver=19"></script>
     <script>
     
      $(function() {

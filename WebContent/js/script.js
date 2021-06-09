@@ -18,6 +18,12 @@ $(document).ready(function(){ //서브메뉴 애니메이션 부분
         $(this).find('ul.listbox').stop().fadeOut();
     });
     
+    $('.listmenu').bind('touchstart', function(e){
+    	$(this).find('ul.listbox').stop().fadeIn();
+    }, function(e){
+    	$(this).find('ul.listbox').stop().fadeOut();
+    });
+    
     $('.yes').click(function(){
         if($('.agree5').is(":checked")==false){
             alert("모든 약관에 동의 하셔야 합니다.");

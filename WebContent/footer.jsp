@@ -19,23 +19,23 @@
                 <div id="foot_top">
                     <ul>
                         <li>
-                            <a href="#">내일로 소개</a>
+                            <a href="./railro_intro.jsp">내일로 소개</a>
                             <span></span>
                         </li>
                         <li>
-                            <a href="#">TOP 100</a>
+                            <a href="./top100_food_tour_rooms.jsp?contenttypeid=12&pageNo=1">TOP 100</a>
                             <span></span>
                         </li>
                         <li>
-                            <a href="#">플래너</a>
+                            <a href="./planner1.jsp">플래너</a>
                             <span></span>
                         </li>
                         <li>
-                            <a href="#">검색</a>
+                            <a href="./search_integrated.jsp">검색</a>
                             <span></span>
                         </li>
                         <li>
-                            <a href="#">커뮤니티</a>
+                            <a href="./community.jsp">커뮤니티</a>
                         </li>
                     </ul>
                 </div>
