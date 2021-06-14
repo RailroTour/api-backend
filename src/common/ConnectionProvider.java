@@ -7,12 +7,12 @@ import java.sql.SQLException;
 public class ConnectionProvider {
 	private static final String PROPERTIES = "?useSSL=false";
 
-	private static final String DB_SCHEMES = "railro_tour";
+	private static final String DB_SCHEMES = "ggp02250";
 	private static final String JDBC_DRIVER = "com.mysql.cj.jdbc.Driver";
-	private static final String DB_URL = "jdbc:mysql://railro-tour-rds.cxjrhe2kspyk.ap-northeast-2.rds.amazonaws.com:3306/" + DB_SCHEMES;
+	private static final String DB_URL = "jdbc:mysql://ggp02250.cafe24.com:3306/" + DB_SCHEMES+"?serverTimezone=UTC";
 	
-	private static final String USER = "admin";
-	private static final String PASS = "ssdd4670";
+	private static final String USER = "ggp02250";
+	private static final String PASS = "Ssdd4670!!";
 
 
 	
